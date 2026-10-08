@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mech E Interview Prep</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F4; --grid:#E4E9EF; --ink:#1A2230; --blue:#2B59A6; --blue-soft:#EAF0FA;
+  --red:#C23A2B; --red-soft:#FBEDEB; --green:#2E7D4F; --green-soft:#E8F3EC; --pencil:#6E7886; --line:#CDD5DF; --card:#FFFFFF;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:"Barlow",system-ui,sans-serif; color:var(--ink); font-size:16px; line-height:1.45;
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.app{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+
+/* ---------- sidebar ---------- */
+aside{position:sticky;top:0;height:100vh;overflow:auto;border-right:1.5px solid var(--ink);background:var(--paper);display:flex;flex-direction:column}
+.titleblock{margin:16px;border:1.5px solid var(--ink);background:var(--card)}
+.titleblock .name{font-family:"Barlow Semi Condensed";font-weight:700;font-size:22px;line-height:1.1;padding:12px 12px 10px;border-bottom:1px solid var(--ink)}
+.tb-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--ink)}
+.tb-row:last-child{border-bottom:0}
+.tb-cell{padding:6px 10px}
+.tb-cell+.tb-cell{border-left:1px solid var(--ink)}
+.tb-cell small{display:block;font-size:11px;color:var(--pencil);letter-spacing:.02em}
+.tb-cell b{font-family:"Barlow Semi Condensed";font-size:18px;font-weight:600}
+.meter{height:6px;background:var(--grid);margin:0 10px 10px}
+.meter span{display:block;height:100%;background:var(--green);width:0;transition:width .3s}
+nav{padding:0 8px 24px;flex:1}
+.navbtn{display:flex;justify-content:space-between;align-items:baseline;width:100%;text-align:left;border:0;background:none;padding:8px 10px;border-radius:4px;font-weight:500}
+.navbtn:hover{background:var(--blue-soft)}
+.navbtn[aria-current="true"]{background:var(--ink);color:#fff}
+.navbtn .count{font-size:13px;color:var(--pencil);font-variant-numeric:tabular-nums}
+.navbtn[aria-current="true"] .count{color:#C9D3E0}
+
+/* ---------- main ---------- */
+main{padding:28px 40px 80px;min-width:0}
+.toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 0;background:linear-gradient(var(--paper) 80%,transparent)}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:8px;background:var(--card);border:1.5px solid var(--ink);padding:0 12px;height:42px}
+.search input{border:0;outline:0;font:inherit;flex:1;background:none;min-width:0}
+.filters{display:flex;border:1.5px solid var(--ink);height:42px;background:var(--card)}
+.filters button{border:0;background:none;padding:0 12px;font-weight:500}
+.filters button+button{border-left:1px solid var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.drill{height:42px;padding:0 16px;border:1.5px solid var(--blue);background:var(--blue);color:#fff;font-weight:600}
+.drill:hover{background:#224a8c}
+.menu{display:none}
+
+.sec-head{margin:18px 0 6px;max-width:780px}
+.sec-head h1{font-family:"Barlow Semi Condensed";font-weight:700;font-size:40px;line-height:1.05;margin:0 0 8px}
+.sec-head .intro{font-family:"Source Serif 4",serif;color:#3A4556;max-width:68ch}
+.sec-head .intro p{margin:0 0 8px}
+.group{max-width:780px;margin-top:28px}
+.group h2{font-family:"Barlow Semi Condensed";font-weight:600;font-size:20px;margin:0 0 8px;padding-bottom:4px;border-bottom:1.5px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline}
+.group h2 span{font-family:"Barlow";font-size:13px;font-weight:500;color:var(--pencil)}
+
+.q{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);margin-bottom:8px}
+.q.known{border-left-color:var(--green)}
+.q.review{border-left-color:var(--red)}
+.q-head{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:0;background:none;padding:14px 16px;font-size:17px;font-weight:600;line-height:1.35}
+.q-head .chev{flex:none;width:18px;height:18px;margin-top:2px;transition:transform .2s}
+.q[open-q] .chev{transform:rotate(90deg)}
+.q-head .tag{flex:none;margin-left:auto;font-size:12px;font-weight:600;padding:2px 8px;border-radius:3px;white-space:nowrap}
+.q.known .tag{background:var(--green-soft);color:var(--green)}
+.q.review .tag{background:var(--red-soft);color:var(--red)}
+.answer{display:none;padding:2px 20px 16px 46px;font-family:"Source Serif 4",serif;font-size:16.5px;line-height:1.6;max-width:none}
+.q[open-q] .answer{display:block}
+.answer p{margin:0 0 10px;max-width:70ch}
+.answer ul,.answer ol{margin:0 0 12px;padding-left:22px;max-width:68ch}
+.answer li{margin-bottom:6px}
+.answer strong{font-family:"Barlow";font-weight:600}
+.answer p.fu{font-family:"Barlow";font-weight:600;color:var(--blue);margin:16px 0 6px}
+.answer figure{margin:12px 0 16px;background:#fff;border:1px solid var(--line);padding:8px;text-align:center}
+.answer figure img{max-width:100%;height:auto}
+.mark{display:flex;gap:8px;margin-top:14px;font-family:"Barlow"}
+.mark button{border:1.5px solid var(--ink);background:var(--card);padding:6px 14px;font-weight:600}
+.mark .ok[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.mark .again[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.empty{max-width:780px;margin-top:30px;padding:24px;border:1.5px dashed var(--pencil);background:var(--card);color:#3A4556}
+
+/* ---------- flashcards ---------- */
+.fc{position:fixed;inset:0;z-index:20;display:none;background:rgba(246,247,244,.97);overflow:auto}
+.fc.on{display:block}
+.fc-inner{max-width:760px;margin:0 auto;padding:28px 20px 60px}
+.fc-top{display:flex;justify-content:space-between;align-items:center;font-weight:500;color:var(--pencil)}
+.fc-top button{border:1.5px solid var(--ink);background:var(--card);padding:6px 14px;font-weight:600;color:var(--ink)}
+.fc-card{margin-top:18px;background:var(--card);border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:28px}
+.fc-card .where{font-size:14px;color:var(--blue);font-weight:600;margin-bottom:10px}
+.fc-card .fq{font-family:"Barlow Semi Condensed";font-weight:600;font-size:28px;line-height:1.2}
+.fc-card .answer{display:block;padding:18px 0 0;margin-top:18px;border-top:1px solid var(--line)}
+.fc-actions{display:flex;gap:10px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+.fc-actions button{min-width:150px;height:46px;border:1.5px solid var(--ink);background:var(--card);font-weight:600;font-size:16px}
+.fc-actions .reveal{background:var(--blue);border-color:var(--blue);color:#fff}
+.fc-actions .ok{background:var(--green);border-color:var(--green);color:#fff}
+.fc-actions .again{background:var(--red);border-color:var(--red);color:#fff}
+.keys{text-align:center;margin-top:14px;font-size:13px;color:var(--pencil)}
+
+/* ---------- mobile ---------- */
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  aside{position:fixed;inset:0 auto 0 0;width:300px;z-index:30;transform:translateX(-100%);transition:transform .25s;box-shadow:none}
+  aside.open{transform:none;box-shadow:8px 0 0 rgba(26,34,48,.15)}
+  main{padding:12px 16px 60px}
+  .menu{display:inline-flex;align-items:center;height:42px;padding:0 12px;border:1.5px solid var(--ink);background:var(--card);font-weight:600}
+  .sec-head h1{font-size:30px}
+  .answer{padding:2px 14px 14px 16px}
+  .fc-card{padding:20px;box-shadow:4px 4px 0 var(--ink)}
+  .fc-card .fq{font-size:23px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside id="side" aria-label="Topics">
+    <div class="titleblock">
+      <div class="name">Mech E Interview Prep</div>
+      <div class="tb-row">
+        <div class="tb-cell"><small>Questions</small><b id="tb-total">0</b></div>
+        <div class="tb-cell"><small>Know it</small><b id="tb-known">0</b></div>
+      </div>
+      <div class="tb-row">
+        <div class="tb-cell"><small>To review</small><b id="tb-review">0</b></div>
+        <div class="tb-cell"><small>Updated</small><b id="tb-date">–</b></div>
+      </div>
+      <div class="meter" aria-hidden="true"><span id="tb-meter"></span></div>
+    </div>
+    <nav id="nav"></nav>
+  </aside>
+  <main>
+    <div class="toolbar">
+      <button class="menu" id="menu" aria-controls="side" aria-expanded="false">Topics</button>
+      <label class="search"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        <input id="q" type="search" placeholder="Search every question and answer" aria-label="Search"></label>
+      <div class="filters" role="group" aria-label="Filter">
+        <button data-f="all" aria-pressed="true">All</button>
+        <button data-f="new" aria-pressed="false">Not known</button>
+        <button data-f="review" aria-pressed="false">Review</button>
+      </div>
+      <button class="drill" id="drill">Flashcards</button>
+    </div>
+    <div id="view"></div>
+  </main>
+</div>
+
+<div class="fc" id="fc" role="dialog" aria-modal="true" aria-label="Flashcards">
+  <div class="fc-inner">
+    <div class="fc-top"><span id="fc-pos"></span><button id="fc-close">Close</button></div>
+    <div class="fc-card">
+      <div class="where" id="fc-where"></div>
+      <div class="fq" id="fc-q"></div>
+      <div class="answer" id="fc-a" hidden></div>
+    </div>
+    <div class="fc-actions" id="fc-act"></div>
+    <div class="keys">Space shows the answer · 1 review again · 2 got it · → skip</div>
+  </div>
+</div>
+
+<script>
+const store = {
+  get(){ try { return JSON.parse(localStorage.getItem("mepStatus") || "{}"); } catch(e){ return {}; } },
+  set(v){ try { localStorage.setItem("mepStatus", JSON.stringify(v)); } catch(e){} }
+};
+let DATA, CARDS = [], status = store.get(), current = "all", filter = "all", term = "";
+const $ = s => document.querySelector(s);
+const chev = '<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>';
+
+fetch("data.json").then(r => r.json()).then(d => {
+  DATA = d;
+  d.sections.forEach(s => s.subs.forEach(sub => sub.cards.forEach(c => {
+    c.sec = s; c.sub = sub; c.text = (c.q + " " + c.a.replace(/<[^>]+>/g, " ")).toLowerCase(); CARDS.push(c);
+  })));
+  $("#tb-date").textContent = new Date(d.updated + "T12:00").toLocaleDateString(undefined, {month:"short", day:"numeric"});
+  const h = location.hash.slice(1);
+  if (h && d.sections.some(s => s.id === h)) current = h;
+  render();
+}).catch(() => { $("#view").innerHTML = '<div class="empty">The question data didn\'t load. Refresh the page; if it still fails, data.json is missing from the site.</div>'; });
+
+function visible(c){
+  const st = status[c.id];
+  if (filter === "new" && st === "known") return false;
+  if (filter === "review" && st !== "review") return false;
+  if (term && !c.text.includes(term)) return false;
+  return true;
+}
+function counts(){
+  const k = CARDS.filter(c => status[c.id] === "known").length, r = CARDS.filter(c => status[c.id] === "review").length;
+  $("#tb-total").textContent = CARDS.length; $("#tb-known").textContent = k; $("#tb-review").textContent = r;
+  $("#tb-meter").style.width = (100 * k / CARDS.length) + "%";
+}
+function navRender(){
+  const all = [{id:"all", title:"All topics", cards:CARDS}].concat(DATA.sections.map(s => ({id:s.id, title:s.title, cards:CARDS.filter(c => c.sec === s)})));
+  $("#nav").innerHTML = all.map(s => {
+    const k = s.cards.filter(c => status[c.id] === "known").length;
+    return `<button class="navbtn" data-id="${s.id}" aria-current="${s.id === current}"><span>${s.title}</span><span class="count">${k}/${s.cards.length}</span></button>`;
+  }).join("");
+}
+function cardHTML(c, showWhere){
+  const st = status[c.id] || "", tag = st === "known" ? "Know it" : st === "review" ? "Review" : "";
+  return `<div class="q ${st}" data-id="${c.id}">
+    <button class="q-head" aria-expanded="false">${chev}<span>${c.q}${showWhere ? `<br><small style="font-weight:500;color:var(--pencil)">${c.sec.title}</small>` : ""}</span>${tag ? `<span class="tag">${tag}</span>` : ""}</button>
+    <div class="answer">${c.a}<div class="mark"><button class="again" aria-pressed="${st === "review"}">Review again</button><button class="ok" aria-pressed="${st === "known"}">Got it</button></div></div></div>`;
+}
+function render(){
+  counts(); navRender();
+  const secs = current === "all" ? DATA.sections : DATA.sections.filter(s => s.id === current);
+  let html = "", shown = 0;
+  if (term) {
+    const hits = CARDS.filter(c => (current === "all" || c.sec.id === current) && visible(c));
+    shown = hits.length;
+    html = `<div class="sec-head"><h1>${hits.length} match${hits.length === 1 ? "" : "es"}</h1></div><div class="group">` + hits.map(c => cardHTML(c, true)).join("") + "</div>";
+  } else {
+    secs.forEach(s => {
+      const groups = s.subs.map(sub => ({sub, cards: sub.cards.filter(visible)})).filter(g => g.cards.length);
+      if (!groups.length) return;
+      html += `<section><div class="sec-head" id="${s.id}"><h1>${s.title}</h1>${current !== "all" && s.intro ? `<div class="intro">${s.intro}</div>` : ""}</div>`;
+      groups.forEach(g => {
+        shown += g.cards.length;
+        const single = g.cards.length === 1 && g.cards[0].q === g.sub.title;
+        html += `<div class="group">${g.sub.title && !single ? `<h2>${g.sub.title}<span>${g.cards.length}</span></h2>` : ""}${g.cards.map(c => cardHTML(c)).join("")}</div>`;
+      });
+      html += "</section>";
+    });
+  }
+  if (!shown) html += `<div class="empty">${filter === "review" ? "Nothing marked for review here. Open a question and tap Review again to add it." : filter === "new" ? "You've marked everything here as known. Switch to All to see them again." : "No questions match. Try a shorter search term."}</div>`;
+  $("#view").innerHTML = html;
+}
+function setStatus(id, val){
+  if (status[id] === val) delete status[id]; else status[id] = val;
+  store.set(status);
+}
+// events
+$("#nav").addEventListener("click", e => {
+  const b = e.target.closest(".navbtn"); if (!b) return;
+  current = b.dataset.id; history.replaceState(null, "", current === "all" ? location.pathname : "#" + current);
+  $("#side").classList.remove("open"); $("#menu").setAttribute("aria-expanded", "false");
+  render(); window.scrollTo(0, 0);
+});
+$("#view").addEventListener("click", e => {
+  const q = e.target.closest(".q"); if (!q) return;
+  if (e.target.closest(".q-head")) {
+    const open = q.hasAttribute("open-q"); q.toggleAttribute("open-q", !open);
+    q.querySelector(".q-head").setAttribute("aria-expanded", String(!open)); return;
+  }
+  const m = e.target.closest(".mark button"); if (!m) return;
+  setStatus(q.dataset.id, m.classList.contains("ok") ? "known" : "review");
+  const st = status[q.dataset.id] || "";
+  q.className = "q " + st;
+  q.querySelector(".ok").setAttribute("aria-pressed", st === "known");
+  q.querySelector(".again").setAttribute("aria-pressed", st === "review");
+  const head = q.querySelector(".q-head"), old = head.querySelector(".tag"); if (old) old.remove();
+  if (st) head.insertAdjacentHTML("beforeend", `<span class="tag">${st === "known" ? "Know it" : "Review"}</span>`);
+  counts(); navRender();
+});
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
+  filter = b.dataset.f; document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x === b)); render();
+}));
+let t; $("#q").addEventListener("input", e => { clearTimeout(t); t = setTimeout(() => { term = e.target.value.trim().toLowerCase(); render(); }, 150); });
+$("#menu").addEventListener("click", () => { const o = $("#side").classList.toggle("open"); $("#menu").setAttribute("aria-expanded", o); });
+
+// flashcards
+let deck = [], pos = 0, revealed = false;
+function shuffle(a){ for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+$("#drill").addEventListener("click", () => {
+  deck = shuffle(CARDS.filter(c => (current === "all" || c.sec.id === current) && visible(c)));
+  if (!deck.length) { alertless(); return; }
+  pos = 0; $("#fc").classList.add("on"); document.body.style.overflow = "hidden"; show();
+});
+function alertless(){ $("#view").insertAdjacentHTML("afterbegin", '<div class="empty">No questions to drill with these filters. Switch the filter to All.</div>'); }
+function show(){
+  if (pos >= deck.length) {
+    $("#fc-where").textContent = ""; $("#fc-q").textContent = "Deck done. Nice work.";
+    $("#fc-a").hidden = true; $("#fc-pos").textContent = `${deck.length} of ${deck.length}`;
+    $("#fc-act").innerHTML = '<button class="reveal" data-a="restart">Shuffle and go again</button><button data-a="close">Close</button>'; return;
+  }
+  const c = deck[pos]; revealed = false;
+  $("#fc-pos").textContent = `${pos + 1} of ${deck.length}`;
+  $("#fc-where").textContent = c.sec.title + (c.sub.title && c.sub.title !== c.q ? " / " + c.sub.title : "");
+  $("#fc-q").textContent = c.q; $("#fc-a").innerHTML = c.a; $("#fc-a").hidden = true;
+  $("#fc-act").innerHTML = '<button class="reveal" data-a="reveal">Show answer</button><button data-a="skip">Skip</button>';
+}
+function reveal(){ revealed = true; $("#fc-a").hidden = false;
+  $("#fc-act").innerHTML = '<button class="again" data-a="again">Review again</button><button class="ok" data-a="ok">Got it</button>'; }
+function closeFc(){ $("#fc").classList.remove("on"); document.body.style.overflow = ""; render(); }
+$("#fc-act").addEventListener("click", e => {
+  const a = e.target.closest("button")?.dataset.a; if (!a) return;
+  if (a === "reveal") reveal();
+  else if (a === "skip") { pos++; show(); }
+  else if (a === "ok" || a === "again") { status[deck[pos].id] = a === "ok" ? "known" : "review"; store.set(status); pos++; show(); }
+  else if (a === "restart") { shuffle(deck); pos = 0; show(); }
+  else if (a === "close") closeFc();
+});
+$("#fc-close").addEventListener("click", closeFc);
+document.addEventListener("keydown", e => {
+  if (!$("#fc").classList.contains("on")) return;
+  if (e.key === "Escape") closeFc();
+  else if (e.key === " " && !revealed && pos < deck.length) { e.preventDefault(); reveal(); }
+  else if (e.key === "1" && revealed) { status[deck[pos].id] = "review"; store.set(status); pos++; show(); }
+  else if (e.key === "2" && revealed) { status[deck[pos].id] = "known"; store.set(status); pos++; show(); }
+  else if (e.key === "ArrowRight") { pos++; show(); }
+});
+</script>
+</body>
+</html>

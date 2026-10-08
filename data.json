@@ -1,0 +1,1032 @@
+{
+ "updated": "2026-10-07",
+ "sections": [
+  {
+   "title": "Behavioral and STAR Stories",
+   "id": "behavioral-and-star-stories",
+   "intro": "<p>These stories are drafts built from your resume (October 2026). Rewrite them in your own words so they sound natural out loud. For each story, know the Situation, Task, Action, and Result, plus one number you can quote.</p>",
+   "subs": [
+    {
+     "title": "Tell Me About Yourself",
+     "cards": [
+      {
+       "id": "behavioral-and-star---tell-me-about-yourself",
+       "q": "Tell Me About Yourself",
+       "a": "<p><strong>Draft (about 60 seconds):</strong> I&#x27;m a mechanical engineering student at UCLA, graduating in June 2027. Most of my experience is hands-on structural and mechanism design, where I take parts from CAD and FEA through machining and testing. Right now I lead the suspension and steering subteam on Bruin Baja SAE: 13 engineers, a $10,000 budget, and a system about 10% lighter than last year&#x27;s. This past summer I interned at Advanced Spade Company, where I redesigned a camera gimbal for a sewer-inspection robot and cut its package volume by 53%, and led mechanical design on a GNSS positioning device through three phases. I&#x27;ve also designed combat robot weapons, including a 12 lb weapon system that placed 3rd of 12. What ties it together is that I like owning hardware from concept to test, and I&#x27;m looking for a full-time role where I can do that at a larger scale.</p><p class=\"fu\">Follow-ups</p><ul><li>Tailor the last sentence to the company. For SpaceX: launch vehicle structures that have to be light, strong, and buildable at scale.</li><li>Keep it under 90 seconds. They will ask about whichever project you mention, so lead with the ones you can go deepest on.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Baja SAE: Suspension Lead (M26)",
+     "cards": [
+      {
+       "id": "behavioral-and-star---baja-sae-suspension-lead-m26",
+       "q": "Baja SAE: Suspension Lead (M26)",
+       "a": "<ul><li><strong>Situation:</strong> Lead of the suspension and steering subteam for the M26 vehicle, May 2026 to present.</li><li><strong>Task:</strong> Deliver the full suspension and steering system (design, analysis, fabrication, validation) and integrate it with the other subsystems.</li><li><strong>Action:</strong> Directing 13 project engineers, optimizing suspension geometry for mass and reliability, managing a $10,000 budget, working with FOX on shock procurement, and defending the design at formal technical reviews and competition design presentations.</li><li><strong>Result:</strong> A system about 10% lighter and more reliable than its predecessor. Add competition results and test data once you have them.</li><li><strong>Use for:</strong> leadership, managing people, budget and tradeoffs, communicating with other teams, defending a design decision.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Baja SAE: Suspension Engineer (M25)",
+     "cards": [
+      {
+       "id": "behavioral-and-star---baja-sae-suspension-engineer-m25",
+       "q": "Baja SAE: Suspension Engineer (M25)",
+       "a": "<ul><li><strong>Situation:</strong> Suspension team engineer, September 2025 to May 2026.</li><li><strong>Action, fabrication:</strong> Built upper and lower A-arms using angle-grinder tube notching, DXF templates, and dedicated jigs. Machined tight-tolerance spacers and bushings on the manual mill and lathe.</li><li><strong>Action, centerlock:</strong> Made a limit switch plate for the centerlock in Fusion CAM, holding critical bores to 0.001 to 0.002 in. Also designed a scaled centerlock hardware testbench so software and electrical could validate control logic and sensor behavior without the full vehicle. It used 3D-printed parts to keep cost down and a lead-screw-driven, axially adjustable limit switch mount so the controls team could tune trigger positions.</li><li><strong>Action, failure response:</strong> Helped redesign an upper A-arm after a late-season critical failure, 3D printing test models to validate the new geometry.</li><li><strong>Result:</strong> The testbench separated software development from the vehicle build schedule. Building it exposed alignment, backlash, and assembly issues that weren&#x27;t visible in CAD.</li><li><strong>Use for:</strong> failure (A-arm), tolerances (bores to 1 to 2 thou, testbench backlash), hands-on manufacturing, designing for a team&#x27;s needs.</li><li><strong>Fill in:</strong> what caused the A-arm failure, how you found the root cause, and what changed in the redesign. This is your best failure story, so know it cold.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Advanced Spade Company Internship",
+     "cards": [
+      {
+       "id": "behavioral-and-star---advanced-spade-company-internship",
+       "q": "Advanced Spade Company Internship",
+       "a": "<ul><li><strong>Situation:</strong> Mechanical engineering intern, May to September 2026.</li><li><strong>Gimbal:</strong> Redesigned a pitch/roll camera gimbal for a sewer-inspection robot. Cut package volume 53% by re-tuning the gear ratio, supporting the roll shaft on ball bearings, and integrating a slip ring, with Teensy 4.1 control.</li><li><strong>GNSS device:</strong> Led mechanical design across three phases of an in-house GNSS positioning device, from a retrofitted test fixture to a complete four-board production unit with a custom 2s2p battery pack.</li><li><strong>Other:</strong> Redesigned the external battery charger enclosure, built a T-slot testbench mobility cart, and maintained a 12-printer automated print farm running 100+ hours a week.</li><li><strong>Use for:</strong> real industry experience, packaging under tight constraints, ownership across a product&#x27;s life, working with electronics.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Combat Robotics: SKULL CRUSHER (Flagship, UCLA ASME)",
+     "cards": [
+      {
+       "id": "behavioral-and-star---combat-robotics-skull-crusher-flagship-ucla-asme",
+       "q": "Combat Robotics: SKULL CRUSHER (Flagship, UCLA ASME)",
+       "a": "<ul><li><strong>Situation:</strong> Weapon engineer on a 30 lb combat robot with a 12 lb weapon allocation.</li><li><strong>Task:</strong> Maximize stored energy and survivability within the mass budget.</li><li><strong>Action:</strong> Optimized weapon geometry for weight while meeting hit targets. Ran ANSYS FEA across revisions (bending, torsion, impact-type loading) to validate the spline hub. Critical regions were near the bore and attachment points, which drove fillet and thickness changes. Did topology studies on the side rails. Machined the hub spline, weapon shaft, motor shaft, and pulleys on manual and CNC mills and programmed the spline toolpaths in Fusion CAM. Designed for quick part swaps between fights.</li><li><strong>Result:</strong> Placed 3rd of 12 teams.</li><li><strong>Use for:</strong> FEA, design under a mass budget, dynamic and impact loads, design for maintenance.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Combat Robotics: U.A.A.O.D.A.D. (UCLA Combat Robotics)",
+     "cards": [
+      {
+       "id": "behavioral-and-star---combat-robotics-u-a-a-o-d-a-d-ucla-combat-robotics",
+       "q": "Combat Robotics: U.A.A.O.D.A.D. (UCLA Combat Robotics)",
+       "a": "<ul><li><strong>Situation:</strong> Lead engineer on a 3 lb combat robot, designed and built in one week (May 2026).</li><li><strong>Action:</strong> Parameterized the eggbeater weapon geometry and ran a weight-versus-energy sweep to size the disc within a 0.7 lb target while clearing a 300 J minimum. Machined the weapon and drivetrain on manual and CNC mills, then harnessed and soldered the full electrical system in a 12-hour push before competition.</li><li><strong>Result:</strong> Finished and competed with the robot.</li><li><strong>Use for:</strong> tight deadlines, fast iteration, prioritization, working outside mechanical.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Crush Depth MATE ROV: FLOAT Lead",
+     "cards": [
+      {
+       "id": "behavioral-and-star---crush-depth-mate-rov-float-lead",
+       "q": "Crush Depth MATE ROV: FLOAT Lead",
+       "a": "<ul><li><strong>Situation:</strong> Lead mechanical engineer for an underwater vertical profiling float, leading a team of 4.</li><li><strong>Task:</strong> Build a buoyancy engine and housing that cycles up and down repeatedly without leaking, using mostly 3D-printed parts.</li><li><strong>Action:</strong> Iterated eight buoyancy and housing assemblies in SolidWorks. Dealt with 3D-print issues (layer adhesion, surface roughness, dimensional accuracy) using acetone vapor smoothing to improve finish and close micro-leak paths. Designed an O-ring interface at about 25% compression with heat-set threaded inserts and bolted clamping for even sealing pressure.</li><li><strong>Result:</strong> Depth tested at 3.0 m for 150+ hours with zero leakage, a 90% improvement over previous years. Submitted to the 2025 MATE ROV Explorer Class Championship.</li><li><strong>Use for:</strong> hard problem solved end to end, testing and validation, leading a small team.</li></ul><p><strong>If they ask about pressure loads:</strong> you validated by test rather than a full pressure model. The quick calc is hydrostatic pressure P = P_atm + ρgh. At 3 m that&#x27;s ρgh ≈ 1000 × 9.81 × 3 ≈ 29 kPa (about 4.3 psi) above atmospheric. Use that ΔP to check housing wall stress and how much clamping force the seal needs.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Clovis Community College Tutorial Center: Team Lead",
+     "cards": [
+      {
+       "id": "behavioral-and-star---clovis-community-college-tutorial-center-team-lead",
+       "q": "Clovis Community College Tutorial Center: Team Lead",
+       "a": "<ul><li>Tutored math, physics, chemistry, and engineering, focusing on structured problem-solving instead of memorized solutions.</li><li>Organized a training event bringing back former tutors who had transferred to top universities, and helped write guidelines for ethical AI use in coursework.</li><li><strong>Use for:</strong> communication, explaining technical ideas, mentoring, peer leadership.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Common Behavioral Questions",
+     "cards": [
+      {
+       "id": "behavioral-and-star---common-behavioral-questions",
+       "q": "Common Behavioral Questions",
+       "a": "<p>Which story to reach for:</p><ul><li><strong>Describe a hard problem you solved end to end:</strong> FLOAT waterproofing, or the Advanced Spade gimbal redesign.</li><li><strong>Tell me about a failure:</strong> Baja upper A-arm late-season failure and redesign.</li><li><strong>Leadership:</strong> Baja Suspension Lead (13 engineers, $10,000 budget, design reviews).</li><li><strong>Tight deadline:</strong> U.A.A.O.D.A.D. built in one week, 12-hour electrical push.</li><li><strong>Tolerances causing a manufacturing problem:</strong> centerlock limit switch plate bores at 0.001 to 0.002 in, or testbench alignment and backlash.</li><li><strong>Designing under constraints:</strong> SKULL CRUSHER 12 lb weapon budget, or the 53% smaller gimbal.</li><li><strong>Disagreement with a teammate:</strong> not written yet. Pick a real Baja design disagreement and how it got resolved.</li><li><strong>A design you would change:</strong> not written yet. A good option is something from M25 you changed on M26.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "What Are You Looking Forward to Learning?",
+     "cards": [
+      {
+       "id": "behavioral-and-star---what-are-you-looking-forward-to-learning",
+       "q": "What Are You Looking Forward to Learning?",
+       "a": "<p>I want to learn how the hands-on design and fabrication I&#x27;ve done in student projects and my internship scales up to flight-critical or production hardware. I&#x27;ve worked on parts that had to meet weight, strength, and packaging limits, and I want to see how those tradeoffs get made when the stakes and the system complexity are much higher. In particular: how large structures are analyzed and validated, how designs evolve through testing, how manufacturing shapes the final geometry, and how teams move fast without losing reliability.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Questions to Ask the Interviewer",
+     "cards": [
+      {
+       "id": "behavioral-and-star---questions-to-ask-the-interviewer",
+       "q": "Questions to Ask the Interviewer",
+       "a": "<ul><li>What does success look like for a new engineer on this team in the first six months?</li><li>What are the biggest technical challenges the team is working on right now?</li><li>What kinds of parts or structures would I most likely own?</li><li>How closely do design engineers work with technicians on the floor?</li><li>What do you wish new hires already knew coming in?</li><li>What excites you most about the team&#x27;s work right now?</li></ul>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Statics and Mechanics of Materials",
+   "id": "statics-and-mechanics-of-materials",
+   "intro": "",
+   "subs": [
+    {
+     "title": "Free Body Diagrams and Equilibrium",
+     "cards": [
+      {
+       "id": "statics-and-mechanic--a-block-sits-on-two-springs-with-the-same-shape-but-spring-a",
+       "q": "A block sits on two springs with the same shape, but spring A is stiffer than spring B. Which one takes more load?",
+       "a": "<p>Spring A. If the block is rigid and sits level, both springs compress the same amount, so each force is F = kδ and the load splits in proportion to stiffness: F_A / F_B = k_A / k_B. This is the same idea as the three-legged table: parallel load paths share load by stiffness, not equally.</p><p class=\"fu\">Follow-ups</p><ul><li>Same question with beams: a block resting on an aluminum beam and a steel beam of identical geometry. The steel beam is about 3 times stiffer, so it carries about 3/4 of the load and the aluminum beam about 1/4.</li><li>If the block can tilt or the load is off-center, the split changes. Say that assumption out loud.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Stress, Strain, and Material Behavior",
+     "cards": [
+      {
+       "id": "statics-and-mechanic--define-strength-vs-stiffness-in-your-own-words",
+       "q": "Define strength vs. stiffness in your own words.",
+       "a": "<p>Stiffness is how much something resists deforming: how much it bends, stretches, or compresses under a load. It depends on the material&#x27;s modulus E and the geometry (A, I, length). Strength is how much stress it can take before it yields or breaks. Short version: stiff means hard to deform, strong means hard to break.</p><p class=\"fu\">Follow-ups</p><ul><li>Stiff but not strong: glass and ceramics barely deflect, then shatter.</li><li>Strong but not very stiff: high-strength aluminum like 7075 can out-yield mild steel, but its modulus is still about one third of steel&#x27;s, so it deflects about 3 times as much.</li><li>Common trap: heat treating or picking a stronger alloy of the same metal raises strength but barely changes stiffness. E for almost every steel is about 200 GPa.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--explain-the-stress-strain-curve",
+       "q": "Explain the stress-strain curve.",
+       "a": "<p>It comes from a tensile test. Walk the curve left to right:</p><ol><li><strong>Linear elastic region:</strong> stress is proportional to strain up to the proportional limit (P). The slope is Young&#x27;s modulus, E = σ/ε.</li><li><strong>Elastic limit (E):</strong> the highest stress with no permanent deformation.</li><li><strong>Yield point (Y):</strong> where plastic deformation starts. For metals without a sharp yield, use the 0.2% offset method.</li><li><strong>Strain hardening:</strong> past yield, stress keeps rising as the material plastically deforms.</li><li><strong>Ultimate tensile strength (U):</strong> the peak of the curve. After this the specimen necks.</li><li><strong>Fracture (F):</strong> the specimen breaks.</li></ol><p>If you unload from the plastic region, the material comes back down along a line parallel to the original elastic slope. The elastic strain (ε_e = σ/E) is recovered, and the plastic strain (ε_p = ε − ε_e) stays. Reloading follows that same line up, so the material now behaves elastically up to a higher stress. That&#x27;s strain hardening raising the effective yield point. Strain itself is ε = ΔL/L.</p><figure><img src=\"images/stress-strain-curve.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>Area under the whole curve is toughness (energy absorbed per volume before fracture). Area under just the elastic part is resilience.</li><li>Ductile vs brittle: a brittle material&#x27;s curve stops shortly after the linear region, with little or no plastic strain.</li><li>Engineering vs true stress: engineering stress uses original area, so it drops after necking even though the true stress in the neck keeps rising.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--name-the-property-that-relates-stress-to-strain",
+       "q": "Name the property that relates stress to strain.",
+       "a": "<p>Young&#x27;s modulus, E. In the linear region, Hooke&#x27;s law gives σ = Eε.</p>"
+      },
+      {
+       "id": "statics-and-mechanic--what-is-a-factor-of-safety-and-when-do-you-use-yield-vs-ulti",
+       "q": "What is a factor of safety, and when do you use yield vs ultimate?",
+       "a": "<p>Factor of safety is how much stronger a part is than it needs to be for the load it sees: FS = failure stress / working stress. For ductile materials, use yield strength, because permanent deformation usually counts as failure. For brittle materials, use ultimate strength, since they fracture without yielding much. Yield is the most common basis in design calcs.</p><p class=\"fu\">Follow-ups</p><ul><li>Margin of safety: MS = (allowable / applied) / required FS − 1. A positive MS means the part passes.</li><li>Aerospace runs low factors (on the order of 1.25 on yield and 1.4 on ultimate for flight structures) because mass is so expensive, and makes up for it with good analysis and testing. Consumer products often use 2 to 4.</li><li>What drives the choice: load uncertainty, material variability, consequence of failure, and how well you can test.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--a-table-has-three-legs-two-aluminum-and-one-steel-how-do-the",
+       "q": "A table has three legs: two aluminum and one steel. How do the stresses compare?",
+       "a": "<p>Assume the legs have the same length and cross-section, the tabletop is rigid, the load is vertical, and everything stays elastic. A rigid top means all three legs compress the same amount, so they all see the same strain. Since σ = Eε, the steel leg (E ≈ 200 GPa) carries about 3 times the stress, and therefore 3 times the force, of each aluminum leg (E ≈ 70 GPa). The two aluminum legs carry equal loads.</p><p>Another way to say it: load splits in proportion to axial stiffness, k = EA/L. The steel leg is about 3k_Al, so total stiffness is about 5k_Al. The steel leg takes about 3/5 of the load and each aluminum leg about 1/5.</p><figure><img src=\"images/three-leg-table.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>State your assumptions up front: equal length and area, rigid top, linear elastic, no buckling, even contact. Interviewers want to hear them.</li><li>What if the legs had different lengths or areas? Load still follows k = EA/L, so a stiffer leg (shorter, thicker, or higher E) always attracts more load.</li><li>This is the general rule for parallel load paths: the stiffest path carries the most load.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--a-hexagon-table-has-six-legs-alternating-steel-and-aluminum-",
+       "q": "A hexagon table has six legs, alternating steel and aluminum. Do the legs share a uniform load evenly?",
+       "a": "<p>No. With a rigid top, equal leg lengths and areas, and everything elastic, all six legs compress the same amount. Each steel leg is about 3 times stiffer, so it carries about 3 times the force of an aluminum leg. Out of 12 equal shares, each steel leg takes 3 and each aluminum leg takes 1: each steel leg carries about 1/4 of the load and each aluminum leg about 1/12.</p><p class=\"fu\">Follow-ups</p><ul><li>Six supports is highly statically indeterminate. In reality the top flexes and the legs aren&#x27;t exactly the same length, so the real split depends on the top&#x27;s stiffness and fit-up.</li><li>The alternating pattern keeps the stiff legs evenly spread, so the table doesn&#x27;t tilt toward one side.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--explain-the-difference-between-stress-and-strain",
+       "q": "Explain the difference between stress and strain.",
+       "a": "<p>Stress is internal force per unit area, σ = F/A, in Pa or psi. Normal stress acts perpendicular to a surface, and shear stress acts parallel to it (average shear τ = V/A). Strain is how much the material deforms relative to its original size, ε = ΔL/L, and it has no units. Stress is the load intensity; strain is the response. In the elastic region they are linked by Young&#x27;s modulus, σ = Eε.</p><p class=\"fu\">Follow-ups</p><ul><li>Poisson&#x27;s ratio: when you stretch a bar it gets thinner. ν = −(lateral strain)/(axial strain), about 0.3 for most metals.</li><li>Shear strain is linked to shear stress by the shear modulus: τ = Gγ, with G = E / (2(1 + ν)).</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--what-is-resilience-and-how-much-energy-does-it-take-to-break",
+       "q": "What is resilience, and how much energy does it take to break a material?",
+       "a": "<p>Resilience is the energy per unit volume a material absorbs elastically and gives back when unloaded. It&#x27;s the area under the elastic part of the stress-strain curve, U_r = σ_y² / (2E). Spring steel has high resilience. Toughness is the total energy per unit volume absorbed before fracture, the area under the entire curve. So to estimate the energy needed to break a part, take the area under the whole curve and multiply by the volume being strained.</p><p class=\"fu\">Follow-ups</p><ul><li>Fracture toughness (K_IC) is different: it measures resistance to crack growth when a crack already exists.</li><li>The Charpy impact test measures toughness directly: a pendulum breaks a notched specimen and the lost swing height gives the energy absorbed.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--draw-the-stress-strain-curves-for-mild-steel-aluminum-and-ha",
+       "q": "Draw the stress-strain curves for mild steel, aluminum, and hardened steel. What's different?",
+       "a": "<ul><li><strong>Mild steel:</strong> steep elastic slope (E ≈ 200 GPa), a distinct yield point with a short flat yield plateau, then strain hardening up to UTS, necking, and fracture at large elongation.</li><li><strong>Aluminum:</strong> about one third the slope (E ≈ 70 GPa) and no distinct yield point, so yield is defined with the 0.2% offset method. It rounds over smoothly into plastic flow.</li><li><strong>Hardened (quenched) steel:</strong> the same elastic slope as mild steel, because heat treatment doesn&#x27;t change E, but a much higher yield and UTS and very little plastic strain before it fractures.</li><li><strong>Mild steel after strain hardening (cold work):</strong> same slope, a higher yield point, no yield plateau, and less ductility left.</li></ul><p>Region names: between yield and UTS is the strain hardening region; past UTS is necking.</p><figure><img src=\"images/stress-strain-materials.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>Common trap: drawing hardened steel with a steeper slope. Heat treatment changes strength, not stiffness.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--describe-the-stress-strain-curve-of-a-typical-metal-vs-a-car",
+       "q": "Describe the stress-strain curve of a typical metal vs a carbon fiber composite.",
+       "a": "<p>A metal has a linear elastic region, yields, strain hardens, necks, and fails after a lot of plastic deformation, so it gives warning. Carbon fiber loaded along the fibers stays almost perfectly linear right up to failure, then breaks suddenly with no yield and no plastic region. It&#x27;s much stronger and stiffer per unit weight along the fibers, but weak across them and in interlaminar shear, so its properties depend entirely on the layup direction.</p>"
+      },
+      {
+       "id": "statics-and-mechanic--a-wire-hangs-between-two-poles-with-some-slack-it-has-a-meta",
+       "q": "A wire hangs between two poles with some slack. It has a metal core and a rubber jacket. How do you find the strain in each material?",
+       "a": "<p>First find the tension from the sag. For a shallow sag, the horizontal tension is about T ≈ wL² / (8s), where w is weight per length, L the span, and s the sag. If the core and jacket are bonded, they stretch together, so they share the same strain (compatibility): ε = T / (E_metal A_metal + E_rubber A_rubber). The stresses differ, σ = Eε for each, so the metal carries nearly all the load because its modulus is thousands of times higher.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Beams: Bending, Shear, and Deflection",
+     "cards": [
+      {
+       "id": "statics-and-mechanic--a-cantilever-beam-has-a-load-at-the-free-end-where-and-why-d",
+       "q": "A cantilever beam has a load at the free end. Where and why does it fail?",
+       "a": "<p>At the fixed end (the root). For an end load P, the bending moment is M(x) = P(L − x), which is zero at the free end and maximum, M = PL, at the wall. Bending stress is σ = Mc/I, so the highest stress is at the outer fibers at the root: tension on top, compression on the bottom for a downward load.</p><figure><img src=\"images/cantilever-moment.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>The wall connection usually has a stress concentration (a sharp corner or weld), which makes the root even more critical.</li><li>Shear is constant along the beam (V = P), but for long, slender beams bending stress dominates.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--what-would-you-need-to-know-to-find-the-force-that-breaks-th",
+       "q": "What would you need to know to find the force that breaks the beam?",
+       "a": "<p>I need the cross-section and length to get I and c, the material strength and which failure criterion defines &#x27;break&#x27; (yield or fracture), and the loading and support conditions to find M_max. Then set σ = Mc/I equal to the allowable stress and solve for the force. For a cantilever with an end load, F = σ_allow I / (cL). I&#x27;d also check shear, buckling, and the strength of the connection to the wall.</p>"
+      },
+      {
+       "id": "statics-and-mechanic--which-part-of-a-beam-is-in-tension-and-which-is-in-compressi",
+       "q": "Which part of a beam is in tension and which is in compression?",
+       "a": "<p>In bending, one side is in compression and the other in tension, with zero bending stress at the neutral axis. For a sagging simply supported beam, the top is in compression and the bottom is in tension. For a cantilever loaded downward, it&#x27;s the opposite: top in tension, bottom in compression.</p><figure><img src=\"images/beam-stress-distribution.png\" alt=\"\" loading=\"lazy\"></figure>"
+      },
+      {
+       "id": "statics-and-mechanic--what-is-the-ideal-beam-cross-section",
+       "q": "What is the ideal beam cross-section?",
+       "a": "<p>One that puts most of the material far from the neutral axis, since that maximizes I (and section modulus S = I/c) for a given weight. An I-beam is the best choice when bending is mainly in one known direction. A round tube spreads material evenly around the center, so it&#x27;s better for torsion, compression and buckling, and loads that can come from any direction.</p><p class=\"fu\">Follow-ups</p><ul><li>Solid round vs hollow tube of the same weight in bending: the tube has a larger I, so lower stress. I_solid = πR⁴/4 and I_tube = π(Ro⁴ − Ri⁴)/4.</li><li>Why not make the tube infinitely thin? The wall eventually fails by local buckling.</li><li>σ_max = M/S, so to limit stress, maximize S.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--how-would-you-reduce-the-deflection-of-a-simply-supported-be",
+       "q": "How would you reduce the deflection of a simply supported beam with a center load?",
+       "a": "<p>Start from δ_max = FL³/(48EI) and attack each term:</p><ol><li><strong>Shorten the span:</strong> δ ∝ L³, so this is the strongest lever.</li><li><strong>Reduce the force,</strong> if the requirements allow it.</li><li><strong>Use a stiffer material:</strong> steel (E ≈ 200 GPa) over aluminum (E ≈ 70 GPa).</li><li><strong>Increase I:</strong> for a rectangle I = bh³/12, so δ ∝ 1/h³. Making the beam taller is much more effective than making it wider.</li></ol><p>Making the section taller adds weight, so the better move is to add depth efficiently, for example an I-section or a tube instead of a solid bar.</p><figure><img src=\"images/simply-supported-beam.png\" alt=\"\" loading=\"lazy\"></figure>"
+      },
+      {
+       "id": "statics-and-mechanic--a-flat-steel-plate-sits-on-four-hockey-pucks-at-its-corners-",
+       "q": "A flat steel plate sits on four hockey pucks at its corners. Describe the stresses. What changes if the pucks become steel?",
+       "a": "<p><strong>With rubber pucks:</strong> the plate bends like a shallow dish under its own weight. The maximum bending stress is near the center, with the bottom surface in tension and the top in compression. There are also local stresses at each support. Bending stress is zero at the mid-thickness neutral surface. The rubber is compliant, so it spreads each support reaction over the whole puck face and evens out the load between the four corners.</p><p><strong>With steel pucks:</strong> the total load is the same, so the overall bending at the center barely changes. What changes is at the supports. Steel doesn&#x27;t conform, so the reaction concentrates on a small contact area, and contact and local bending stresses at the corners go way up. The behavior approaches ideal point supports.</p><p class=\"fu\">Follow-ups</p><ul><li>The key insight: four supports on a plane is statically indeterminate. If the pucks aren&#x27;t exactly the same height or the floor isn&#x27;t flat, rigid steel pucks let the plate rock on three of them, so one corner carries almost nothing and the others carry more. Rubber absorbs that mismatch. This is the same idea as the three-legged table: load follows stiffness.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--what-are-the-important-variables-for-a-cantilever-beam-with-",
+       "q": "What are the important variables for a cantilever beam with a downward end load? What if the force points toward the wall?",
+       "a": "<p>Downward load: the load P, length L, modulus E, second moment of area I, and distance to the outer fiber c. Deflection is δ = PL³/(3EI) and peak stress is σ = PLc/I at the root. The root connection and any stress concentration there matter too. Force toward the wall: now it&#x27;s an axial compression problem. Stress is P/A, and the real limit is usually buckling, which depends on E, the smallest I, length, and end condition. A fixed-free column has K = 2, so P_cr = π²EI / (4L²).</p>"
+      },
+      {
+       "id": "statics-and-mechanic--if-you-had-to-size-a-cantilever-beam-by-tomorrow-what-would-",
+       "q": "If you had to size a cantilever beam by tomorrow, what would you do?",
+       "a": "<ol><li>Pin down the requirements: load (size, direction, static or dynamic), length, allowable deflection, and weight and cost limits.</li><li>Pick a material and safety factor.</li><li>Hand calc the section: M_max = PL, required section modulus S = M_max / σ_allow, then check deflection with δ = PL³/(3EI).</li><li>Pick a standard shape (tube or I-beam) from a catalog that meets S and I.</li><li>Check the details: shear, local buckling of thin walls, and the root connection (bolts or weld), which often governs.</li><li>Confirm with a quick FEA, and test if there&#x27;s time.</li></ol>"
+      },
+      {
+       "id": "statics-and-mechanic--cantilever-rapid-fire-follow-ups",
+       "q": "Cantilever rapid-fire follow-ups",
+       "a": "<ul><li><strong>Where does it fail first?</strong> At the root, on the outer fibers. For a downward load, the top is in tension, which is where a brittle material would crack first.</li><li><strong>What changes with a composite?</strong> It&#x27;s anisotropic: run fibers along the beam on the top and bottom faces, watch interlaminar shear and the bolted root, and expect sudden failure, so carry more margin.</li><li><strong>Draw the stress distribution.</strong> Bending stress is linear through the depth: zero at the neutral axis, max tension at one face and max compression at the other. Along the length it grows linearly from zero at the tip to max at the root. Shear stress is parabolic through the depth, max at the neutral axis (1.5 V/A for a rectangle).</li><li><strong>What affects deflection most?</strong> Length, because δ ∝ L³. For a rectangular section, depth is also cubed.</li><li><strong>What if the force can come from any direction?</strong> Use a section that&#x27;s stiff about every axis, like a round tube. An I-beam is weak about its minor axis.</li><li><strong>If you increase the stiffness (E), how does stress change?</strong> It doesn&#x27;t. Stress is Mc/I, which doesn&#x27;t include E. Only deflection drops. This is a common trap.</li><li><strong>If you increase the diameter?</strong> For a round section, I ∝ d⁴ and c ∝ d, so stress drops with d³.</li><li><strong>If you increase the length?</strong> Root moment grows with L, so stress grows linearly; deflection grows with L³.</li><li><strong>If you increase the end force, does the natural frequency change?</strong> No. Frequency depends on stiffness and mass (ω = √(k/m)), and a static force changes neither in a linear system. Adding mass at the tip would lower it.</li><li><strong>Aluminum or steel for less deflection per unit mass?</strong> E/ρ is nearly the same for both, so at the same geometry steel deflects 1/3 as much but weighs 3 times more. For the same mass, aluminum lets you use a deeper section, which wins in bending. That&#x27;s why aluminum is used for light, stiff structures.</li><li><strong>How do you optimize the cross-section?</strong> Move material away from the neutral axis (I-beam or tube) and taper the beam, since the moment drops toward the tip.</li><li><strong>Now it&#x27;s a vertical pole with a sideways force at the top.</strong> Still a cantilever (a flagpole). With a vertical force at the top, it&#x27;s a fixed-free column and the concern is buckling.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--a-sign-hangs-from-a-wall-on-one-horizontal-bar-how-would-you",
+       "q": "A sign hangs from a wall on one horizontal bar. How would you stop it from deflecting, while keeping weight and cost low?",
+       "a": "<p>Add a diagonal member from the wall to the outer end of the bar. That turns a bending problem into a truss, where members carry axial load, which is far stiffer and lighter. A cable or rod from above the bar is the cheapest and lightest option, because tension members can&#x27;t buckle and can be thin. Also use a tube or channel instead of a solid bar, and keep the arm as short as the sign allows.</p>"
+      },
+      {
+       "id": "statics-and-mechanic--a-cantilever-is-supported-by-a-45-tube-from-the-wall-to-its-",
+       "q": "A cantilever is supported by a 45° tube from the wall to its mid-span. Is it better to attach the tube above the beam (tension) or below it (compression)?",
+       "a": "<p>Above, the strut is in tension: it can&#x27;t buckle, so it can be thin, even a cable, which makes it lighter and cheaper. The tradeoff is that it pulls on its wall anchor, which puts those bolts in tension and can pull out of weak walls. Below, the strut is in compression, so it must be sized for buckling and is heavier, but it pushes into the wall instead of pulling out of it. That&#x27;s better for weak anchors like masonry or drywall, it keeps the space above the beam clear, and a rigid strut still works if the load reverses (for example wind lifting the sign), where a cable would go slack.</p>"
+      },
+      {
+       "id": "statics-and-mechanic--rank-a-circle-a-square-and-an-i-beam-of-the-same-area-for-ca",
+       "q": "Rank a circle, a square, and an I-beam of the same area for cantilever bending, and for torsion.",
+       "a": "<p>Bending (about the strong axis): I-beam best, then square, then circle. The I-beam puts its material farthest from the neutral axis, and a solid square edges out a solid circle of the same area. Torsion: for solid sections the circle is best, then the square. The I-beam is worst by far, because it&#x27;s an open thin-walled section. A hollow round tube beats all of them in torsion.</p><p class=\"fu\">Follow-ups</p><ul><li>Your source notes listed the bending order as circle, square, I-beam. That&#x27;s backwards: the I-beam is the strongest in bending.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Torsion",
+     "cards": [
+      {
+       "id": "statics-and-mechanic--how-would-you-describe-the-relationship-between-power-and-to",
+       "q": "How would you describe the relationship between power and torque?",
+       "a": "<p>Power is torque times rotational speed: P = τω, with ω in rad/s. At a fixed power, more speed means less torque and vice versa, which is exactly what a gearbox trades. In US units, hp = (torque in lb·ft × rpm) / 5252. Saying power and torque are &quot;directly proportional&quot; is only true at constant speed.</p>"
+      },
+      {
+       "id": "statics-and-mechanic--how-do-you-find-the-shear-stress-in-a-shaft-under-torque",
+       "q": "How do you find the shear stress in a shaft under torque?",
+       "a": "<p>τ_max = Tc/J, where c is the outer radius and J the polar moment of inertia. For a solid shaft J = πd⁴/32, so τ_max = 16T/(πd³). Twist angle is θ = TL/(GJ). A hollow shaft carries nearly the same torque with much less weight, because the material near the center does little work.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Buckling",
+     "cards": [
+      {
+       "id": "statics-and-mechanic--why-does-a-tape-measure-support-itself-numbers-up-but-collap",
+       "q": "Why does a tape measure support itself numbers-up but collapse numbers-down? What's the failure mode?",
+       "a": "<p>The blade has a curved (concave) cross-section, which gives it a much higher area moment of inertia than a flat strip. Sticking out, it acts like a cantilever under its own weight: tension on top, compression on the bottom.</p><p><strong>Numbers up (curve opens upward):</strong> the free edges are on top, in tension, and the curved middle is on the bottom, in compression. The curved part handles compression well, and tension doesn&#x27;t cause buckling, so it holds.</p><p><strong>Numbers down:</strong> the free edges are now on the bottom, in compression. Unsupported free edges buckle easily in compression. Once they buckle, the cross-section flattens, I drops sharply, and the tape folds over.</p><p><strong>Failure mode:</strong> elastic local buckling (snap-through) of a thin shell. It isn&#x27;t yielding or fracture. The tape springs back because the steel never yields. It folds near the base, where the moment from self-weight is highest (M ≈ wL²/2).</p><figure><img src=\"images/tape-measure.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>How far will it reach? It depends on blade width and curvature, but usually a few feet to several feet for a typical tape. Give a number and reason about it rather than refusing to guess.</li><li>This exact question has come up at SpaceX for structures roles, asked as a guided series: which way does it hold, why, and why does the other way fail.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--a-freestanding-vertical-column-carries-a-compressive-load-wh",
+       "q": "A freestanding vertical column carries a compressive load. Where is the stress highest?",
+       "a": "<p>In an ideal, perfectly straight column with a perfectly centered load, stress is uniform: σ = P/A. Real columns have small imperfections and some eccentricity, so they bow and pick up bending stress on top of P/A. Where that bending stress peaks depends on the end conditions. For a freestanding column fixed at the base and free at the top (like a flagpole), the bending moment and peak stress are at the base, on the concave side, where compression from the axial load and compression from bending add. For a pinned-pinned column, the peak is at mid-height.</p><p class=\"fu\">Follow-ups</p><ul><li>Slender columns fail by buckling well before they crush. Short, stocky columns fail by yielding (crushing).</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--how-would-you-design-against-buckling",
+       "q": "How would you design against buckling?",
+       "a": "<p>Keep the compressive load well below the critical buckling load. Euler&#x27;s equation is P_cr = π²EI/(KL)², and you want P_cr / N &gt; P, where N is the safety factor. Ways to raise P_cr:</p><ul><li><strong>Increase I:</strong> use tubes or spread material away from the center.</li><li><strong>Increase E:</strong> pick a stiffer material. Strength doesn&#x27;t matter for elastic buckling; stiffness does.</li><li><strong>Reduce the effective length KL:</strong> shorten the column, add bracing midway, or fix the ends better. K = 2 for fixed-free, 1 for pinned-pinned, about 0.7 for fixed-pinned, 0.5 for fixed-fixed.</li><li><strong>Keep the load centered,</strong> since eccentricity adds bending.</li></ul><p>For short columns, also check crushing: σ = P/A &lt; σ_y/N.</p><figure><img src=\"images/column-buckling-k.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>Common trap: switching to a higher-strength steel does nothing for Euler buckling, because every steel has about the same E.</li><li>Thin-walled structures, like rocket tanks, can also buckle locally (wall wrinkling) before the whole column buckles. Internal pressure helps stabilize tank walls against this.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Failure Theories (von Mises, Tresca)",
+     "cards": [
+      {
+       "id": "statics-and-mechanic--what-is-the-difference-between-a-failure-mode-and-a-failure-",
+       "q": "What is the difference between a failure mode and a failure cause?",
+       "a": "<p>The failure mode is how something fails: fatigue cracking, buckling, yielding, a leak, a loosened bolt. The cause is why it happened: undersized part, wrong material, vibration, assembly error, a load case nobody considered. An FMEA lists modes, then their causes, effects, and how to detect or prevent them.</p>"
+      },
+      {
+       "id": "statics-and-mechanic--when-do-you-use-von-mises-vs-tresca",
+       "q": "When do you use von Mises vs Tresca?",
+       "a": "<p>Both predict yielding of ductile materials under combined stress. Von Mises (distortion energy) matches test data best and is what FEA reports: σ_vm = √(σ² + 3τ²) for combined bending and torsion. Tresca (max shear) is simpler and slightly more conservative: yield when τ_max reaches σ_y/2. For brittle materials, use max normal stress instead.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Failure Modes and Load Paths",
+     "cards": [
+      {
+       "id": "statics-and-mechanic--a-plate-has-an-eyebolt-in-its-center-and-is-welded-to-a-rigi",
+       "q": "A plate has an eyebolt in its center and is welded to a rigid structure around its perimeter. What are all the possible failure modes?",
+       "a": "<p>Follow the load path from the eye out to the supporting structure:</p><ul><li><strong>Eyebolt:</strong> tensile rupture at the thread root, thread stripping, shear or bending if the load is angled, fracture of the eye, fatigue, and stress-corrosion cracking.</li><li><strong>Plate around the hole:</strong> bearing failure, net-section tension, plastic yielding, plate bending, buckling where there&#x27;s compression, and fatigue cracking from the stress concentration at the hole.</li><li><strong>Perimeter weld:</strong> weld metal failure, weld throat shear, cracking in the heat-affected zone, fatigue at the weld toe, and defects like lack of fusion or porosity.</li><li><strong>Surrounding structure:</strong> the support itself could fail. A rigid boundary also constrains the plate, which can cause high stresses and brittle fracture or crack growth under dynamic loads.</li></ul><p class=\"fu\">Follow-ups</p><ul><li>Which fails first? Usually the weakest link along the path, which is often a stress concentration under cyclic load: the thread root, the hole edge, or the weld toe.</li><li>Load direction matters: a straight pull loads the bolt in tension, while an angled pull adds bending to the eye and the plate.</li></ul>"
+      },
+      {
+       "id": "statics-and-mechanic--why-does-a-hot-dog-split-lengthwise-when-you-cook-it",
+       "q": "Why does a hot dog split lengthwise when you cook it?",
+       "a": "<p>It behaves like a thin-walled pressure vessel. As it heats, internal pressure from steam builds. Hoop (circumferential) stress is σ_h = pr/t, which is twice the axial stress σ_a = pr/(2t). Materials crack perpendicular to the largest tensile stress, and the largest is the hoop stress, so the crack runs along the length.</p><figure><img src=\"images/pressure-vessel-hoop-stress.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>Same reason pipes and rocket tanks split lengthwise, and why longitudinal welds on pressure vessels are more critical than circumferential ones.</li></ul>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dynamics and Vibrations",
+   "id": "dynamics-and-vibrations",
+   "intro": "",
+   "subs": [
+    {
+     "title": "Kinematics and Kinetics",
+     "cards": [
+      {
+       "id": "dynamics-and-vibrati--what-forces-act-on-a-box-flying-through-the-air",
+       "q": "What forces act on a box flying through the air?",
+       "a": "<p>Gravity (mg, downward), aerodynamic drag opposing the velocity relative to the air, F_D = ½ρC_D A V², and possibly lift and side forces perpendicular to the flow depending on how the box is oriented. Aerodynamic moments can also make it tumble. Buoyancy exists but is negligible for a solid box.</p><p class=\"fu\">Follow-ups</p><ul><li>Drag depends on air density, drag coefficient, frontal area, and the square of velocity. A box is blunt, so C_D is high (roughly 1 or more).</li><li>Terminal velocity is where drag equals weight: V_t = √(2mg / (ρC_D A)).</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--you-stand-on-a-scale-in-an-elevator-what-does-it-read",
+       "q": "You stand on a scale in an elevator. What does it read?",
+       "a": "<p>The scale reads the normal force, N = m(g + a). Moving at constant speed (a = 0), it reads your weight. Accelerating upward, it reads more; accelerating downward, less; in free fall, zero.</p>"
+      },
+      {
+       "id": "dynamics-and-vibrati--how-would-you-measure-the-mass-of-something-in-space",
+       "q": "How would you measure the mass of something in space?",
+       "a": "<p>Measure inertia instead of weight. Apply a known force and measure the acceleration (m = F/a), or mount it on a spring of known stiffness and time the oscillation: T = 2π√(m/k), so m = kT²/(4π²). That second method is how astronauts measure body mass on the ISS. Spinning it with a known centripetal force also works.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Energy and Momentum Methods",
+     "cards": [
+      {
+       "id": "dynamics-and-vibrati--what-s-the-difference-between-work-and-power",
+       "q": "What's the difference between work and power?",
+       "a": "<p>Work is energy transferred by a force acting over a distance: W = F·d, in joules. Power is the rate of doing work: P = W/t, in watts (1 W = 1 J/s). Useful forms: P = F·v for linear motion and P = τω for rotation.</p>"
+      },
+      {
+       "id": "dynamics-and-vibrati--how-would-you-slow-down-a-very-large-object-moving-very-fast",
+       "q": "How would you slow down a very large object moving very fast?",
+       "a": "<p>Kinetic energy is KE = ½mv², so it grows with the square of speed. You can&#x27;t remove it instantly without enormous forces that would break the structure. The goal is to remove the energy gradually, over a longer distance or a longer time. By work-energy, the average stopping force is F_avg = KE/d, so a longer stopping distance means a smaller force. By impulse-momentum, FΔt = mΔv, so a longer stopping time means a lower peak force.</p><p>Ways to convert the energy:</p><ul><li><strong>Aerodynamic drag:</strong> turns energy into heat in the air. It&#x27;s very effective at high speed because drag scales with v².</li><li><strong>Friction (brakes):</strong> turns energy into heat in the parts, so they have to handle the thermal load.</li><li><strong>Propulsive deceleration:</strong> thrust against the motion. Useful when drag isn&#x27;t enough or you need precise control.</li><li><strong>Structural energy absorption:</strong> crush zones, dampers, and compliant supports turn energy into deformation and limit peak acceleration.</li></ul><p>Real systems combine these in stages. A Falcon 9 booster uses a reentry burn, then aerodynamic drag with grid fins for control, then a landing burn, and finally the landing legs absorb what&#x27;s left at touchdown. The overall goal is to keep stress, temperature, and acceleration within limits for the structure and payload.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Spring-Mass-Damper Systems",
+     "cards": [
+      {
+       "id": "dynamics-and-vibrati--what-do-natural-frequency-and-damping-ratio-tell-you",
+       "q": "What do natural frequency and damping ratio tell you?",
+       "a": "<p>For a spring-mass system, the natural frequency is ω_n = √(k/m): stiffer means higher, heavier means lower. The damping ratio ζ = c / (2√(km)) sets how fast oscillation dies out: below 1 is underdamped (it oscillates), 1 is critically damped (fastest return with no overshoot), above 1 is overdamped. Car suspensions run roughly 0.2 to 0.4.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Natural Frequency and Resonance",
+     "cards": [
+      {
+       "id": "dynamics-and-vibrati--two-1-m-1-m-aluminum-plates-float-in-space-one-1-cm-thick-an",
+       "q": "Two 1 m × 1 m aluminum plates float in space, one 1 cm thick and one 2 cm thick. How do their natural frequencies compare? What if one were steel? Annealed vs normalized steel?",
+       "a": "<p>For plate bending, stiffness per area scales with Et³ and mass per area with ρt, so frequency scales with t·√(E/ρ). Doubling the thickness doubles the natural frequency. Steel and aluminum have nearly the same E/ρ, so plates of the same size have almost the same frequency. Annealed and normalized steel have the same E and density, so their frequencies are the same; heat treatment changes strength, not stiffness.</p>"
+      },
+      {
+       "id": "dynamics-and-vibrati--a-vibrating-machine-sits-in-the-middle-of-a-table-how-would-",
+       "q": "A vibrating machine sits in the middle of a table. How would you reduce the vibration?",
+       "a": "<ul><li>Find the forcing frequency first, then keep the table&#x27;s natural frequency away from it: stiffen the table to raise it, or add mass to lower it.</li><li>Isolate the source with soft mounts so the mount&#x27;s natural frequency is well below the forcing frequency (a ratio above √2 gives isolation; around 3 or more is good).</li><li>Add damping: rubber or viscoelastic pads, constrained-layer damping on the tabletop.</li><li>Fix the source: balance the rotating parts.</li><li>For a single problem frequency, a tuned mass damper.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Vehicle Dynamics and Suspension",
+     "cards": [
+      {
+       "id": "dynamics-and-vibrati--your-car-is-overheating-while-driving-through-the-desert-do-",
+       "q": "Your car is overheating while driving through the desert. Do you speed up or slow down?",
+       "a": "<p>Slow down. Going faster pushes more air through the radiator, but engine heat output rises faster than that, because aerodynamic drag grows with v² and the power needed to overcome it grows with v³. Lower speed means lower engine load and less heat produced.</p><p class=\"fu\">Follow-ups</p><ul><li>Classic extra move: turn the cabin heater on full. The heater core is a second small radiator, so it pulls extra heat out of the coolant (at the cost of a hot cabin).</li><li>If it&#x27;s really overheating, pull over and let it idle with the heater on rather than shutting it off immediately. A running water pump keeps coolant circulating.</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--would-you-drive-across-the-desert-during-the-day-or-at-night",
+       "q": "Would you drive across the desert during the day or at night?",
+       "a": "<p>At night. Lower ambient temperature means less heat load on the engine, cooling system, and tires, and less risk of dehydration for the people inside. The tradeoff is worse visibility, but in extreme desert heat, thermal management is the dominant constraint.</p>"
+      },
+      {
+       "id": "dynamics-and-vibrati--you-load-your-fsae-car-onto-a-trailer-does-the-trailer-s-tir",
+       "q": "You load your FSAE car onto a trailer. Does the trailer's tire pressure go up, down, or stay the same?",
+       "a": "<p>It stays about the same. The tire carries more load by flattening into a bigger contact patch (load ≈ pressure × contact area), not by raising its internal pressure. The air volume barely changes, so the pressure rises only slightly. It will rise more once you drive and the tires warm up.</p>"
+      },
+      {
+       "id": "dynamics-and-vibrati--you-drive-from-sea-level-up-to-high-elevation-what-happens-t",
+       "q": "You drive from sea level up to high elevation. What happens to tire pressure?",
+       "a": "<p>Gauge pressure rises. The tire is close to a rigid, sealed container, so its absolute pressure stays about the same, but the outside air pressure drops, and gauge pressure is absolute minus atmospheric. Elevation by itself doesn&#x27;t change the air temperature inside the tire. (Your source notes claimed the temperature drops and the pressure rises; the comment on that note was right that the absolute pressure stays put.)</p>"
+      },
+      {
+       "id": "dynamics-and-vibrati--design-an-air-suspension-at-the-system-architecture-level",
+       "q": "Design an air suspension at the system-architecture level.",
+       "a": "<ul><li><strong>Air springs</strong> (rubber bellows) at each corner replace or supplement coil springs; spring rate and ride height change with air pressure.</li><li><strong>Supply:</strong> compressor, air dryer, and a reservoir tank.</li><li><strong>Control:</strong> a valve block with a solenoid per corner, height and pressure sensors, and an ECU that levels the car under load and adjusts ride height.</li><li><strong>Dampers</strong> are still needed, often adaptive.</li><li><strong>Failure modes to design for:</strong> leaks (and a safe limp mode), compressor duty cycle and overheating, moisture freezing in lines.</li></ul>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Thermodynamics, Fluids, and Heat Transfer",
+   "id": "thermodynamics-fluids-and-heat-transfer",
+   "intro": "",
+   "subs": [
+    {
+     "title": "Laws of Thermodynamics and Cycles",
+     "cards": [
+      {
+       "id": "thermodynamics-fluid--you-inflate-a-balloon-and-put-it-in-the-freezer-for-30-minut",
+       "q": "You inflate a balloon and put it in the freezer for 30 minutes. What changes when you take it out?",
+       "a": "<p>It comes out smaller and softer. The air inside cools, and by the ideal gas law (PV = nRT) both the pressure and volume drop. Going from room temperature (about 293 K) to a typical freezer (about 255 K) is roughly a 13% drop in absolute temperature. Lower internal pressure means less tension in the rubber, so the balloon feels squishier. Separately, the rubber gets stiffer and less stretchy in the cold, and frost or condensation forms on it when it comes out. As it warms back up, it re-expands to about its original size.</p><p class=\"fu\">Follow-ups</p><ul><li>Common trap: saying the balloon gets &#x27;firmer.&#x27; The rubber material is stiffer, but the balloon as a whole is softer because there&#x27;s less pressure inside.</li><li>Use absolute temperature (Kelvin) for any gas law math.</li></ul>"
+      },
+      {
+       "id": "thermodynamics-fluid--what-is-the-triple-point",
+       "q": "What is the triple point?",
+       "a": "<p>The single temperature and pressure where solid, liquid, and vapor coexist in equilibrium. For water it&#x27;s 0.01°C at about 611 Pa. Below the triple point pressure, a solid sublimates straight to vapor, which is why dry ice (CO₂ triple point around 5 atm) sublimates at room pressure.</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--what-is-specific-volume-and-how-do-you-find-it",
+       "q": "What is specific volume, and how do you find it?",
+       "a": "<p>Volume per unit mass, v = V/m = 1/ρ, in m³/kg. For an ideal gas, v = RT/P. For water and steam, look it up in the steam tables from temperature and pressure.</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--explain-the-carnot-and-rankine-cycles-and-the-second-law",
+       "q": "Explain the Carnot and Rankine cycles and the second law.",
+       "a": "<p>Carnot is the ideal, reversible cycle: isothermal expansion (heat in at T_H), isentropic expansion, isothermal compression (heat out at T_C), and isentropic compression. Its efficiency, η = 1 − T_C/T_H, is the upper limit for any engine between those temperatures. The Rankine cycle is the practical steam version: the pump compresses liquid, the boiler adds heat at constant pressure, the turbine expands the steam to make work, and the condenser rejects heat.</p><ul><li><strong>Kelvin-Planck:</strong> no cycle can take heat from a single reservoir and turn all of it into work.</li><li><strong>Clausius:</strong> heat can&#x27;t flow from cold to hot without work input (that&#x27;s why a refrigerator needs power).</li></ul><p class=\"fu\">Follow-ups</p><ul><li>Your source notes mapped the Rankine components to the wrong Carnot steps (for example calling the turbine compression). Use the version above.</li></ul>"
+      },
+      {
+       "id": "thermodynamics-fluid--what-are-the-ideal-gas-assumptions",
+       "q": "What are the ideal gas assumptions?",
+       "a": "<p>Particles are point masses, they move randomly, there are no intermolecular forces, and collisions are perfectly elastic. Useful relations: PV = mRT, c_p = c_v + R, and a gas heated at constant pressure expands and does work, which is why c_p is larger than c_v.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Fluid Statics and Bernoulli",
+     "cards": [
+      {
+       "id": "thermodynamics-fluid--a-boat-floating-in-a-pool-is-carrying-a-heavy-rock-you-throw",
+       "q": "A boat floating in a pool is carrying a heavy rock. You throw the rock into the pool. Does the water level go up, down, or stay the same?",
+       "a": "<p>It goes down. While the rock is in the boat, the boat has to displace water equal to the rock&#x27;s weight. Rock is denser than water, so that&#x27;s more water than the rock&#x27;s own volume. Once the rock sinks, it only displaces its own volume. Total displaced water drops, so the level falls.</p><figure><img src=\"images/boat-rock-water-level.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>Short way to remember it: a floating object displaces its weight in water, a sunken object displaces its volume.</li><li>If the object were less dense than water (like a block of wood), the level would stay the same, because it still floats after you throw it in.</li></ul>"
+      },
+      {
+       "id": "thermodynamics-fluid--how-would-you-find-the-force-from-flow-through-a-control-vol",
+       "q": "How would you find the force from flow through a control volume, like a pipe bend or nozzle?",
+       "a": "<p>Use the momentum equation on the control volume: ΣF = d/dt ∫ρV dV + ∫ρV(V·n) dA. The first term is momentum building up inside the volume, and the second is the net momentum flowing out through its surface. For steady flow with uniform inlets and outlets, this simplifies to ΣF = Σ(ṁV)_out − Σ(ṁV)_in, where ṁ = ρAV.</p><p>Draw a free body diagram of the fluid and include pressure forces on the inlets, outlets, and walls (pA on each opening), wall shear if it matters, and gravity. Solve for the force the hardware exerts on the fluid. The force the fluid exerts on the hardware is equal and opposite (Newton&#x27;s third law).</p><figure><img src=\"images/control-volume-pipe-bend.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>Rocket thrust is the same idea: F = ṁV_e + (p_e − p_a)A_e, the momentum leaving the nozzle plus a pressure term at the exit.</li><li>Watch the signs: momentum flux is a vector, so do x and y separately.</li></ul>"
+      },
+      {
+       "id": "thermodynamics-fluid--variant-you-re-in-a-boat-with-a-bowling-ball-and-drop-it-int",
+       "q": "Variant: you're in a boat with a bowling ball and drop it into the lake. What about a tungsten ball, or an air-filled beach ball?",
+       "a": "<p>Bowling ball: it&#x27;s denser than water (if it sinks), so the level drops, same as the rock. Tungsten is much denser, so the level drops even more, because in the boat it displaced its weight in water and on the bottom it only displaces its small volume. Beach ball: it floats either way and displaces its weight both times, so the level doesn&#x27;t change. (Some light bowling balls actually float, which makes a fun follow-up.)</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--what-is-a-pitot-tube-and-how-does-it-work",
+       "q": "What is a pitot tube and how does it work?",
+       "a": "<p>A tube pointed into the flow that measures stagnation pressure, where the flow is brought to rest. Paired with a static pressure port, Bernoulli gives the speed: V = √(2(p₀ − p)/ρ). It&#x27;s how aircraft measure airspeed. The incompressible version works below about Mach 0.3.</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--how-do-you-get-water-to-flow-in-a-pipe",
+       "q": "How do you get water to flow in a pipe?",
+       "a": "<p>Create a pressure (head) difference: a pump, an elevation difference so gravity drives it, or a pressurized tank. Fluid flows from high total head to low, and the driving head has to beat the friction and fitting losses along the way.</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--how-would-you-decide-what-pressure-to-fill-a-tank-to",
+       "q": "How would you decide what pressure to fill a tank to?",
+       "a": "<ol><li>Work out how much fluid or gas you need, using PV = mRT for a gas.</li><li>Add the downstream delivery pressure plus losses through lines and regulators.</li><li>Check the hottest expected temperature, since pressure rises with temperature. That sets the maximum expected operating pressure (MEOP).</li><li>Check the tank: hoop stress σ = pr/t with a safety factor, and proof test above MEOP before use.</li></ol>"
+      }
+     ]
+    },
+    {
+     "title": "Pipe Flow, Losses, and Pumps",
+     "cards": [
+      {
+       "id": "thermodynamics-fluid--laminar-vs-turbulent-flow-and-pipe-losses",
+       "q": "Laminar vs turbulent flow, and pipe losses",
+       "a": "<p>Reynolds number Re = ρVD/μ compares inertia to viscosity. In a pipe, flow is laminar below about 2300 and turbulent above about 4000. Head loss uses Darcy-Weisbach: h_L = f(L/D)(V²/2g). Laminar flow has f = 64/Re; turbulent flow uses the Moody chart or the Colebrook equation, where roughness matters. For non-circular ducts use the hydraulic diameter, D_h = 4A/P.</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--compressible-flow-basics-nozzles-choking-and-over-vs-under-e",
+       "q": "Compressible flow basics: nozzles, choking, and over- vs under-expanded",
+       "a": "<ul><li>Bernoulli assumes incompressible flow, so it breaks down above about Mach 0.3.</li><li>In subsonic flow, a narrowing passage speeds the flow up and drops the pressure (a nozzle); a widening one slows it down and raises the pressure (a diffuser). In supersonic flow it&#x27;s the reverse.</li><li>A converging-diverging nozzle hits Mach 1 at the throat, then keeps accelerating in the diverging section, which is how rocket nozzles work.</li><li><strong>Choked flow:</strong> once the downstream-to-upstream pressure ratio drops below about 0.53 (for air), the throat is at Mach 1 and mass flow can&#x27;t increase by lowering the back pressure further.</li><li><strong>Over-expanded:</strong> exit pressure is below ambient, which can cause shocks and flow separation in the nozzle. <strong>Under-expanded:</strong> exit pressure is above ambient, and the plume keeps expanding outside the nozzle.</li></ul>"
+      },
+      {
+       "id": "thermodynamics-fluid--how-would-you-optimize-a-cooling-system",
+       "q": "How would you optimize a cooling system?",
+       "a": "<p>Start with an energy balance: the heat load and the allowable temperatures. Then raise the heat rejection capacity UA·ΔT: more airflow (better fan, ducting, and shrouding so hot air doesn&#x27;t recirculate), a larger or more efficient radiator core, higher coolant flow, a better coolant (water carries more heat than glycol mixes), and a larger ΔT by running the coolant hotter under a pressure cap. Also reduce the heat generated at the source. Check with Q = ṁc_pΔT on both sides.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Conduction, Convection, and Radiation",
+     "cards": [
+      {
+       "id": "thermodynamics-fluid--explain-the-three-modes-of-heat-transfer",
+       "q": "Explain the three modes of heat transfer.",
+       "a": "<ul><li><strong>Conduction:</strong> heat moving through a material by direct contact. Fourier&#x27;s law: q = −kA dT/dx.</li><li><strong>Convection:</strong> heat moving between a surface and a moving fluid. Newton&#x27;s law of cooling: q = hA(T_s − T_∞).</li><li><strong>Radiation:</strong> heat moving by electromagnetic waves, no medium needed. q = εσA(T_s⁴ − T_surr⁴). It&#x27;s the only mode that works in a vacuum, which matters for spacecraft.</li></ul>"
+      },
+      {
+       "id": "thermodynamics-fluid--a-pencil-rests-across-two-beams-one-steel-and-one-aluminum-b",
+       "q": "A pencil rests across two beams, one steel and one aluminum. Both are heated to the same high temperature. What happens to the pencil?",
+       "a": "<p>Aluminum&#x27;s coefficient of thermal expansion (about 23 × 10⁻⁶ /K) is about twice steel&#x27;s (about 12 × 10⁻⁶ /K), so the aluminum beam grows about twice as much. That raises the aluminum side, and the pencil tilts down toward the steel side.</p><p class=\"fu\">Follow-ups</p><ul><li>Push it hotter: aluminum loses strength well before it melts (it starts weakening noticeably above roughly 150 to 200°C and melts around 660°C, versus roughly 1400 to 1500°C for steel). If the aluminum beam is carrying load, it could sag and reverse the tilt long before anything melts.</li><li>Real-world version: mixing aluminum and steel in a structure that sees big temperature swings causes thermal stresses at the joints.</li></ul>"
+      },
+      {
+       "id": "thermodynamics-fluid--which-heat-transfer-mode-matters-most-in-space-which-is-seco",
+       "q": "Which heat transfer mode matters most in space? Which is second?",
+       "a": "<p>Radiation, since there&#x27;s no air for convection; it&#x27;s the only way a spacecraft rejects heat to space. Conduction is second, moving heat through the structure, heat pipes, and straps to the radiators. Inside a pressurized cabin, fans provide forced convection, because microgravity has no natural convection.</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--describe-natural-convection",
+       "q": "Describe natural convection.",
+       "a": "<p>Fluid near a hot surface warms up, its density drops, and buoyancy lifts it, pulling cooler fluid in behind it. No fan is involved, so the heat transfer coefficient is low: roughly 5 to 25 W/m²K in air, compared with roughly 25 to 250 for forced convection. Its strength is captured by the Grashof and Rayleigh numbers.</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--how-do-you-find-the-convection-coefficient-h-in-newton-s-law",
+       "q": "How do you find the convection coefficient h in Newton's law of cooling?",
+       "a": "<p>Usually from an empirical correlation for the Nusselt number, Nu = hL/k, written in terms of Reynolds and Prandtl numbers for forced convection (for example Dittus-Boelter for turbulent pipe flow, Nu = 0.023 Re^0.8 Pr^0.4) or the Rayleigh number for natural convection. Otherwise, measure it: h = q / (A·ΔT).</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--a-plain-potato-and-a-foil-wrapped-potato-go-in-the-oven-whic",
+       "q": "A plain potato and a foil-wrapped potato go in the oven. Which cooks better?",
+       "a": "<p>Argue it with heat transfer; the reasoning matters more than the answer. An oven heats by convection and radiation. Shiny foil has low emissivity and reflects radiant heat, so it slows heating a bit, and it traps steam, so the skin stays soft and the inside moist. The plain potato usually cooks slightly faster with a crisp skin; the foil one cooks more evenly and stays hot longer after it comes out.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Heat Exchangers and Fins",
+     "cards": [
+      {
+       "id": "thermodynamics-fluid--counterflow-vs-parallel-flow-heat-exchangers",
+       "q": "Counterflow vs parallel flow heat exchangers",
+       "a": "<p>Counterflow (fluids moving in opposite directions) is more effective, because it keeps a more even temperature difference along the whole length, and the cold outlet can even get hotter than the hot outlet. Parallel flow has a big ΔT at the inlet that quickly shrinks.</p>"
+      },
+      {
+       "id": "thermodynamics-fluid--when-do-fins-help",
+       "q": "When do fins help?",
+       "a": "<p>Fins add surface area for convection. They help most on the side with the low heat transfer coefficient (usually the air side), and when the fin material conducts well and the fins are thin and not too long. Past a certain length, the fin tip is nearly at ambient temperature and adds little; that&#x27;s captured by fin efficiency.</p>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Machine Design",
+   "id": "machine-design",
+   "intro": "",
+   "subs": [
+    {
+     "title": "Fatigue and Endurance Limits",
+     "cards": [
+      {
+       "id": "machine-design--what-is-fatigue-and-how-do-you-design-against-it",
+       "q": "What is fatigue, and how do you design against it?",
+       "a": "<p>Fatigue is failure under repeated loading at stresses below yield. A crack starts at a stress concentration or surface flaw and grows a little each cycle until the remaining section snaps; the fracture surface shows beach marks. The S-N curve gives life vs stress amplitude. Most steels have an endurance limit (about half the UTS) below which life is effectively infinite; aluminum doesn&#x27;t.</p><ul><li>Reduce stress concentrations: generous fillets, no sharp notches.</li><li>Improve the surface: better finish, shot peening for compressive residual stress.</li><li>Account for mean stress with a Goodman diagram.</li><li>Preload bolts so they see less of the load cycle, and keep welds out of high-stress areas.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Bolted Joints and Fasteners",
+     "cards": [
+      {
+       "id": "machine-design--two-plates-are-bolted-together-and-pulled-apart-in-the-plane",
+       "q": "Two plates are bolted together and pulled apart in the plane of the plates. What is this loading, and what is the shear stress in the bolt?",
+       "a": "<p>Shear. With two plates the bolt is in single shear: τ = F/A, where A = πd²/4 at the shear plane. With three plates (a clevis), the bolt is in double shear and τ = F/(2A). In a well-designed joint, the preload clamps the plates hard enough that friction carries F and the bolt never actually sees shear.</p>"
+      },
+      {
+       "id": "machine-design--partially-threaded-or-fully-threaded-bolt-for-this-joint",
+       "q": "Partially threaded or fully threaded bolt for this joint?",
+       "a": "<p>Partially threaded, with the smooth shank in the shear plane. The shank has the full diameter, while the threads are cut down to the minor diameter (roughly 20 to 30% less area), and threads add stress concentrations. Choose a grip length that puts the shank through both plates.</p>"
+      },
+      {
+       "id": "machine-design--how-do-you-increase-the-joint-s-shear-strength-without-chang",
+       "q": "How do you increase the joint's shear strength without changing the force F?",
+       "a": "<ul><li>Larger diameter or a higher-grade bolt (Grade 8, or metric 10.9 / 12.9).</li><li>Shank, not threads, in the shear plane.</li><li>Double shear instead of single shear, or more bolts.</li><li>More preload so friction carries the load (a slip-critical joint).</li><li>Dowel pins to take the shear and let the bolts just clamp.</li><li>Also check the plates: bearing stress σ = F/(td) and edge tear-out.</li></ul>"
+      },
+      {
+       "id": "machine-design--how-would-you-size-the-bolt",
+       "q": "How would you size the bolt?",
+       "a": "<p>Apply a safety factor to F, then size for shear: d = √(4·F·FS / (π·τ_allow)), with τ_allow ≈ 0.577σ_y (von Mises). Check plate bearing (F/(td)) and edge distance, pick the grade, and set the preload and torque.</p>"
+      },
+      {
+       "id": "machine-design--name-the-failure-modes-of-a-bolted-joint",
+       "q": "Name the failure modes of a bolted joint.",
+       "a": "<ul><li>Tensile failure at the thread root.</li><li>Thread stripping, especially in a soft tapped hole like aluminum. Fix it with more engagement or inserts.</li><li>Bolt shear.</li><li>Fatigue, the most common one, usually at the first engaged thread and caused by too little preload.</li><li>Loss of preload from vibration loosening or embedding.</li><li>Joint slip.</li><li>Bearing failure and hole elongation in the plate, or tear-out at the edge.</li><li>Galling (stainless), corrosion, and head pull-through.</li></ul>"
+      },
+      {
+       "id": "machine-design--how-do-you-set-bolt-torque-why-lubricate-why-use-washers",
+       "q": "How do you set bolt torque? Why lubricate? Why use washers?",
+       "a": "<p>T = K·D·P, where K is the nut factor (about 0.2 for dry steel, about 0.15 lubricated), D is the nominal diameter, and P is the target preload, often about 75% of proof load. Roughly 90% of the torque goes into friction under the head and in the threads, so friction scatter becomes preload scatter. Lubrication makes friction consistent and prevents galling, and gives more preload for the same torque, so you must use the lubricated torque spec. Washers spread the bearing load onto softer material, give a consistent friction surface, protect the part, and bridge oversized or slotted holes.</p>"
+      },
+      {
+       "id": "machine-design--what-s-the-difference-between-coarse-and-fine-threads",
+       "q": "What's the difference between coarse and fine threads?",
+       "a": "<p>Coarse threads have fewer threads per inch. They assemble faster, tolerate dirt and damage, cross-thread less, and hold better in soft or brittle materials like aluminum and cast iron because the deeper threads resist stripping. Fine threads have more threads per inch. They have a slightly larger stress area so they&#x27;re a bit stronger, allow finer adjustment, resist vibration loosening better, and suit thin walls, where you need more threads in a short length.</p><p class=\"fu\">Follow-ups</p><ul><li>Your source notes paired fine threads with thick material and coarse with thin. It&#x27;s the other way around: fine threads suit thin walls.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Welded and Bonded Joints",
+     "cards": [
+      {
+       "id": "machine-design--how-do-you-size-a-fillet-weld",
+       "q": "How do you size a fillet weld?",
+       "a": "<p>The weld fails through its throat, the smallest section, which is about 0.707 times the leg size. Shear stress is τ = F/(a·L_w), where a is the throat and L_w the weld length. Add bending and axial components if the load is eccentric, combine them, and compare with the allowable for the filler metal.</p>"
+      },
+      {
+       "id": "machine-design--what-is-post-weld-heat-treatment-and-why-do-it",
+       "q": "What is post-weld heat treatment, and why do it?",
+       "a": "<p>As a weld cools it shrinks and locks in residual stress. Post-weld heat treatment reheats the part below the critical transformation temperature, holds it, and cools it slowly to relieve that stress, which reduces distortion and cracking risk. It can also change hardness and toughness, so it has to match the material.</p>"
+      },
+      {
+       "id": "machine-design--pressure-sensitive-adhesive-vs-hot-melt-glue",
+       "q": "Pressure-sensitive adhesive vs hot-melt glue",
+       "a": "<p>PSA (tapes) is clean, fast, safe, and repositionable before it sets, but it&#x27;s weaker, temperature-sensitive, and takes time to reach full strength. Hot melt makes a stronger bond, fills gaps, and handles vibration and heat better, but needs a hot gun, sets fast (little working time), is messy, and gives off fumes.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Gears and Power Transmission",
+     "cards": [
+      {
+       "id": "machine-design--how-do-gear-ratios-affect-torque-and-speed",
+       "q": "How do gear ratios affect torque and speed?",
+       "a": "<p>Gear ratio = teeth on the driven gear / teeth on the driver (which equals the driver&#x27;s speed / the driven gear&#x27;s speed). Both gears push on each other with the same tooth force, and torque is force × radius, so the bigger gear gets more torque and turns slower. Power stays the same apart from friction losses, since P = τω.</p><p>Example: an 8-tooth driver turning a 24-tooth gear is a 3:1 reduction. The output has 3 times the torque at 1/3 the speed.</p><figure><img src=\"images/gear-ratio.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>Tie it to your work: re-tuning the gear ratio was part of how you shrank the Advanced Spade gimbal by 53%.</li></ul>"
+      },
+      {
+       "id": "machine-design--what-are-the-addendum-and-dedendum-of-a-gear",
+       "q": "What are the addendum and dedendum of a gear?",
+       "a": "<p>The addendum is how far the tooth sticks out above the pitch circle; the dedendum is how far it goes below it. The dedendum is slightly larger so the mating tooth tip has clearance.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Springs",
+     "cards": [
+      {
+       "id": "machine-design--what-s-the-difference-between-one-spring-two-in-series-and-t",
+       "q": "What's the difference between one spring, two in series, and two in parallel?",
+       "a": "<p>Parallel springs deflect the same amount and their forces add, so k_eq = k₁ + k₂ (stiffer). Series springs carry the same force and their deflections add, so 1/k_eq = 1/k₁ + 1/k₂ (softer; two identical springs in series give k/2). It&#x27;s the opposite of how resistors combine.</p><figure><img src=\"images/springs-series-parallel.png\" alt=\"\" loading=\"lazy\"></figure>"
+      },
+      {
+       "id": "machine-design--how-would-you-change-a-coil-spring-s-spring-constant",
+       "q": "How would you change a coil spring's spring constant?",
+       "a": "<p>k = Gd⁴ / (8D³N). Increase the wire diameter d (the strongest lever, to the fourth power), decrease the mean coil diameter D (cubed), use fewer active coils N, or use a material with a higher shear modulus G. Cutting a spring shorter removes coils, so it gets stiffer.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Fits and Tolerances",
+     "cards": [
+      {
+       "id": "machine-design--what-are-tolerances-how-do-you-decide-which-ones-are-critica",
+       "q": "What are tolerances? How do you decide which ones are critical? Give an example where tolerances caused a manufacturing problem.",
+       "a": "<p>A tolerance is the allowed variation in a dimension. Every part comes out slightly different, so tolerances define what still works. The critical ones are on features that set how parts function or fit together: bearing bores, shaft fits, sealing surfaces, mating and locating features, and anything in a tolerance stack-up that affects alignment. Everything else should be loose, because tighter tolerances cost more machining time, inspection, and scrap.</p><p>Three types of fits:</p><ul><li><strong>Clearance fit:</strong> the shaft is always smaller than the hole, so it slides or spins (bushings, pins that need to come out).</li><li><strong>Interference fit:</strong> the shaft is always larger than the hole, so it&#x27;s pressed in and holds by friction (bearings pressed into housings).</li><li><strong>Transition fit:</strong> it could end up either way. Used for accurate location that can still be assembled.</li></ul><figure><img src=\"images/fits-clearance-interference-transition.png\" alt=\"\" loading=\"lazy\"></figure><p><strong>Your example:</strong> the Baja centerlock limit switch plate, with critical bores held to 0.001 to 0.002 in, and the centerlock testbench, where alignment tolerances and lead screw backlash only showed up once it was built and had to be fixed through redesign.</p>"
+      },
+      {
+       "id": "machine-design--a-four-hole-rectangular-pattern-has-to-drop-onto-four-matchi",
+       "q": "A four-hole rectangular pattern has to drop onto four matching studs. How do you make sure it assembles every time with good positional accuracy?",
+       "a": "<p>Control the holes with a GD&amp;T position tolerance referenced to datums, and size it with the fixed-fastener formula: hole MMC = stud MMC + (position tolerance on the holes) + (position tolerance on the studs). Apply the position tolerance at MMC so the holes get bonus tolerance as they get bigger. If you need precise location, locate with one round hole and one slot, so the part is fully located without being over-constrained, and let the other two holes be clearance. Check with a functional gauge.</p>"
+      },
+      {
+       "id": "machine-design--worst-case-vs-statistical-rss-tolerance-stack-up",
+       "q": "Worst-case vs statistical (RSS) tolerance stack-up",
+       "a": "<p>Worst case adds every tolerance at its limit, so assembly is guaranteed but the tolerances end up tight and expensive. RSS (root sum square, √(Σt²)) assumes the variations are independent and roughly normal, so it predicts a smaller total, with a small chance of an out-of-spec part. Use worst case for low volume or critical fits, and RSS for high-volume production with many parts in the stack.</p>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Materials and Manufacturing",
+   "id": "materials-and-manufacturing",
+   "intro": "",
+   "subs": [
+    {
+     "title": "Material Properties and Selection",
+     "cards": [
+      {
+       "id": "materials-and-manufa--how-would-you-select-the-material-for-a-specific-mechanical-",
+       "q": "How would you select the material for a specific mechanical component?",
+       "a": "<ol><li><strong>Define the function and environment:</strong> What loads (static, cyclic, impact)? What temperatures? Corrosion, chemicals, moisture, or seawater? Wear? Weight and cost limits?</li><li><strong>Pick candidates with the right properties:</strong> use tools like MatWeb or Ashby charts. Cyclic or high loads point to yield strength, hardness, and fatigue resistance. High temperature points to heat resistance and thermal expansion. Weight-critical parts point to aluminum, titanium, or composites, compared on strength-to-weight (σ/ρ) or stiffness-to-weight (E/ρ).</li><li><strong>Check manufacturability:</strong> Can it be machined, welded, cast, or forged? Does it need heat treatment? Can it be joined to the parts around it? Does it need to meet a standard like ASTM or ISO?</li></ol><p class=\"fu\">Follow-ups</p><ul><li>Give a quick example from your own work, such as why the Baja A-arms are steel tube, or why 3D-printed parts were fine for the centerlock testbench but not for the vehicle.</li></ul>"
+      },
+      {
+       "id": "materials-and-manufa--compare-steel-and-aluminum",
+       "q": "Compare steel and aluminum.",
+       "a": "<p>Aluminum is about one third the density of steel (about 2.7 vs 7.85 g/cm³) and about one third the stiffness (E ≈ 70 vs 200 GPa). It&#x27;s good when mass matters, conducts heat much better, and resists corrosion through its oxide layer. Steel holds its strength at much higher temperatures, has better fatigue behavior, wears better, and is usually cheaper and easier to weld. I&#x27;d pick aluminum for weight-sensitive structures at moderate temperature, and steel for high-load, high-temperature, wear, or stiffness-critical parts, depending on the load case and environment.</p><p class=\"fu\">Follow-ups</p><ul><li>Interesting fact: steel and aluminum have almost the same stiffness-to-weight ratio (E/ρ). For the same mass, an aluminum part can be thicker and end up just as stiff, which is why aluminum works so well for thin-walled structures.</li><li>Fatigue: most steels have an endurance limit (below a certain stress they last indefinitely). Aluminum doesn&#x27;t, so it eventually fails under any cyclic load given enough cycles.</li><li>Aluminum loses a lot of strength in the heat-affected zone when welded, especially heat-treated alloys like 6061-T6.</li></ul>"
+      },
+      {
+       "id": "materials-and-manufa--you-have-two-identical-looking-blocks-one-steel-and-one-alum",
+       "q": "You have two identical-looking blocks, one steel and one aluminum. How do you tell them apart?",
+       "a": "<ul><li><strong>Weigh them:</strong> steel is about 3 times heavier for the same volume. Fastest and most reliable.</li><li><strong>Magnet:</strong> most steels are magnetic. Trap: austenitic stainless steels (like 304) are barely magnetic, so a magnet alone can fool you.</li><li><strong>Hardness:</strong> steel is usually harder, so aluminum scratches or dents more easily.</li><li><strong>Thermal conductivity:</strong> aluminum feels colder to the touch and heats up faster from one end.</li><li><strong>Sound:</strong> tap them; steel rings at a different pitch.</li></ul><p>Melting or corroding them works in principle, but it&#x27;s destructive, so mention it last if at all.</p>"
+      },
+      {
+       "id": "materials-and-manufa--rank-the-coefficients-of-thermal-expansion-of-aluminum-bronz",
+       "q": "Rank the coefficients of thermal expansion of aluminum, bronze, and steel.",
+       "a": "<p>Aluminum (about 23 × 10⁻⁶ /K) &gt; bronze (about 18) &gt; steel (about 12). For reference, copper is about 17 and titanium about 8.6.</p>"
+      },
+      {
+       "id": "materials-and-manufa--how-do-ductile-and-brittle-materials-fail",
+       "q": "How do ductile and brittle materials fail?",
+       "a": "<p>Ductile materials yield and fail in shear along slip planes, about 45° to the load, with necking and a cup-and-cone fracture, so there&#x27;s plenty of warning. Brittle materials fail in tension, perpendicular to the largest principal stress, starting at a flaw, suddenly. Brittle materials like concrete, cast iron, and ceramics are much stronger in compression than tension.</p>"
+      },
+      {
+       "id": "materials-and-manufa--typical-property-values",
+       "q": "Typical property values",
+       "a": "<ul><li>Mild steel (A36): E ≈ 200 GPa, yield ≈ 250 MPa, UTS ≈ 400 to 550 MPa.</li><li>4130 chromoly (Baja frame tubing): yield ≈ 435 MPa normalized, UTS ≈ 670 MPa.</li><li>Aluminum 6061-T6: E ≈ 69 GPa, yield ≈ 276 MPa, UTS ≈ 310 MPa.</li><li>Aluminum 7075-T6: yield ≈ 500 MPa, UTS ≈ 570 MPa.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Metals, Heat Treatment, and Hardness",
+     "cards": [
+      {
+       "id": "materials-and-manufa--what-do-annealing-normalizing-quenching-and-tempering-do",
+       "q": "What do annealing, normalizing, quenching, and tempering do?",
+       "a": "<ul><li><strong>Annealing:</strong> heat above the critical temperature, then cool slowly in the furnace. Softer, more ductile, stress-relieved, easier to machine.</li><li><strong>Normalizing:</strong> heat above critical, then cool in air. Finer, more uniform grain, a bit stronger than annealed.</li><li><strong>Quenching:</strong> cool rapidly in water or oil to form martensite. Very hard and strong but brittle.</li><li><strong>Tempering:</strong> reheat a quenched part below critical. Gives up some hardness for much better toughness.</li><li><strong>Stress relief:</strong> heat below critical and cool slowly to remove residual stress without changing the structure much.</li></ul><p>None of these change Young&#x27;s modulus. Forged parts are heat treated to relieve residual stress, refine and even out the grain structure, improve machinability, and hit the required hardness and strength.</p>"
+      },
+      {
+       "id": "materials-and-manufa--what-are-the-ways-to-strengthen-a-metal",
+       "q": "What are the ways to strengthen a metal?",
+       "a": "<ul><li><strong>Grain size reduction:</strong> grain boundaries block dislocation motion, so finer grains mean higher strength and toughness (Hall-Petch).</li><li><strong>Solid solution strengthening:</strong> alloying atoms distort the lattice and pin dislocations.</li><li><strong>Strain hardening (cold work):</strong> plastic deformation multiplies dislocations, which tangle and resist further slip.</li><li><strong>Precipitation hardening:</strong> fine particles block dislocations (the T6 in 6061-T6).</li><li><strong>Heat treatment:</strong> quench and temper for martensite.</li></ul>"
+      },
+      {
+       "id": "materials-and-manufa--what-are-the-main-types-of-steel",
+       "q": "What are the main types of steel?",
+       "a": "<ul><li><strong>Low carbon (under ~0.3% C):</strong> ductile, very weldable, barely responds to heat treatment.</li><li><strong>Medium carbon (~0.3 to 0.6% C):</strong> heat treatable, stronger but less ductile. Shafts, gears, axles.</li><li><strong>High carbon (over ~0.6% C):</strong> hardest and strongest, least ductile. Springs and tools.</li><li><strong>Stainless:</strong> at least about 10.5% chromium for corrosion resistance. Austenitic grades like 304 are nonmagnetic; 17-4 PH is precipitation hardened.</li></ul><p>AISI/SAE four-digit codes: the first two digits give the alloy family and the last two give carbon in hundredths of a percent. 4130 is chromium-molybdenum steel with 0.30% carbon.</p>"
+      },
+      {
+       "id": "materials-and-manufa--what-mechanical-tests-should-you-know",
+       "q": "What mechanical tests should you know?",
+       "a": "<ul><li><strong>Tensile test:</strong> pull a specimen at a set rate to get the stress-strain curve.</li><li><strong>Bend test:</strong> three-point bend to a set angle; a quick check of ductility and weld soundness.</li><li><strong>Charpy impact:</strong> a pendulum breaks a notched bar; the energy absorbed measures toughness and shows the ductile-to-brittle transition temperature.</li><li><strong>Fracture toughness (CTOD, K_IC):</strong> load a pre-cracked specimen to see how much a crack can take.</li><li><strong>Hardness (Rockwell, Brinell, Vickers):</strong> resistance to indentation; it correlates roughly with tensile strength.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Plastics and Composites",
+     "cards": [
+      {
+       "id": "materials-and-manufa--how-does-carbon-fiber-carry-load",
+       "q": "How does carbon fiber carry load?",
+       "a": "<p>The fibers carry tension along their length; the epoxy matrix holds them in place, transfers load between fibers, keeps them from buckling in compression, and carries shear. Align fibers with the load paths, and use a quasi-isotropic layup (0/±45/90) when loads come from several directions. Weak spots are interlaminar shear, impact damage, and bolted joints.</p>"
+      },
+      {
+       "id": "materials-and-manufa--you-find-a-defect-in-a-carbon-fiber-panel-bonded-to-a-foam-c",
+       "q": "You find a defect in a carbon fiber panel bonded to a foam core: about 0.010 in deep and the size of your pinky. It's for a crewed spacecraft module. How do you decide whether it's still flight-safe?",
+       "a": "<ol><li>Stop and document it with a nonconformance report. Don&#x27;t decide alone.</li><li>Find the real extent with nondestructive inspection: visual, tap test, ultrasonic or thermography. The visible mark may hide a larger delamination or a disbond from the core.</li><li>Compare it with the drawing&#x27;s allowable defect criteria and the damage tolerance requirements.</li><li>Analyze it: what load runs through that area, and what is the margin of safety with the defect modeled (a strength knockdown)? Crewed hardware has strict fracture control rules.</li><li>Disposition through the review board with structures and quality: use as is with analysis, repair with an approved process (for example a scarf repair) and re-inspect, or scrap.</li><li>Find the root cause so it doesn&#x27;t happen again.</li></ol>"
+      }
+     ]
+    },
+    {
+     "title": "Machining",
+     "cards": [
+      {
+       "id": "materials-and-manufa--why-would-you-use-casting-instead-of-cnc-machining",
+       "q": "Why would you use casting instead of CNC machining?",
+       "a": "<p>Casting wins for complex shapes, internal cavities, large parts, and high volume, where the tooling cost spreads out and less material is wasted. CNC wins for low volume, tight tolerances, better material properties (wrought stock instead of cast), and fast design changes with no tooling. A common approach is to cast near net shape and then machine the critical features.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Sheet Metal, Casting, Molding, and Additive",
+     "cards": [
+      {
+       "id": "materials-and-manufa--sand-casting-vs-die-casting",
+       "q": "Sand casting vs die casting",
+       "a": "<p>Sand casting is cheap for low quantities and can make very large parts, but it&#x27;s less dimensionally accurate and has a rougher finish. Die casting pushes molten metal into a steel die: good tolerances and finish, little post-machining, and high volume, but the tooling is expensive, part size is limited, and porosity makes guaranteed mechanical properties harder. Your source notes listed tight tolerances as a general casting advantage; that&#x27;s true for die and investment casting, not sand casting.</p>"
+      },
+      {
+       "id": "materials-and-manufa--name-the-main-parts-of-an-injection-molding-machine-and-the-",
+       "q": "Name the main parts of an injection molding machine, and the key design rules for molded parts.",
+       "a": "<p>Machine: hopper, barrel with heater bands, reciprocating screw, nozzle, the mold (cavity half and core half with runners and gates), the clamping unit with tie bars, and ejector pins.</p><ul><li>Keep wall thickness uniform. Too thick causes sink marks and long cycle times; too thin causes short shots.</li><li>Add draft, usually 1 to 2 degrees (more with textured surfaces), so parts eject cleanly.</li><li>Use radii instead of sharp corners, and ribs instead of thick sections (rib thickness about 50 to 60% of the wall).</li><li>Avoid undercuts, or plan for slides and lifters.</li><li>Common defects and fixes: sink marks (thinner sections, more packing pressure or hold time), short shots (more fill pressure or thicker walls), flash (too much pressure or a worn mold), warping, and weld lines.</li></ul>"
+      },
+      {
+       "id": "materials-and-manufa--hot-runner-vs-cold-runner-molds",
+       "q": "Hot runner vs cold runner molds",
+       "a": "<p>Hot runners keep the plastic molten up to the gate: less waste, faster cycles, better part quality, but higher cost and more maintenance. Cold runners are cheaper and simpler and suit heat-sensitive materials, but the runner is scrap every shot and cycles are slower.</p>"
+      },
+      {
+       "id": "materials-and-manufa--compare-the-main-3d-printing-processes",
+       "q": "Compare the main 3D printing processes.",
+       "a": "<ul><li><strong>FDM:</strong> filament through a heated nozzle. Cheap and fast, but weak between layers.</li><li><strong>Vat polymerization (SLA, DLP, MSLA):</strong> light cures liquid resin. SLA uses a laser, DLP a projector, MSLA an LCD-masked UV array. Fine detail and smooth surfaces.</li><li><strong>SLS and MJF:</strong> polymer powder bed fused by a laser (SLS) or by inkjet agent plus infrared heat (MJF). Strong nylon parts with no supports.</li><li><strong>SLM / DMLS:</strong> a laser fully melts metal powder. Dense metal parts with complex geometry.</li><li><strong>WAAM / DED:</strong> an arc or laser deposits weld wire layer by layer. Large metal parts quickly, but rough and needs machining.</li></ul>"
+      },
+      {
+       "id": "materials-and-manufa--you-re-printing-with-wire-arc-additive-waam-and-find-a-hole-",
+       "q": "You're printing with wire-arc additive (WAAM) and find a hole in a section that's already printed. What do you do?",
+       "a": "<ol><li>Treat it as a defect: stop, document it, and find its full extent with CT, ultrasonic, or X-ray.</li><li>Grind or machine the void out back to sound metal.</li><li>Re-deposit weld to fill it, controlling interpass temperature and shielding gas.</li><li>Stress relieve, finish machine, and re-inspect (dye penetrant or X-ray).</li><li>Find the root cause, such as contamination, shielding gas problems, or bad parameters.</li></ol>"
+      }
+     ]
+    },
+    {
+     "title": "Design for Manufacturing and Assembly",
+     "cards": [
+      {
+       "id": "materials-and-manufa--you-have-24-hours-to-build-a-box-that-will-be-judged-on-stre",
+       "q": "You have 24 hours to build a box that will be judged on strength and squareness. What do you do?",
+       "a": "<ol><li>Pick a material you can work fast and accurately, like plywood or aluminum angle.</li><li>Spend the first hour on a sketch and cut list.</li><li>Get squareness from fixturing: cut with stops so matching pieces are identical, assemble against a square jig, and check that both diagonals match.</li><li>Get strength from the joints: rabbet or dado joints with glue and screws, plus corner blocks or gussets. A glued back panel acts as a shear web and stiffens the box against racking.</li><li>Glue up, clamp, and let it cure overnight.</li></ol>"
+      },
+      {
+       "id": "materials-and-manufa--how-would-you-design-an-ice-cube-for-optimal-manufacturing",
+       "q": "How would you design an ice cube for optimal manufacturing?",
+       "a": "<p>Open-ended, so define &quot;optimal&quot; first. For fast freezing, maximize surface area to volume with thin shapes. For easy release, add draft and use a flexible silicone tray with rounded corners. To avoid cracking, keep the thickness uniform. For drinks, larger cubes with low surface area melt slower. Name the tradeoff out loud: fast freezing and slow melting pull in opposite directions.</p>"
+      },
+      {
+       "id": "materials-and-manufa--describe-how-a-forklift-works",
+       "q": "Describe how a forklift works.",
+       "a": "<p>Hydraulic cylinders raise a carriage on a telescoping mast. A chain runs over a sheave on top of the cylinder, so the forks move twice as far as the cylinder stroke. Tilt cylinders angle the mast back to cradle the load. A heavy counterweight at the rear keeps the combined center of gravity inside the stability triangle formed by the front wheels and the rear pivot. Rear-wheel steering gives a tight turning radius. Rated capacity drops as the load center moves farther out, because the tipping moment about the front axle grows.</p>"
+      },
+      {
+       "id": "materials-and-manufa--how-would-you-determine-the-impact-forces-on-a-component-you",
+       "q": "How would you determine the impact forces on a component you designed for a race car?",
+       "a": "<p>Start with energy: F_avg = KE/δ, where δ is how far the structure deflects while absorbing the energy, or use impulse-momentum, F = mΔv/Δt. Use measured accelerations from data logging if you have them, otherwise standard load cases (for example a multiple-g bump, braking, and cornering) times a dynamic factor. Then confirm with FEA and, ideally, a test. This is exactly what your Baja load case analysis does.</p>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Electrical and Electromechanical",
+   "id": "electrical-and-electromechanical",
+   "intro": "",
+   "subs": [
+    {
+     "title": "Circuits and Power",
+     "cards": [
+      {
+       "id": "electrical-and-elect--a-pack-is-wired-10s1p-or-5s2p-from-the-same-cells-which-gets",
+       "q": "A pack is wired 10S1P or 5S2P from the same cells. Which gets hotter?",
+       "a": "<p>Heat in each cell is I_cell² × R_internal. Cells in parallel split the current. If both packs deliver the same current, the 5S2P cells each carry half of it and make a quarter of the heat, so the 10S1P pack runs hotter. If both deliver the same power, the 5S2P pack has half the voltage, so it needs twice the current; each parallel cell then carries the same current as a 10S1P cell, and the heating per cell comes out the same. State the assumption, then reason it through.</p>"
+      },
+      {
+       "id": "electrical-and-elect--what-changes-the-resistance-of-a-section-of-wire",
+       "q": "What changes the resistance of a section of wire?",
+       "a": "<p>R = ρL/A: the material&#x27;s resistivity, the length, and the cross-sectional area. Temperature matters too: metals get more resistive as they heat up. At high AC frequencies the skin effect raises resistance, and connections add contact resistance. The heat generated is P = I²R, so the energy over time is I²Rt.</p>"
+      },
+      {
+       "id": "electrical-and-elect--when-sizing-an-electrical-wire-what-matters",
+       "q": "When sizing an electrical wire, what matters?",
+       "a": "<ul><li>Current (ampacity) and the allowable temperature rise for the insulation.</li><li>Voltage drop over the run length, which matters most at low voltage (that&#x27;s why USB cable size is limited by current and voltage drop at 5 V).</li><li>Ambient temperature and how many wires are bundled together.</li><li>Mechanical needs like flexibility and strain relief, and a fuse sized to protect the wire.</li></ul>"
+      },
+      {
+       "id": "electrical-and-elect--where-would-you-put-fuses-in-a-battery-pack-and-why",
+       "q": "Where would you put fuses in a battery pack, and why?",
+       "a": "<p>A main fuse as close to the pack&#x27;s positive terminal as possible, so the entire run of wire downstream is protected from a short. In packs with cells in parallel, add cell-level fuses (fuse wires) so a single shorted cell can&#x27;t have its neighbors dump current into it. Rate fuses above the normal operating current, below the wire&#x27;s ampacity, and for DC at the pack voltage.</p>"
+      },
+      {
+       "id": "electrical-and-elect--ac-vs-dc-power",
+       "q": "AC vs DC power",
+       "a": "<p>AC can be stepped up and down easily with transformers, so the grid transmits at high voltage and low current to cut I²R losses. Homes in the US get AC at 120/240 V, 60 Hz. DC comes from batteries and solar and powers electronics and EVs; very long transmission lines sometimes use high-voltage DC.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Components and Sensors",
+     "cards": [
+      {
+       "id": "electrical-and-elect--quick-definitions",
+       "q": "Quick definitions",
+       "a": "<ul><li><strong>Capacitor:</strong> stores charge and resists changes in voltage.</li><li><strong>Inductor:</strong> stores energy in a magnetic field and resists changes in current. A transformer is two coupled inductors.</li><li><strong>Diode:</strong> lets current flow one way only; used to turn AC into DC.</li><li><strong>Transistor / MOSFET:</strong> a switch or amplifier controlled by a small signal at the gate or base.</li><li><strong>Op-amp:</strong> high-gain amplifier of the voltage difference between its two inputs; with feedback it builds amplifiers, filters, and comparators.</li><li><strong>Voltage divider:</strong> two resistors in series; V_out = V_in · R₂/(R₁ + R₂).</li><li><strong>Wheatstone bridge:</strong> measures small resistance changes; it&#x27;s how strain gauges and many pressure transducers work.</li></ul>"
+      },
+      {
+       "id": "electrical-and-elect--thermocouple-vs-rtd-vs-thermistor",
+       "q": "Thermocouple vs RTD vs thermistor",
+       "a": "<ul><li><strong>Thermocouple:</strong> two different metals joined; the junction makes a voltage that depends on temperature. Rugged, cheap, and covers a huge temperature range, but less accurate.</li><li><strong>RTD:</strong> a metal (usually platinum) whose resistance rises with temperature. Accurate and stable.</li><li><strong>Thermistor:</strong> a ceramic resistor whose resistance usually drops with temperature. Very sensitive and cheap, but only over a narrow range.</li></ul>"
+      },
+      {
+       "id": "electrical-and-elect--how-do-accelerometers-and-gyroscopes-work",
+       "q": "How do accelerometers and gyroscopes work?",
+       "a": "<p>A MEMS accelerometer has a tiny proof mass on springs; acceleration moves the mass and the change in capacitance is measured. A MEMS gyroscope has a vibrating structure; rotation creates a Coriolis force on it, which is measured to get angular rate.</p>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "CAD and FEA",
+   "id": "cad-and-fea",
+   "intro": "",
+   "subs": [
+    {
+     "title": "FEA Setup: Mesh, Boundary Conditions, Loads",
+     "cards": [
+      {
+       "id": "cad-and-fea--how-do-you-check-if-your-fea-mesh-is-good",
+       "q": "How do you check if your FEA mesh is good?",
+       "a": "<ul><li>Run a mesh convergence study: refine until the peak stress in your area of interest changes by only a few percent.</li><li>Check element quality: aspect ratio, skewness, and Jacobian.</li><li>Refine locally at fillets, holes, and contact areas instead of everywhere.</li><li>Use quadratic elements (for example 10-node tets) for stress results.</li><li>Compare against a hand calculation.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Validating FEA Results",
+     "cards": [
+      {
+       "id": "cad-and-fea--how-do-you-know-your-fea-results-are-right",
+       "q": "How do you know your FEA results are right?",
+       "a": "<ul><li><strong>Hand calcs first:</strong> check the result against a simple estimate (a beam, a pressure vessel, σ = Mc/I) to make sure it&#x27;s the right order of magnitude.</li><li><strong>Mesh convergence:</strong> refine the mesh in the high-stress areas until the peak stress stops changing much.</li><li><strong>Boundary conditions:</strong> fixed supports are stiffer than real ones and create fake stress peaks at the constraints. Make sure loads and supports match reality.</li><li><strong>Singularities:</strong> stress at a sharp corner or point load keeps rising as you refine the mesh. That&#x27;s a model artifact, not a real number.</li><li><strong>Test:</strong> compare against physical tests or strain gauges where possible.</li></ul><p class=\"fu\">Follow-ups</p><ul><li>Tie it to SKULL CRUSHER: ANSYS showed the critical areas near the bore and attachment points, which drove the fillet and thickness changes.</li></ul>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Open-Ended Design Questions",
+   "id": "open-ended-design-questions",
+   "intro": "<p>For these, the interviewer cares about your process more than the final answer. Clarify requirements, state assumptions, identify the main loads and failure modes, then size and choose materials.</p>",
+   "subs": [
+    {
+     "title": null,
+     "cards": [
+      {
+       "id": "open-ended-design-qu--design-a-hammock",
+       "q": "Design a hammock.",
+       "a": "<p>Start with requirements: maximum user weight, span between anchors, environment, and safety factor. Structurally, a hammock acts like a cable in tension, so anchor loads depend heavily on the hang angle. A tight, flat hammock creates huge anchor forces, so design for a reasonable sag (a hang angle around 30 degrees is common). Use a strong woven fabric such as ripstop nylon with reinforced edges. Size the end connections and straps for the full tension with a solid margin, and design them to resist fatigue, abrasion, and UV degradation. Make the anchor interface spread the load and adjust for different setups.</p><figure><img src=\"images/hammock-tension.png\" alt=\"\" loading=\"lazy\"></figure><p class=\"fu\">Follow-ups</p><ul><li>Quick check: tension in each strap is T = W / (2 sin θ), where θ is the strap angle from horizontal. At 30 degrees, T equals the full body weight. Near horizontal, T shoots toward infinity.</li></ul>"
+      },
+      {
+       "id": "open-ended-design-qu--how-would-you-get-from-the-roof-of-one-building-to-another-t",
+       "q": "How would you get from the roof of one building to another, then down to the ground?",
+       "a": "<p>I&#x27;d use a portable rope access system. Anchor a static rope to a solid structural point on the first building, get the rope across the gap, secure it to the second building, and tension it into a Tyrolean traverse. Cross using a harness and pulley with a redundant safety line. On the second roof, use a separately anchored rope to rappel down. The key considerations are anchor strength, redundancy, rope tension, and edge protection so the rope doesn&#x27;t get cut on the roof edge.</p><p class=\"fu\">Follow-ups</p><ul><li>Tension trap: a tight horizontal rope with a person hanging in the middle sees a tension many times their body weight, same math as the hammock.</li></ul>"
+      },
+      {
+       "id": "open-ended-design-qu--you-re-on-a-bridge-and-all-the-lug-nuts-fall-off-one-wheel-h",
+       "q": "You're on a bridge and all the lug nuts fall off one wheel. How do you fix it?",
+       "a": "<p>Take one lug nut from each of the other three wheels and put them on the bare wheel, so every wheel has at least three nuts. Drive slowly to the nearest shop. The point of the question is calm, practical problem solving with what you have.</p>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Quick-Reference Formula Sheet",
+   "id": "quick-reference-formula-sheet",
+   "intro": "<p>Equations worth knowing cold.</p>",
+   "subs": [
+    {
+     "title": null,
+     "cards": [
+      {
+       "id": "quick-reference-form--mechanics-of-materials",
+       "q": "Mechanics of materials",
+       "a": "<ul><li>Stress and strain: σ = F/A, ε = ΔL/L, σ = Eε</li><li>Axial stiffness: k = EA/L. Deflection: δ = FL/(AE)</li><li>Bending stress: σ = Mc/I = M/S</li><li>Rectangle: I = bh³/12. Solid circle: I = πR⁴/4. Tube: I = π(Ro⁴ − Ri⁴)/4</li><li>Cantilever, end load: M_max = PL, δ = PL³/(3EI)</li><li>Simply supported, center load: M_max = PL/4, δ = PL³/(48EI)</li><li>Torsion: τ = Tr/J, θ = TL/(GJ), J = πR⁴/2 for a solid shaft</li><li>Euler buckling: P_cr = π²EI/(KL)²</li><li>Thin-walled pressure vessel: hoop σ = pr/t, axial σ = pr/(2t)</li><li>Factor of safety: FS = strength / working stress</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--dynamics-energy-power",
+       "q": "Dynamics, energy, power",
+       "a": "<ul><li>Kinetic energy: KE = ½mv². Rotational: ½Iω²</li><li>Work: W = F·d. Power: P = W/t = F·v = τω</li><li>Impulse-momentum: FΔt = mΔv</li><li>Natural frequency: ω_n = √(k/m)</li><li>Drag: F_D = ½ρC_D A V²</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--fluids-and-heat-transfer",
+       "q": "Fluids and heat transfer",
+       "a": "<ul><li>Hydrostatic pressure: P = P_atm + ρgh</li><li>Ideal gas: PV = nRT (use Kelvin)</li><li>Mass flow: ṁ = ρAV</li><li>Steady momentum: ΣF = Σ(ṁV)_out − Σ(ṁV)_in</li><li>Bernoulli: P + ½ρV² + ρgh = constant</li><li>Conduction: q = −kA dT/dx. Convection: q = hAΔT. Radiation: q = εσA(T⁴ − T_surr⁴)</li><li>Thermal expansion: ΔL = αLΔT</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--material-values",
+       "q": "Material values",
+       "a": "<ul><li>Steel: E ≈ 200 GPa, ρ ≈ 7.85 g/cm³, α ≈ 12 × 10⁻⁶ /K, melts around 1400 to 1500°C</li><li>Aluminum: E ≈ 70 GPa, ρ ≈ 2.7 g/cm³, α ≈ 23 × 10⁻⁶ /K, melts around 660°C</li><li>Titanium (Ti-6Al-4V): E ≈ 114 GPa, ρ ≈ 4.4 g/cm³</li></ul>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Company-Specific Notes",
+   "id": "company-specific-notes",
+   "intro": "<p>One subsection per company: what they build, role details, interview format, and questions asked.</p>",
+   "subs": [
+    {
+     "title": "SpaceX: Booster Structures",
+     "cards": [
+      {
+       "id": "company-specific-not--interview-format",
+       "q": "Interview format",
+       "a": "<p>Based on past candidate reports: the interviews are mostly technical, built around your projects and the job posting. Expect intuition questions like the tape measure, steel vs aluminum density, and the other physical-reasoning questions in this doc. They care more about your thought process than getting every answer right, so think out loud and state assumptions.</p>"
+      },
+      {
+       "id": "company-specific-not--what-do-you-know-about-our-team",
+       "q": "What do you know about our team?",
+       "a": "<p>Booster Structures owns the primary load-bearing structure of the first stage: the tanks, thrust structure, interstage, and the interfaces to propulsion and landing systems. These parts have to survive extreme loads during ascent, stage separation, reentry, and landing while staying as light as possible. The work is tightly tied to manufacturing and testing because of the hardware&#x27;s size and the push for fast iteration, so it involves a lot of welded structures, large-scale fabrication, structural analysis, and full-scale testing. Because the booster is reused, durability over many flights and ease of inspection are also major design drivers.</p>"
+      },
+      {
+       "id": "company-specific-not--why-spacex",
+       "q": "Why SpaceX?",
+       "a": "<p>A big reason I went into engineering was to work on problems that matter, and I try to pick projects that prepare me to make that kind of impact. SpaceX stands out because the mission is ambitious but grounded in real hardware and real results. I respect what other aerospace companies do, but what draws me to SpaceX specifically is the pace: fast design-build-test cycles where failures are treated as data and the next iteration is already being built. Many organizations work on long timelines with few full-system tests. At SpaceX, engineers learn faster and see the direct impact of their work, and that&#x27;s where I&#x27;d grow and contribute the most.</p>"
+      },
+      {
+       "id": "company-specific-not--why-aerospace",
+       "q": "Why aerospace?",
+       "a": "<p>It started with Star Wars. I grew up in the prequel era, and as a kid I fully believed everything in the movies and The Clone Wars was happening somewhere out there. As I got older I realized those stories weren&#x27;t real, but they left me curious about what actually is out there and how far people can go. That curiosity shifted from imagination to engineering: instead of wondering whether those worlds exist, I got interested in the real technology that could let us explore. What keeps me interested now is the challenge of turning science fiction into real hardware.</p>"
+      },
+      {
+       "id": "company-specific-not--what-is-spacex-s-mission",
+       "q": "What is SpaceX's mission?",
+       "a": "<p>To make humanity multiplanetary. In practice, that means developing fully reusable launch systems and the infrastructure to sustain human life beyond Earth, starting with Mars.</p>"
+      },
+      {
+       "id": "company-specific-not--what-do-you-bring",
+       "q": "What do you bring?",
+       "a": "<p>Hands-on structural design experience from concept through fabrication and testing. Across Baja SAE, combat robotics, and my internship at Advanced Spade, I&#x27;ve designed load-bearing parts, validated them with FEA, machined them myself, and tested them in real conditions, so I know how designs behave outside of CAD and how to iterate when something doesn&#x27;t work the first time.</p><p>I&#x27;m comfortable designing under tight constraints: a 12 lb weapon allocation on a 30 lb robot, a gimbal redesign that had to shrink 53%, and a Baja suspension system that had to get 10% lighter on a fixed budget. I also lead people. I run a 13-person suspension subteam and defend our design in formal reviews. And I&#x27;m used to cross-functional work where mechanical hardware has to integrate with electrical and software. Launch vehicle structures combine extreme loads, weight sensitivity, and manufacturability, which are exactly the challenges I&#x27;ve enjoyed most.</p>"
+      },
+      {
+       "id": "company-specific-not--questions-to-ask-spacex",
+       "q": "Questions to ask SpaceX",
+       "a": "<ul><li>How are new engineers brought into the team&#x27;s workflow, and what does success look like in the first six months?</li><li>What are the biggest technical challenges the team is facing right now?</li><li>What types of structures would I most likely work on?</li><li>How closely does the design team work with technicians on the floor, and what&#x27;s that dynamic like?</li><li>What knowledge do you wish new hires already had?</li></ul>"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
