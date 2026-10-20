@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-11",
+ "updated": "2026-10-19",
  "sections": [
   {
    "title": "Behavioral and STAR Stories",
@@ -113,6 +113,308 @@
        "id": "behavioral-and-star---questions-to-ask-the-interviewer",
        "q": "Questions to Ask the Interviewer",
        "a": "<ul><li>What does success look like for a new engineer on this team in the first six months?</li><li>What are the biggest technical challenges the team is working on right now?</li><li>What kinds of parts or structures would I most likely own?</li><li>How closely do design engineers work with technicians on the floor?</li><li>What do you wish new hires already knew coming in?</li><li>What excites you most about the team&#x27;s work right now?</li></ul>"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Resume Deep Dive",
+   "id": "resume-deep-dive",
+   "intro": "<p>Questions a hiring engineer would ask after reading your resume and armaandhah.github.io, line by line. Answers use only what you've published. <strong>Have ready</strong> lists the numbers and details you need to know cold that aren't written down anywhere I can see. If you can't fill one in, that's the line to study before the interview. Rule of thumb: anything on the page is fair game, and every number invites \"how did you get that?\"</p>",
+   "subs": [
+    {
+     "title": "Baja SAE Lead: Suspension Geometry and Steering",
+     "cards": [
+      {
+       "id": "resume-deep-dive--walk-me-through-your-m26-suspension-design-what-were-the-goa",
+       "q": "Walk me through your M26 suspension design. What were the goals and how did you set them?",
+       "a": "<p>Every goal came back to two things: cut weight and raise reliability. M25 had three specific problems: interferences that only showed up on the built car (tie rod vs A-arm, tie rod vs rim, shock mount vs CV), steering effort that drivers complained about, and an A-arm that took three redesigns to hold up. So the M26 priorities were: validate geometry through travel before anything gets cut, lower steering effort and play, size parts against real loads instead of legacy ones, and get the subsystem about 10% lighter.</p><p>The design is still in progress, so I talk about it as targets and the analysis behind them, not test results yet.</p><p class=\"fu\">Have ready</p><ul><li>Front and rear architecture: double A-arm front? trailing arm with camber links rear? Say it in one sentence.</li><li>Wheelbase, track width, ride height, wheel travel (bump/droop), and tire size.</li><li>Your static camber, toe, caster (6.4°), kingpin inclination, and scrub radius.</li><li>What the 10% is measured against (M25 subsystem mass?) and the actual masses.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why that architecture and not the alternative?</li><li>What would you change if you had another month?</li><li>What's the biggest risk left in the design?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-wrote-a-vba-macro-to-sweep-the-geometry-how-does-it-work",
+       "q": "You wrote a VBA macro to sweep the geometry. How does it work, and why not just use Lotus or Optimum Kinematics?",
+       "a": "<p>I modeled the suspension in SolidWorks and wrote VBA macros that step the shock and rack through their travel. At each step the model rebuilds and the macro records camber gain, bump steer, turn angle, Ackermann percentage, turn radius, and clearances. That gave the team a validated way to catch interferences on screen instead of on the car, which no previous UCLA Baja team had.</p><p>The reason for doing it in SolidWorks rather than a kinematics package: our interference problems were with real 3D parts (tie rod vs rim, shock mount vs CV), and a hardpoint-only kinematics tool doesn't see part bodies. SolidWorks has the actual geometry, and the team already lives in it.</p><figure><img src=\"images/bump-steer-camber-gain.png\" alt=\"Front view of an A-arm suspension with bump steer and camber gain curves\" loading=\"lazy\"><figcaption>Bump steer is toe change with wheel travel; camber gain is camber change. The sweep plots both.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>How the macro drives travel: changing a driving dimension, a mate, or the Equations Manager? How many steps per sweep?</li><li>How it checks clearance: interference detection, or measuring minimum distance between bodies?</li><li>How you validated the macro itself (hand check of one position, compare against the M25 car, or against a kinematics tool)?</li><li>How long a full sweep takes to run.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>How do you know the macro's numbers are right?</li><li>What's the resolution of your sweep, and could you miss an interference between steps?</li><li>What did it catch that you'd have missed otherwise?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--define-bump-steer-camber-gain-and-ackermann-what-values-did-",
+       "q": "Define bump steer, camber gain, and Ackermann. What values did you aim for and why?",
+       "a": "<p>Bump steer is toe change as the wheel moves up and down. You want it near zero so the car doesn't steer itself over bumps, which matters a lot on Baja terrain. It's set mostly by where the tie rod's inner and outer points sit relative to the A-arms: if the tie rod isn't on the right line, it traces a different arc and pulls the wheel.</p><p>Camber gain is how camber changes with travel. Some negative camber gain in bump keeps the outside tire flatter in roll. On a Baja car with long travel it's a compromise, because large camber change also scrubs the tire over rough ground.</p><p>Ackermann is how much more the inside wheel steers than the outside in a turn, so both wheels roll around the same center without scrubbing. 100% means true Ackermann geometry; less is partial Ackermann.</p><figure><img src=\"images/ackermann-turn-radius.png\" alt=\"Ackermann steering geometry and turn radius\" loading=\"lazy\"><figcaption>Ackermann: both front wheels point at one turn center, so the inside wheel steers more.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>Your target and achieved bump steer (deg or in of toe per inch of travel).</li><li>Camber gain numbers in bump and droop.</li><li>Your Ackermann percentage and why you chose it.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>How do you fix bump steer?</li><li>Why not 100% Ackermann?</li><li>How does camber gain interact with roll center height?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--your-goal-was-an-8-ft-turn-radius-with-no-tire-slip-which-ne",
+       "q": "Your goal was an 8 ft turn radius with no tire slip, which needed 37° of inside steer. How did you get 37°?",
+       "a": "<p>For a no-slip turn, both front wheels have to point at the same turn center on the rear axle line. With wheelbase L, front track t, and turn radius R measured to the vehicle centerline at the rear axle, tan(δ_inside) = L / (R − t/2) and tan(δ_outside) = L / (R + t/2). Running the numbers for an 8 ft turn radius with our wheelbase gave about 37° on the inside wheel, with the outside wheel smaller per Ackermann.</p><p>Pushing to 37° also pushed the worst-case turn angle with clearance to 43° at full bump, which is exactly where interferences show up, so I built a macro that checked every clearance through both steer and travel and iterated the geometry until it passed.</p><p class=\"fu\">Have ready</p><ul><li>Your wheelbase, front track, and exactly how you defined the 8 ft radius (to the outside wheel? the vehicle center?). Interviewers will check your 37° on the spot.</li><li>Outside wheel angle at full lock.</li><li>Where the 43° worst case comes from (steer plus bump-induced toe change?).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Is 'no tire slip' realistic? Tires always run some slip angle under lateral load. (Honest answer: it's the kinematic target at low speed.)</li><li>What limits the max steer angle: CV joint angle, tie rod-to-rim clearance, or the rack?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--why-did-lowering-caster-to-6-4-reduce-steering-effort-what-d",
+       "q": "Why did lowering caster to 6.4° reduce steering effort? What did you give up?",
+       "a": "<p>Caster tilts the steering axis back. That creates mechanical trail: the tire contact patch sits behind where the steering axis hits the ground, so the tire's side force has a lever arm that resists steering and pulls the wheel back to center. Less caster means less trail, so less effort and less kickback.</p><p>The tradeoff: less self-centering and straight-line stability, and less beneficial camber gain when you steer (caster makes the outside wheel gain negative camber in a turn). Kingpin inclination and scrub radius also feed into steering effort, so caster wasn't the only lever.</p><figure><img src=\"images/caster-trail-steering-effort.png\" alt=\"Caster angle and mechanical trail\" loading=\"lazy\"><figcaption>Caster puts the contact patch behind the steering axis; that lever arm (trail) is what the driver fights.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>M25's caster for comparison, and how much effort dropped (measured or calculated?).</li><li>Your kingpin inclination and scrub radius.</li><li>Whether drivers have felt the change yet, or if it's still on paper.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>What's mechanical trail vs pneumatic trail?</li><li>Why not go to zero caster?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--walk-me-through-the-m26-steering-rack-how-did-you-get-more-t",
+       "q": "Walk me through the M26 steering rack. How did you get more travel in a shorter package and cut 21% of the mass?",
+       "a": "<p>M25's steering had play, and its rack could rotate inside the housing, wearing the teeth unevenly. M26 locks rack alignment with a key, a pin, and a set screw adjustable from outside the housing, and a flat on the housing plus its mounting tabs stops the housing from rotating. That flat also let us remove a weight-adding step in the housing.</p><p>Rack travel goes from 2.48 to 3.37 in, in a package 0.6 in shorter. Lock to lock is 193°, under the 200° target. The assembly drops from 3.27 to 2.58 lb, about 21% lighter. I reviewed the FEA and hand calcs behind the new rack diameter and housing before committing to it.</p><figure><img src=\"images/rack-pinion-c-factor.png\" alt=\"Rack and pinion with c-factor\" loading=\"lazy\"><figcaption>Rack travel per pinion turn (c-factor) sets steering quickness: 3.37 in over 193° ≈ 6.3 in/rev.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>Rack ratio (c-factor): 3.37 in over 193° is about 6.3 in of travel per pinion revolution, so a pinion pitch diameter near 2 in. Know your actual pinion: teeth, module/diametral pitch, pitch diameter.</li><li>How you got more travel in a shorter housing (shorter non-toothed sections? different end stops?).</li><li>The rack load case: the tie rod force from your shear pin test, resolved into the rack-perpendicular bending load.</li><li>Rack and housing materials, and what the FEA showed (peak stress, margin).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why does a rack rotating in its housing wear teeth unevenly?</li><li>Where is backlash coming from, and how does a key fix it?</li><li>What sets the 200° lock-to-lock target?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-removed-m25-s-tie-rod-extender-how-did-geometry-let-you-",
+       "q": "You removed M25's tie rod extender. How did geometry let you do that, and why does it matter?",
+       "a": "<p>Optimizing the steering geometry put the tie rod points where they needed to be without an extra part, so the extender went away. That's one less part to carry and one less joint that can loosen or fail, which hits both of our goals, weight and reliability, at once.</p><p class=\"fu\">Have ready</p><ul><li>What the extender was compensating for on M25 (bump steer? clearance?).</li><li>Mass saved.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Any downside to the new tie rod location?</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Baja SAE Lead: Loads, Sizing, and Validation",
+     "cards": [
+      {
+       "id": "resume-deep-dive--how-do-you-know-what-loads-to-design-the-suspension-for",
+       "q": "How do you know what loads to design the suspension for?",
+       "a": "<p>That's exactly the gap we're closing. A load case calculator is being built to solve component loads across bump, cornering, braking, acceleration, and impact directly from the SolidWorks geometry, so every part is designed against real numbers instead of legacy ones. Over-built parts carry mass for nothing; under-built ones fail.</p><p>The plan is to get real data: accelerometers and IMUs on the car, plus strain gauge impact testing on M25, and feed that back into M26.</p><p class=\"fu\">Have ready</p><ul><li>The g-levels you use for each case (e.g. bump, cornering, braking) and where they come from.</li><li>How the calculator turns a tire load into member forces (static equilibrium at the upright with the A-arm/link geometry? a free-body per corner?).</li><li>Bugs you found auditing the old load case sheet (you found lateral load transfer errors and a degrees-to-radians error in a bolt tear-out calc). This is a great story: it shows you check other people's numbers.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>How would you validate the calculator?</li><li>Where would you put strain gauges on a control arm, and why?</li><li>How do you handle a dynamic impact load in a static calc? (dynamic factor, or energy method)</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--tell-me-about-the-lug-calculator-what-is-the-air-force-lug-m",
+       "q": "Tell me about the lug calculator. What is the Air Force lug method?",
+       "a": "<p>Lugs sized without known loads get oversized. I used the Air Force lug method (from the published literature) to build a spreadsheet that sizes the steering clevis lugs to their real loads. The method checks the lug in axial loading (net-section tension and shear-bearing/tear-out), in transverse loading, and then combines them for an oblique load with an interaction equation.</p><p>Against the 680 lb measured in M25 testing with a 1.5 factor of safety, the lugs show a 1.23 margin, which leaves room to shrink the clevis further, and it's already about 35% lighter than M25's. I set it up as a copy-and-use template so anyone on the team can run lug checks the same way.</p><figure><img src=\"images/lug-failure-modes.png\" alt=\"Lug failure modes and oblique load\" loading=\"lazy\"><figcaption>A lug can fail by net-section tension, shear tear-out, or bearing; the oblique load combines axial and transverse checks.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>Be precise about '1.23 margin': is it allowable/required = 1.23 (so margin of safety MS = 0.23), or MS = 1.23? Interviewers will ask, and the two mean very different things.</li><li>The interaction equation you used (the standard one is R_axial^1.6 + R_transverse^1.6 ≤ 1).</li><li>Lug material, thickness, hole and edge distance (e/D), and whether you checked pin bending and bushing bearing too.</li><li>How the 680 lb was measured on M25.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why a 1.5 factor of safety and not 2?</li><li>What failure mode governed?</li><li>Why does the method treat axial and transverse loads separately?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-moved-the-rear-camber-links-from-welded-4130-tube-to-707",
+       "q": "You moved the rear camber links from welded 4130 tube to 7075 billet. Defend that.",
+       "a": "<p>It cut about 20% of the link weight, removed weld heat-affected zones, and roughly tripled bending yield. Welds in 4130 tube are a known weak spot: the HAZ loses strength and is where fatigue cracks start, so a one-piece billet part takes that risk out.</p><p class=\"fu\">Have ready</p><ul><li>How 'tripled bending yield' was calculated (section modulus × yield, for which cross-sections?).</li><li>Axial and buckling stiffness: aluminum's E is about 1/3 of steel's. A link 20% lighter in a material 1/3 as dense has roughly 2.2× the area, so about 75–80% of the axial stiffness (if it were a solid-for-tube swap; check your real sections). Know whether you checked stiffness and compression buckling.</li><li>How the link attaches to steel rod ends (galvanic corrosion, thread engagement in aluminum, inserts?).</li><li>That you plan to buy 7075 rod and test it on the M25 car first.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>7075 has no endurance limit and is notch-sensitive. How do you handle fatigue?</li><li>Stress corrosion cracking in 7075-T6?</li><li>Why not 6061, or keep steel and fix the weld?</li><li>Does lower stiffness change the suspension compliance/handling?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-moved-the-rear-trailing-arm-from-a-cnc-d-shock-pocket-to",
+       "q": "You moved the rear trailing arm from a CNC'd shock pocket to bolt-on brackets. What was the tradeoff?",
+       "a": "<p>Hitting the weight target meant the trailing arm couldn't keep its CNC'd shock pocket. Moving to bolt-on shock brackets let most of the part run on the waterjet with two mirrored CNC setups instead of one complex one. Simpler manufacturing and less mass, at the cost of adding a bolted joint.</p><p class=\"fu\">Have ready</p><ul><li>Mass saved on the trailing arm.</li><li>How the bolted bracket joint is sized (bolt shear and bearing, preload, double shear?) and how you'll keep it from loosening.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Isn't a bolted joint less reliable than a machined pocket?</li><li>How do you locate the bracket accurately?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-did-you-pick-spring-rates-what-s-motion-ratio-and-how-do",
+       "q": "How did you pick spring rates? What's motion ratio, and how does your dual-rate setup work?",
+       "a": "<p>A spring rate picked by feel risks a car that bottoms out and breaks parts, or one so stiff it needs heavier hardware. I built a dual-rate spring calculator around the FOX dual-rate shock, working from motion ratio (shock travel over wheel travel) to the spring rates the car actually needs. It lives in a Google Sheet with a step-by-step guide so future leads pick springs from math.</p><p>Wheel rate = spring rate × MR² (times cos² of the shock's installation angle if MR is just the lever ratio). It's squared because the lever changes both the force and the displacement. A dual-rate shock stacks two springs in series: both compress at first, giving a softer combined rate k₁k₂/(k₁ + k₂), then a crossover stop locks out the softer spring and the rate jumps to the stiffer one. Soft for small bumps, firm before bottoming.</p><figure><img src=\"images/motion-ratio-wheel-rate.png\" alt=\"Motion ratio and wheel rate\" loading=\"lazy\"><figcaption>Wheel rate = spring rate × MR²: the lever cuts both the force and the travel the spring sees.</figcaption></figure><figure><img src=\"images/dual-rate-spring-curve.png\" alt=\"Dual-rate spring force vs travel\" loading=\"lazy\"><figcaption>Two springs in series start soft, then the crossover stop locks one out and the rate jumps.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>Your motion ratio front and rear, the spring rates you landed on, and the crossover point.</li><li>Ride frequency target (wheel rate and corner sprung mass give f = (1/2π)√(k/m)).</li><li>The FOX shock model (885-06-161 dual rate) and what data you asked FOX for (CAD, weight, damping).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why is motion ratio squared?</li><li>How do you choose damping?</li><li>What's a typical ride frequency for an off-road car vs a road car?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--your-resume-says-significantly-more-reliable-than-its-predec",
+       "q": "Your resume says 'significantly more reliable than its predecessor.' The car isn't built. How can you claim that?",
+       "a": "<p>Fair challenge. Honestly, it's a design claim backed by analysis, not test data yet. What supports it: the parts that failed or wore on M25 have been addressed directly (the rack can no longer rotate and wear its teeth unevenly, the tie rod extender joint is gone, welded camber links are now one-piece billet), interferences are checked through full travel and steer in CAD before manufacturing, and parts are being sized against measured loads (like the 680 lb steering load) instead of guesses. The real proof will be testing, which is why we're instrumenting M25 now.</p><p class=\"fu\">Have ready</p><ul><li>One concrete M25 failure and exactly what in M26 prevents it.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>What test will prove it?</li><li>What's your definition of reliability: no failures across an endurance race? Mean distance between failures?</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Baja SAE: Leadership, Budget, and Fabrication",
+     "cards": [
+      {
+       "id": "resume-deep-dive--how-do-you-manage-13-engineers-give-me-a-specific-example-of",
+       "q": "How do you manage 13 engineers? Give me a specific example of a conflict or a missed deadline.",
+       "a": "<p>Speak to how you split the work (by component? by phase?), how you track it, and how you review designs before they get cut. Then one specific story: a disagreement over a design, someone who fell behind, or a part that came back wrong, and what you did.</p><p class=\"fu\">Have ready</p><ul><li>Your structure: who owns what, how often you meet, how you track tasks.</li><li>One real conflict story with a clear outcome.</li><li>How you develop newer members (the documentation templates and copy-and-use calculators are a good answer).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>How do you handle someone who isn't pulling their weight?</li><li>Have you ever had to overrule someone? Were you right?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-do-you-manage-a-10-000-budget-where-did-m25-go-over",
+       "q": "How do you manage a $10,000 budget? Where did M25 go over?",
+       "a": "<p>Know the split by category, how purchases get approved, and what you learned from M25's actuals. M25 spent about $10K with notable overruns in bearings and rod ends; M26's target is around $10.3K.</p><p class=\"fu\">Have ready</p><ul><li>Biggest line items (shocks, rod ends, bearings, stock material).</li><li>What you cut or deferred to stay on budget.</li><li>How sponsorships or donated material factor in.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>If you had $2,000 more, where would it go?</li><li>How do you weigh cost against weight savings?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-presented-at-competition-design-and-placed-14th-of-100-w",
+       "q": "You presented at competition design and placed 14th of 100+. What did the judges ask, and what would you change?",
+       "a": "<p>By the second competition I'd been named M26 lead, so I gave the design presentation in New York, where we placed 14th in design out of over 100 teams.</p><p class=\"fu\">Have ready</p><ul><li>Two or three questions judges actually asked and how you answered.</li><li>The weakest part of your presentation in hindsight.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>What do design judges care about most: the numbers, or the process behind them?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-do-you-hold-tolerance-when-notching-and-welding-a-arm-tu",
+       "q": "How do you hold tolerance when notching and welding A-arm tube? How does weld distortion affect geometry?",
+       "a": "<p>I notched tube stock with an angle grinder, laying out simpler notches with a protractor and pulling complex ones off DXF templates, then built dedicated jigs to hold each part, because suspension geometry is very sensitive to misalignment. The jig fixes the critical points (ball joint and pivot locations) so the part can't move while it's tacked and welded.</p><p class=\"fu\">Have ready</p><ul><li>What tolerance you held on the hardpoints and how you measured it.</li><li>Whether you did the welding (TIG is on your resume) and how you managed distortion: tack sequence, alternating sides, letting it cool in the jig.</li><li>Tube material, OD, and wall.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why does weld distortion happen?</li><li>What's the effect of a pivot being 1/16 in off?</li><li>Why angle grinder over a tube notcher?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-held-the-centerlock-limit-switch-bores-to-1-2-thou-how-a",
+       "q": "You held the centerlock limit switch bores to 1–2 thou. How, and how did you measure it?",
+       "a": "<p>I programmed the toolpaths in Fusion CAM and held the limit switch bores to 1–2 thou for a near-perfect fit, since a sloppy fit there is the kind of reliability problem that shows up at the worst time.</p><p class=\"fu\">Have ready</p><ul><li>How you cut the bores (helical interpolation? bore then finishing pass? reamer?).</li><li>How you measured them (pin gauges, bore gauge, calipers aren't good enough for 0.001).</li><li>Material, tool, and feeds/speeds.</li><li>Whether 1–2 thou means ±0.001–0.002 or total, and on what nominal.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>What's the difference between accuracy and repeatability on a mill?</li><li>Why might a bore come out undersized on a CNC?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--a-late-season-a-arm-failed-what-was-the-root-cause-and-how-d",
+       "q": "A late-season A-arm failed. What was the root cause, and how do you know the redesign fixed it?",
+       "a": "<p>Late in the season an A-arm failed, so I helped redesign it from the ground up. Before committing to the new geometry I 3D-printed test models to check clearances and fit against the rest of the suspension without waiting on another metal build.</p><p class=\"fu\">Have ready</p><ul><li>The actual failure: where it broke, the failure mode (fatigue crack at a weld? overload? buckling?) and the root cause. This is the first thing they'll ask.</li><li>What changed in the redesign to address that cause specifically.</li><li>How it held up afterward.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>How can a plastic print validate 'vehicle dynamics'? (Be careful: it validates geometry and clearance, not strength or dynamics.)</li><li>What would you do differently to catch this earlier?</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Advanced Spade Internship",
+     "cards": [
+      {
+       "id": "resume-deep-dive--walk-me-through-the-gimbal-redesign-how-did-you-cut-package-",
+       "q": "Walk me through the gimbal redesign. How did you cut package volume 53%?",
+       "a": "<p>I picked up an unfinished pitch/roll prototype for the CRABCAKE sewer-inspection robot and carried it to a working redesign. The roll shaft runs in a mounted ball bearing sized for a 5/8 in shaft, then steps down to 9.5 mm at the driven gear. I used the motor already on hand with a 1:3 ratio (20 teeth driving 60), which kept the camera moving fast while drawing about a watt. A 12-channel slip ring allows continuous 360° roll. Control runs on a Teensy 4.1 reading one joystick. Altogether the package shrank 53%.</p><figure><img src=\"images/gear-ratio.png\" alt=\"Gear ratio diagram\" loading=\"lazy\"><figcaption>A 1:3 reduction (20T driving 60T) triples torque and cuts speed to a third.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>Before and after envelope dimensions, and which change saved the most volume.</li><li>Output speed and torque at the camera (motor speed ÷ 3; torque × 3 minus losses).</li><li>Why a slip ring instead of a cable wrap with limited rotation.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>How did you measure 'about a watt'?</li><li>What's the camera's inertia and how fast does it need to move?</li><li>How would you seal this for a sewer environment?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-bored-a-gear-out-on-a-drill-press-how-did-you-keep-it-co",
+       "q": "You bored a gear out on a drill press. How did you keep it concentric?",
+       "a": "<p>Metal gears for a 3 mm motor shaft only came in one bore size, so I bored the driven gear out to 9.5 mm myself on a drill press.</p><p class=\"fu\">Have ready</p><ul><li>How you located the gear on center (a fixture? a center drill first? a pilot hole and step drills?).</li><li>Runout you saw, and whether it mattered (gear noise, backlash variation, binding).</li><li>How the gear is fixed to the shaft (set screw? key? press fit?).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>A drill press isn't a precision tool. What would you use with more time? (Lathe with a collet or 4-jaw, then ream.)</li><li>What happens to gear mesh if the bore is off-center?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-do-the-pitch-soft-and-hard-limits-work-and-why-set-them-",
+       "q": "How do the pitch soft and hard limits work, and why set them inside the mechanical stops?",
+       "a": "<p>Pitch is mechanically limited to about 180° and capped in software using the pitch encoder's count: a soft limit and a tighter hard limit, both set inside the true mechanical stops. The axis can only ever be blocked from moving outward, never trapped against a stop, so the motor never stalls into a hard stop. A re-zero button lets the operator redefine center after manually returning the arm to true zero.</p><p class=\"fu\">Have ready</p><ul><li>Encoder type and resolution.</li><li>What happens on power-up: does it assume it's at zero?</li><li>What the difference between your soft and hard limit actually does.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>What happens if the encoder slips or loses count?</li><li>Would you add a homing switch?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--explain-the-gnss-device-you-worked-on-what-is-rtk-and-why-di",
+       "q": "Explain the GNSS device you worked on. What is RTK, and why did the IMU/antenna offsets matter?",
+       "a": "<p>The Positioning Cell Initiative was the company's own RTK GNSS device, and my job across three phases was to give firmware and electrical a mechanical platform to test against. Phase 1: a fast retrofit of an existing CRKT unit with a survey-pole adapter that raised the antenna for a cleaner fix, using a print-pause 5/8-11 coupling nut as the attachment point. Phase 2: a four-piece modular test rig (the 'sceptre') holding IMUs, breakouts, and a dev kit. Phase 3: the first complete four-board unit (positioning, main, interface, BMS), shaped around the company logo's triangular form.</p><p>RTK GNSS gets centimeter-level position by using corrections from a fixed base station. The position you care about is the pole tip, not the antenna, so every offset between antenna, IMU, and tip has to be known. The Phase 2 frame held zero offset in every direction except vertical, which kept the RTK math simple and cut firmware setup time.</p><p class=\"fu\">Have ready</p><ul><li>What the device was for (surveying? robot localization?).</li><li>Why a tilted pole needs the IMU (tilt compensation of the lever arm).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why does the antenna height off the ground help the fix (multipath, sky view)?</li><li>How did you hold the alignment tolerances in a 3D-printed frame?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--what-s-a-print-pause-coupling-nut-and-why-use-it",
+       "q": "What's a 'print-pause coupling nut' and why use it?",
+       "a": "<p>You pause the 3D print at the layer just above the nut pocket, drop a steel 5/8-11 coupling nut in, and resume. The printer encapsulates it, so you get a strong steel thread fully captured in plastic with no adhesive or heat-set insert. I used it for the survey-pole attachment and reused it through all three phases.</p><p class=\"fu\">Where they'll push next</p><ul><li>How strong is it vs a heat-set insert?</li><li>What goes wrong with print-pause (layer adhesion over the nut, nut not seated flat)?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-designed-a-2s2p-battery-pack-what-does-2s2p-mean-and-wha",
+       "q": "You designed a 2s2p battery pack. What does 2s2p mean, and what did you have to think about?",
+       "a": "<p>2s2p is two series groups of two parallel cells (or equivalently two series strings tied in parallel): double the cell voltage and double the cell capacity. I drafted the schematic, built the first pack using the same cells as the CRKT packs, and helped bring up the BMS board, hand-soldering surface-mount parts on it.</p><figure><img src=\"images/battery-2s2p-config.png\" alt=\"2s2p battery pack wiring\" loading=\"lazy\"><figcaption>2s2p: two series cells double the voltage, two parallel strings double the capacity.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>Cell chemistry and form factor, nominal pack voltage (about 7.2–7.4 V for Li-ion) and capacity.</li><li>How you joined cells (spot welding nickel strip is on your resume) and why you don't solder directly to cells.</li><li>What the BMS does: over/under-voltage, over-current, balancing the two series groups, temperature.</li><li>Fusing and how you insulated and retained the pack mechanically.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why must parallel cells be at the same voltage before connecting?</li><li>What happens if one series group drifts?</li><li>How do you keep a pack from shorting if the device is dropped?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-did-you-design-for-assembly-on-the-tapered-four-board-un",
+       "q": "How did you design for assembly on the tapered four-board unit?",
+       "a": "<p>The triangular, tapered form made assembly order sensitive, so I wrote out a specific upside-down, bottom-up build sequence so the boards, ribbon cables, and battery pack went in correctly every time. I worked board-level layout with our PCB designer in Altium Co-Designer, moving models back and forth with SolidWorks.</p><p class=\"fu\">Have ready</p><ul><li>One example of a mechanical constraint you pushed back to the electrical side (connector location, board outline, keep-out).</li><li>What Altium Co-Designer actually does in the workflow (ECAD-MCAD collaboration: sharing the board outline, component heights, mounting holes).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>What would you change to make it easier to assemble?</li><li>How do you handle tolerance between a PCB and a printed enclosure?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--tell-me-about-the-battery-charger-enclosure-and-the-testbenc",
+       "q": "Tell me about the battery charger enclosure and the testbench cart.",
+       "a": "<p>Charger: built around a new single-slot charger board, with a commercial light pipe for the status LED, a solid-infill upper section to weight the base, and corner-bolted rubber feet that clamp the base plate and battery retention together in one fastening step. I tuned battery retention with an Excel-driven design table in SolidWorks, sweeping the pocket offset until it converged on a reliable slip fit.</p><p>Cart: a lab testbench was fully stationary, so I designed a caster cart that matches its height with custom-cut T-slot extrusion and reuses its rail profile and spacing so a heavy baseplate rolls straight across. The cart's T-slot geometry tracks into the bench's open slots as it rolls up, so alignment is self-guiding, and four total-lock casters lock rotation and swivel once it's seated, for a stable single-operator transfer.</p><p class=\"fu\">Have ready</p><ul><li>What slip-fit clearance you landed on for the battery (and why printed parts need a different clearance than nominal).</li><li>Baseplate weight and the cart's tipping check.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why do total-lock casters matter vs normal brakes?</li><li>How did you check the cart wouldn't tip during transfer?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-maintained-a-12-printer-farm-running-100-hours-a-week-wh",
+       "q": "You maintained a 12-printer farm running 100+ hours a week. What does 'maintained' mean in practice?",
+       "a": "<p>Know what you actually did: queueing and slicing jobs, calibration, nozzle and bed maintenance, material management, troubleshooting failures, and keeping the farm fed for the whole product line.</p><p class=\"fu\">Have ready</p><ul><li>Printer models and software (OctoPrint? a farm manager?).</li><li>The most common failure and how you fixed it.</li><li>Materials you ran and why (PLA, PETG, ABS, TPU).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>How do you design a part to print well (overhangs, orientation, tolerances, layer direction vs load)?</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Combat Robotics: SKULL CRUSHER",
+     "cards": [
+      {
+       "id": "resume-deep-dive--how-did-you-optimize-the-weapon-geometry-within-the-12-lb-al",
+       "q": "How did you optimize the weapon geometry within the 12 lb allocation?",
+       "a": "<p>I worked in a four-person subteam and took the initial weapon design through iteration: adapting it for clearances and trimming weight out of the disk and hub so the assembly hit its speed target without breaking the 12 lb weapon allocation, while keeping the original performance goals. Stored energy is ½Iω², so mass far from the axis is what stores energy. You trim mass near the hub, where it adds weight but little inertia, and keep it at the rim and the teeth.</p><figure><img src=\"images/weapon-energy-sizing.png\" alt=\"Spinning weapon energy and inertia distribution\" loading=\"lazy\"><figcaption>Stored energy E = ½Iω²: mass near the rim stores energy, mass near the hub mostly adds weight.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>The weapon's moment of inertia and stored energy at 10,000 rpm (E = ½Iω²).</li><li>Disk material and how many blades/teeth.</li><li>What 'hit targets' meant in numbers.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why is energy ∝ ω² important when choosing speed vs mass?</li><li>What's bite and why does it matter?</li><li>How do you balance a spinning weapon?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-ran-ansys-fea-on-the-spline-hub-what-were-the-loads-and-",
+       "q": "You ran ANSYS FEA on the spline hub. What were the loads and boundary conditions, and how did you validate the results?",
+       "a": "<p>The hub had to survive direct hits from an opposing 30 lb robot. I ran ANSYS FEA across design revisions to check spline hub survivability.</p><p class=\"fu\">Have ready</p><ul><li>How you turned a hit into a load: an impact energy and stopping distance? a torque from the weapon decelerating? an assumed g-load?</li><li>Boundary conditions: what you fixed and where (shaft? bearings?), and why.</li><li>Mesh refinement at the spline roots, what the peak stress was vs yield, and how you treated singularities at sharp corners.</li><li>A hand calc you used to sanity-check it (shear stress on spline teeth: τ = 2T / (d·A_shear), or torsion Tc/J).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Static FEA for an impact load: is that valid?</li><li>How would you check the result is right?</li><li>Where did it want to fail, and what did you change?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-did-you-machine-the-spline-hub-what-did-you-learn-in-fus",
+       "q": "How did you machine the spline hub? What did you learn in Fusion CAM?",
+       "a": "<p>I learned Fusion CAM to program the spline hub on the CNC mill, and machined the weapon shaft, motor shaft, and pulleys.</p><p class=\"fu\">Have ready</p><ul><li>Internal or external spline, tooth count, and how you cut it on a mill (internal corners need an end mill radius, so the spline profile has to allow it).</li><li>Material, tools, and the toolpath strategy (adaptive clearing, contour finishing).</li><li>Fit between hub and shaft and how you checked it.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why a spline instead of a key or set screw?</li><li>What's the fillet at the root of a milled internal spline, and how does it affect stress?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-did-you-design-for-swapping-parts-between-fights",
+       "q": "How did you design for swapping parts between fights?",
+       "a": "<p>Every part of the weapon, hub to shaft, was designed to come apart quickly, so a damaged part could be pulled and replaced with a spare between rounds. The weapon spun to 10,000 rpm and held up through our fights with minimal weapon-side maintenance, mostly fresh blades between rounds. We placed 3rd of 12.</p><p class=\"fu\">Have ready</p><ul><li>The swap time between rounds and what fasteners you used.</li><li>How you kept bolts from backing out under impact (threadlocker, preload, safety wire).</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Combat Robotics: U.A.A.O.D.A.D.",
+     "cards": [
+      {
+       "id": "resume-deep-dive--explain-your-weight-vs-energy-sweep-why-was-the-relationship",
+       "q": "Explain your weight-vs-energy sweep. Why was the relationship linear?",
+       "a": "<p>One goal was at least 300 J of stored energy. We swept a parameterized eggbeater profile over length and width, logging moment of inertia and rotational energy (½Iω² at our set battery voltage and motor speed) for each combination. Plotted against weapon weight, energy came out roughly linear in mass, which let us pick a geometry that cleared 300 J with room to spare while keeping the disc under 0.7 lb.</p><p>Why linear: I ≈ m·k², where k is the radius of gyration. If most of the sweep changes width or thickness at a similar length, k barely changes, so I, and therefore energy at a fixed speed, scales with mass. Changing length would not be linear: a longer bar adds mass in proportion to length but inertia roughly with length cubed.</p><p class=\"fu\">Have ready</p><ul><li>The final disc dimensions, mass, I, and energy.</li><li>The speed you computed energy at (your calculated max is about 19,600 rpm).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>If you had sized for energy per unit mass, which parameter would you change?</li><li>Was 300 J at full speed, or at the speed reached after spin-up?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--walk-me-through-the-1-429-1-pulley-ratio-and-the-1-7-s-spin-",
+       "q": "Walk me through the 1.429:1 pulley ratio and the 1.7 s spin-up. What's the tradeoff?",
+       "a": "<p>A 14-tooth pulley on the motor's 1/8 in shaft drives a 20-tooth pulley on the 1/4 in weapon shaft: a 1.429:1 reduction, set largely by which shaft and pulley sizes we could get within a week. That gave a calculated spin-up of about 1.7 s to a max of about 19,600 rpm.</p><p>The tradeoff: more reduction gives more torque at the weapon, so it reaches its own top speed faster, but that top speed is lower, and energy goes with speed squared. Less reduction gives a higher top speed and more energy at the hit, but slower spin-up. For reaching a fixed target speed there's a sweet spot in between, and too much reduction can't reach the target at all. Every time we pushed one, we lost the other.</p><figure><img src=\"images/weapon-gear-ratio-tradeoff.png\" alt=\"Spin-up time and top speed vs reduction ratio\" loading=\"lazy\"><figcaption>More reduction: faster spin-up but lower top speed and energy. Less reduction: the reverse.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>Motor KV and battery voltage (19,600 rpm × 1.429 ≈ 28,000 rpm at the motor).</li><li>How you calculated spin-up time: motor torque curve against weapon inertia reflected through the ratio.</li><li>Belt type (GT2/HTD?) and how you tensioned it.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why did the shaft size limit the pulley choice?</li><li>Does the weapon actually reach no-load speed? (No: losses and battery sag.)</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--why-hardened-4140-for-the-disc-tpu-98a-for-the-chassis-and-u",
+       "q": "Why hardened 4140 for the disc, TPU 98A for the chassis, and UHMW for the uprights?",
+       "a": "<p>Disc: hardened 4140 over annealed or aluminum for wear resistance and toughness, so the edge doesn't deform or crack after repeated full-speed hits. We took on machining hardened stock on a CNC mill with limited tooling. Chassis: a single-piece TPU 98A print, one of the more rigid TPUs, for impact toughness without multi-part assembly time. Uprights and top plate: UHMW for impact resistance and low weight, since they mainly locate the weapon shaft and keep things square. The waterjet was down, so we cut them from printed DXF templates on a bandsaw and finished the bores on the CNC.</p><p class=\"fu\">Have ready</p><ul><li>Hardness of the 4140 and what tooling you used.</li><li>Why not tool steel like S7 (common in combat robotics for its toughness)?</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Hardened steel is harder but more brittle. How did you trade hardness against toughness?</li><li>How does UHMW hold a bearing bore over time (creep)?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-competed-with-it-how-did-it-do",
+       "q": "You competed with it. How did it do?",
+       "a": "<p>Be straight about it. We built a fully working 3 lb robot from scratch in one week, but the ESCs never got fully programmed in time. We got a successful weapon spin-up but had no meaningful control over it once it was running. What I'd fix first: the housing came out bulkier than needed and wasn't designed for assembly, and the electronics needed to arrive and be tested days earlier, not 12 hours before. That's why I now plan electrical integration and firmware time in from the start.</p><p class=\"fu\">Where they'll push next</p><ul><li>What would you do differently in the planning?</li><li>How do you decide when to cut scope under a deadline?</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "MATE ROV: Vertical Profiling Float",
+     "cards": [
+      {
+       "id": "resume-deep-dive--how-did-you-size-the-o-ring-gland-walk-me-through-the-number",
+       "q": "How did you size the O-ring gland? Walk me through the numbers.",
+       "a": "<p>Seals had failed here in past years, so I ran the numbers myself. Using the standard compression formula, I sized the gland depth for 25% compression of the ring's cross-section, with groove width at 1.5× the cross-section so the compressed ring could spread instead of extruding out the sides, and fillets in every corner to protect the ring. I validated it with a test puck matching the housing diameter: a slow one-minute depth test and a fast, choppy depth-change test, zero leakage on both interfaces.</p><figure><img src=\"images/oring-gland-compression.png\" alt=\"O-ring gland compression and fill\" loading=\"lazy\"><figcaption>Gland depth sets the squeeze (~25%); the extra groove width gives the ring room to spread.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>The O-ring size, cross-section, and material/durometer (Buna-N 70A is typical).</li><li>Gland fill: with those proportions the ring fills about 70% of the groove, under the ~85–90% limit, so it has room for swell and thermal growth.</li><li>Face seal or radial (piston/bore) seal for each interface.</li><li>Surface finish on a 3D-printed sealing surface, and how you handled it.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why 25% and not 40%?</li><li>What causes O-ring extrusion, and when do you need a backup ring?</li><li>Why does a gland need room to fill?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--depth-tested-to-3-0-m-with-zero-leakage-over-150-hours-a-90-",
+       "q": "'Depth-tested to 3.0 m with zero leakage over 150+ hours, a 90% improvement over previous years.' 90% of what?",
+       "a": "<p>Know exactly what the 90% compares. Is it 90% fewer leaks? 90% longer time without a leak? 90% less water intrusion? An interviewer will ask, and a vague answer undercuts a strong project.</p><p>Also: 3 m of fresh water is only about 30 kPa (4.3 psi) of gauge pressure. Your hoop stress check at a simulated 20 m (about 0.2 MPa) gave a factor of safety around 12. Be ready to say the low pressure is why a printed housing can work at all, and what would change at 100 m.</p><p class=\"fu\">Have ready</p><ul><li>The baseline from previous years and how you measured it.</li><li>Whether 150+ hours was continuous or cumulative across tests.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>At what depth would your design stop working, and what fails first?</li><li>Why did FDM housings leak, and why did vapor smoothing fix it?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-did-you-make-3d-printed-abs-housings-waterproof",
+       "q": "How did you make 3D-printed ABS housings waterproof?",
+       "a": "<p>FDM parts leak at the layer lines under pressure. Hand-brushing acetone blended the layers but was slow and inconsistent; a small vapor chamber worked on small parts but smoothed big housings unevenly. What worked was a flash vapor chamber sized for the housing itself: it smoothed a part in minutes with consistent results, so we could reprint, smooth, and pressure-test a new revision in a single day. The housing went through several iterations before it sealed reliably every time.</p><p class=\"fu\">Have ready</p><ul><li>Iteration count: your resume says eight assemblies, the portfolio says nine housing iterations. Pick the correct number and say it the same way everywhere.</li><li>Print settings that helped (wall count, infill, layer height, orientation).</li><li>Effect of vapor smoothing on dimensions (it rounds edges and can shift the O-ring groove).</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why not machine the housing or buy a commercial enclosure? (No machine shop in the program.)</li><li>Acetone vapor safety?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-did-you-check-that-a-scavenged-stepper-could-drive-the-b",
+       "q": "How did you check that a scavenged stepper could drive the buoyancy engine?",
+       "a": "<p>We chose one large syringe with the lead screw inside it over a bank of smaller syringes: fewer seals, less friction, smaller package. With almost no budget, the motor was a stepper from an old 3D printer, so I checked it could do the job. I measured plunger friction with a force gauge, separating static breakaway from the steady kinetic force, added the water-pressure load at depth, applied a factor of safety of 2, then converted to torque through the lead screw's lead and an assumed efficiency: T = F·l / (2π·η). It came out close enough to the motor's rated holding torque to know it would work.</p><figure><img src=\"images/lead-screw-syringe-torque.png\" alt=\"Lead screw driven syringe torque\" loading=\"lazy\"><figcaption>Required torque T = F·l / (2πη), with F = friction + pressure × plunger area, times the safety factor.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>The actual numbers: friction force, pressure load (p × plunger area), lead, assumed efficiency, required torque vs motor rating.</li><li>Holding torque vs running torque: a stepper's torque drops with speed, so holding torque is optimistic for a moving screw.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why measure static and kinetic friction separately?</li><li>Is the lead screw back-drivable? Does that matter when the motor is unpowered at depth?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-did-you-size-the-tpu-feet-and-the-bolt-pattern",
+       "q": "How did you size the TPU feet? And the bolt pattern?",
+       "a": "<p>Feet: I worked backward from an impact-energy budget: estimated drop velocity from a drag balance, turned that into kinetic energy at impact, and compared the stopping force over a compliant foot's ~10 mm of give against a rigid ~1 mm contact, about a 10× lower impact force. Bolts: I checked the 10-bolt M4 pattern against the required clamping force for about a factor of safety of 3.</p><figure><img src=\"images/impact-force-energy-deflection.png\" alt=\"Impact force vs stopping distance\" loading=\"lazy\"><figcaption>Same impact energy over 10× the stopping distance means about 10× less force.</figcaption></figure><p class=\"fu\">Have ready</p><ul><li>The clamping force you needed and where it came from (O-ring compression force plus pressure on the lid).</li><li>Bolt preload assumption and torque.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Why does stopping distance matter so much? (F ≈ KE / d.)</li><li>Why not just make the housing stronger?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-did-you-lead-a-team-of-four-on-this-with-competition-dea",
+       "q": "How did you lead a team of four on this, with competition deadlines?",
+       "a": "<p>I supervised a team of four in CAD, fabrication, and mechanical testing to hit milestones, wrote the technical documentation of all design parameters, presented at the design presentation, and submitted the system to the 2025 MATE ROV Explorer Class Championship.</p><p class=\"fu\">Have ready</p><ul><li>One story about a missed milestone or a disagreement on the float team.</li><li>How you split the work between the four.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Skills, Education, and Background",
+     "cards": [
+      {
+       "id": "resume-deep-dive--you-list-tig-welding-spot-welding-lathe-mill-and-cnc-rate-yo",
+       "q": "You list TIG welding, spot welding, lathe, mill, and CNC. Rate yourself honestly on each.",
+       "a": "<p>Interviewers test the skills list by picking one and asking you to describe a real job on it. Rate yourself honestly (built a few parts vs could do it unsupervised), and have one specific part for each tool.</p><p class=\"fu\">Have ready</p><ul><li>A specific part for each: TIG (what joint, what material?), spot welding (the battery pack nickel strip?), lathe (spacers and bushings), manual mill, CNC (spline hub, limit switch plate, 4140 disc).</li><li>Speeds and feeds basics: why carbide vs HSS, what chatter is and how to fix it, climb vs conventional milling.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>What's the difference between TIG, MIG, and stick?</li><li>How would you set up a part to face both sides parallel?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-list-fea-in-ansys-and-solidworks-what-s-your-process-for",
+       "q": "You list FEA in ANSYS and SolidWorks. What's your process for setting up an analysis?",
+       "a": "<p>Geometry cleanup, material, loads and boundary conditions that match the real constraints, a mesh refined where stress concentrates, a convergence check, then compare to a hand calc before trusting it. Point to real uses: the Skull Crusher spline hub in ANSYS, reviewing the rack and housing FEA for M26, and multi-load-case setups in Ansys Mechanical.</p><p class=\"fu\">Have ready</p><ul><li>One analysis you can describe end to end with numbers.</li><li>A time FEA was wrong at first and how you caught it.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>Force vs displacement boundary conditions: when do you use each?</li><li>What's a stress singularity?</li><li>Linear vs nonlinear analysis: when do you need nonlinear?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--what-have-you-done-in-matlab-autocad-and-vba",
+       "q": "What have you done in MATLAB, AutoCAD, and VBA?",
+       "a": "<p>VBA is easy: SolidWorks macros for the geometry sweep and hardpoint visualization, plus Excel design tables. Have a real example ready for MATLAB and AutoCAD, or be honest that they're coursework-level.</p><p class=\"fu\">Have ready</p><ul><li>A MATLAB script or analysis you wrote.</li><li>Where you used AutoCAD (DXF templates for notching and bandsaw cutting count).</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--you-transferred-from-community-college-why-and-how-was-the-j",
+       "q": "You transferred from community college. Why, and how was the jump to UCLA?",
+       "a": "<p>Short, positive story: what you did at Clovis (4.0, tutorial center team lead, MATE ROV), why you transferred, and how you got involved at UCLA fast (Baja member in Sept 2025, lead by May 2026).</p><p class=\"fu\">Have ready</p><ul><li>Why your GPA moved from 4.0 to 3.7 if they ask: say it plainly (harder upper-division load plus a heavy project schedule) without excuses.</li></ul><p class=\"fu\">Where they'll push next</p><ul><li>What did tutoring teach you that helps you as an engineer?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--your-baja-lead-role-internship-and-a-combat-robot-build-all-",
+       "q": "Your Baja lead role, internship, and a combat robot build all started in May 2026. How did you manage that?",
+       "a": "<p>Know your answer for the overlap: the internship was full-time May to September, the 3 lb robot was a one-week sprint in May, and the Baja lead role runs through the year. Explain how you prioritized and what you delegated.</p><p class=\"fu\">Where they'll push next</p><ul><li>How do you avoid spreading yourself too thin?</li><li>What did you drop when things collided?</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--of-everything-on-your-resume-what-are-you-proudest-of-and-wh",
+       "q": "Of everything on your resume, what are you proudest of, and what would you do differently?",
+       "a": "<p>Pick one project and own it end to end, with numbers. Then a real 'do differently' that shows learning, not a humble-brag. Good pairs: proudest of building a validation process (VBA sweep, lug calculator) the team never had; do differently: plan electrical integration earlier (U.A.A.O.D.A.D.) or catch the A-arm failure mode in analysis before it happened.</p>"
+      }
+     ]
+    },
+    {
+     "title": "Red Flags and Consistency Checks",
+     "cards": [
+      {
+       "id": "resume-deep-dive--things-on-your-resume-a-sharp-interviewer-will-poke-at",
+       "q": "Things on your resume a sharp interviewer will poke at",
+       "a": "<p>Fix these on the page or have a clean answer ready:</p><p class=\"fu\">Have ready</p><ul><li><strong>\"Ensure flawless vehicle integration\"</strong>: 'flawless' invites \"so nothing ever interfered?\" Consider 'reliable integration' or naming what you coordinate.</li><li><strong>\"Significantly more reliable\"</strong> for M26, which isn't built yet. Have the analysis-based defense ready (see the reliability card above).</li><li><strong>\"90% improvement over previous years\"</strong> on the FLOAT seal: define the metric, or reword it.</li><li><strong>Iteration count</strong>: resume says eight buoyancy and housing assemblies; portfolio says nine housing iterations.</li><li><strong>U.A.A.O.D.A.D. \"competed with the finished robot\"</strong>: true, but the weapon couldn't be controlled. Lead with that yourself rather than having it found on your site.</li><li><strong>Lug \"1.23 margin\"</strong>: be precise whether that's a ratio or a margin of safety.</li><li><strong>Gimbal bullet says 'ball-bearing-supported roll shaft'</strong>: know the bearing part number and why that bearing.</li><li><strong>Every number</strong> (53%, 10%, 21%, 35%, 20%, 680 lb, 300 J, 19,600 rpm, 10,000 rpm, 150+ hours, 12 printers): know how it was measured or calculated.</li></ul>"
+      },
+      {
+       "id": "resume-deep-dive--how-much-of-this-did-you-do-yourself-vs-your-team",
+       "q": "How much of this did you do yourself vs your team?",
+       "a": "<p>Interviewers want to know your part. Use 'I' for what you did and 'we' for team work, and be specific. From your own site: on Skull Crusher you were one of four on the weapon subteam; on U.A.A.O.D.A.D. it was you and a teammate; on M26 you lead and review others' work (for example, you reviewed the rack FEA and hand calcs rather than running them yourself).</p><p class=\"fu\">Have ready</p><ul><li>For each bullet, one sentence on exactly what you did with your own hands or head.</li></ul>"
       }
      ]
     }
