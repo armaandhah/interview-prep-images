@@ -44,6 +44,9 @@ nav{padding:0 8px 24px;flex:1}
 .navbtn .count{font-size:13px;color:var(--pencil);font-variant-numeric:tabular-nums}
 .navbtn[aria-current="true"] .count{color:#C9D3E0}
 
+.cs-link{display:block;margin:0 16px 14px;padding:9px 12px;border:1.5px solid var(--blue);background:var(--blue);color:#fff;text-decoration:none;font-weight:600}
+.cs-link small{display:block;font-weight:400;font-size:12px;color:#DCE6F7;margin-top:2px}
+.cs-link:hover{background:#224a8c}
 /* ---------- main ---------- */
 main{padding:28px 40px 80px;min-width:0}
 .toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 0;background:linear-gradient(var(--paper) 80%,transparent)}
@@ -141,6 +144,7 @@ main{padding:28px 40px 80px;min-width:0}
       </div>
       <div class="meter" aria-hidden="true"><span id="tb-meter"></span></div>
     </div>
+    <a class="cs-link" href="cheatsheet.html" target="_blank" rel="noopener">Interview cheat sheet<small>Opens in a new tab: pitch, numbers, formulas, traps</small></a>
     <nav id="nav"></nav>
   </aside>
   <main>

@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interview Cheat Sheet</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F4; --grid:#E4E9EF; --ink:#1A2230; --blue:#2B59A6; --blue-soft:#EAF0FA;
+  --red:#C23A2B; --red-soft:#FBEDEB; --green:#2E7D4F; --green-soft:#E8F3EC; --pencil:#6E7886; --line:#CDD5DF; --card:#FFFFFF;
+  --hl:#FFF1A8;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:"Barlow",system-ui,sans-serif; color:var(--ink); font-size:14.5px; line-height:1.38;
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+a{color:var(--blue)}
+
+/* header: drawing title block */
+header{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1.5px solid var(--ink)}
+.hb{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;max-width:1600px;margin:0 auto;padding:10px 16px}
+.tblock{display:flex;border:1.5px solid var(--ink);background:var(--card)}
+.tblock .t{font-family:"Barlow Semi Condensed";font-weight:700;font-size:19px;padding:6px 12px;border-right:1px solid var(--ink);white-space:nowrap;display:flex;align-items:center}
+.tblock .m{padding:4px 10px;font-size:12px;color:var(--pencil);display:flex;flex-direction:column;justify-content:center}
+.tblock .m b{color:var(--ink);font-weight:600;font-size:13px}
+.jump{display:flex;flex-wrap:wrap;gap:0;margin-left:12px;border:1.5px solid var(--ink);background:var(--card)}
+.jump a{display:flex;align-items:center;padding:0 12px;text-decoration:none;color:var(--ink);font-weight:600;font-size:13.5px;min-height:38px}
+.jump a+a{border-left:1px solid var(--ink)}
+.jump a:hover{background:var(--blue-soft)}
+.search{margin-left:12px;flex:1 1 220px;display:flex;align-items:center;gap:8px;border:1.5px solid var(--ink);background:var(--card);padding:0 10px;min-height:38px}
+.search input{border:0;outline:0;font:inherit;flex:1;background:none;min-width:0}
+.search kbd{font:600 11px "Barlow";border:1px solid var(--line);padding:1px 5px;color:var(--pencil)}
+.back{margin-left:12px;display:flex;align-items:center;padding:0 12px;border:1.5px solid var(--blue);background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:13.5px;min-height:38px}
+
+main{max-width:1600px;margin:0 auto;padding:14px 16px 60px}
+.zone{margin:6px 0 18px}
+.zone > h2{font-family:"Barlow Semi Condensed";font-size:15px;font-weight:700;margin:14px 0 8px;display:flex;align-items:center;gap:10px}
+.zone > h2::after{content:"";flex:1;border-top:1.5px solid var(--ink)}
+.cols{column-count:3;column-gap:14px}
+@media (max-width:1200px){.cols{column-count:2}}
+@media (max-width:760px){.cols{column-count:1}.jump,.search,.back{margin:8px 0 0}.hb{flex-direction:column}}
+
+.p{break-inside:avoid;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink);padding:9px 12px 10px;margin:0 0 14px}
+.p.blue{border-top-color:var(--blue)} .p.red{border-top-color:var(--red)} .p.green{border-top-color:var(--green)}
+.p h3{margin:0 0 6px;font-family:"Barlow Semi Condensed";font-size:15.5px;font-weight:700}
+.p p{margin:0 0 6px}
+.p ul{margin:0;padding-left:17px}
+.p li{margin:0 0 3px}
+.p .k{font-weight:600}
+.p .dim{color:var(--pencil);font-size:13px}
+.p.hidden{display:none}
+.pitch{font-size:15px;line-height:1.45}
+table{border-collapse:collapse;width:100%;font-size:13.5px;margin:2px 0 4px}
+th,td{border:1px solid var(--line);padding:3px 6px;text-align:left;vertical-align:top}
+th{background:#EEF1F5;font-weight:600}
+td.n{font-variant-numeric:tabular-nums}
+.p{overflow-wrap:anywhere}
+table{table-layout:fixed}
+.p table tr td:first-child{width:30%}
+.p table th[colspan]{text-align:left}
+.eq{font-variant-numeric:tabular-nums}
+mark{background:var(--hl);color:inherit;padding:0}
+.trap b{color:var(--red)}
+.fill label{display:grid;grid-template-columns:1fr 1.1fr;gap:6px;align-items:center;margin:0 0 5px;font-size:13.5px}
+.fill input{font:inherit;font-size:13.5px;border:1px solid var(--line);padding:3px 6px;min-width:0;background:#FBFCFD}
+.fill input:focus{border-color:var(--blue);outline:0}
+.empty{display:none;padding:18px;border:1px dashed var(--line);background:var(--card);margin:10px 0}
+@media print{header{position:static}.search,.back{display:none}body{background:#fff;font-size:11px}.cols{column-count:3}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+</style>
+</head>
+<body>
+<header>
+  <div class="hb">
+    <div class="tblock"><div class="t">Interview Cheat Sheet</div><div class="m"><span>Armaan Dhah</span><b>Glance, don't read</b></div></div>
+    <nav class="jump" aria-label="Jump to">
+      <a href="#me">Me</a><a href="#stories">Stories</a><a href="#formulas">Formulas</a><a href="#traps">Traps</a><a href="#ask">Ask</a>
+    </nav>
+    <label class="search"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+      <input id="q" type="search" placeholder="Filter (e.g. hoop, bolt, lug, buckling)" aria-label="Filter the cheat sheet"><kbd>/</kbd></label>
+    <a class="back" href="index.html">Study site</a>
+  </div>
+</header>
+
+<main>
+<div class="empty" id="empty">Nothing matches. Clear the filter (Esc).</div>
+
+<!-- ======================= ME ======================= -->
+<section class="zone" id="me">
+<h2>Me</h2>
+<div class="cols">
+
+<div class="p blue"><h3>Pitch, 45 s</h3>
+<p class="pitch">Mechanical engineering senior at UCLA, graduating June 2027. <span class="k">Suspension and steering lead, Bruin Baja SAE</span>: run a 13-person subteam, own the whole system front and rear (geometry, load cases, analysis, in-house manufacturing, testing) on a $10K budget.</p>
+<ul>
+<li>Set targets from test data (camber gain from a roll-gradient test)</li>
+<li>Validate geometry through full travel and steer with my SolidWorks VBA macros</li>
+<li>Size parts against measured loads, not legacy numbers</li>
+<li>Design for the machines we have</li>
+<li>~10% lighter system; steering rack 21% lighter with more travel; presented design in NY, 14th of 100+</li>
+<li>Before lead: built A-arms, machined parts. Same approach on combat robots + robotics startup internship</li>
+</ul>
+<p class="dim">Close: "...a role where I can own hardware from the load case all the way to test." Structures: "sizing parts against real load cases and proving them out." Keep project summaries to 2 to 3 min.</p>
+</div>
+
+<div class="p"><h3>Baja M26 numbers</h3>
+<table>
+<tr><td>Team / budget</td><td class="n">13 PEs · $10K (M25 ~$10K; M26 ~$10.3K)</td></tr>
+<tr><td>Subsystem mass</td><td class="n">~10% lighter</td></tr>
+<tr><td>Rack travel</td><td class="n">2.48 → 3.37 in, 0.6 in shorter pkg</td></tr>
+<tr><td>Lock to lock</td><td class="n">193° (target 200°) · c ≈ 6.3 in/rev</td></tr>
+<tr><td>Rack assy</td><td class="n">3.27 → 2.58 lb (−21%)</td></tr>
+<tr><td>Caster</td><td class="n">6.4° (less effort)</td></tr>
+<tr><td>Turn radius goal</td><td class="n">8 ft → 37° inside steer; 43° worst-case at full bump</td></tr>
+<tr><td>Steering clevis lugs</td><td class="n">680 lb (M25 test), FS 1.5 → ratio 1.23 (MS 0.23); 35% lighter</td></tr>
+<tr><td>Rear camber links</td><td class="n">welded 4130 tube → 7075 billet, −20%, ~3× bending yield</td></tr>
+<tr><td>Drop load case</td><td class="n">3.5 ft test (phone IMU) vs 4–4.5 ft seen, FS 1.5</td></tr>
+<tr><td>Design event</td><td class="n">14th of 100+ (New York)</td></tr>
+</table>
+<p class="dim">Fixes: rack keyed (key, pin, external set screw) + housing flat stops rotation; tie rod extender removed; trailing arm → bolt-on shock brackets (waterjet + 2 mirrored CNC setups).</p>
+</div>
+
+<div class="p"><h3>Other projects, numbers</h3>
+<table>
+<tr><th colspan="2">Advanced Spade (May–Sep 2026)</th></tr>
+<tr><td>Gimbal</td><td class="n">−53% volume · 20T:60T (1:3) · ~1 W · 12-ch slip ring · 5/8 in brg → 9.5 mm · Teensy 4.1, soft/hard limits</td></tr>
+<tr><td>GNSS (RTK)</td><td class="n">3 phases: CRKT retrofit → "sceptre" rig → 4-board unit · 2s2p pack · print-pause 5/8-11 nut</td></tr>
+<tr><td>Other</td><td class="n">charger enclosure, T-slot cart, 12-printer farm 100+ h/wk</td></tr>
+<tr><th colspan="2">Skull Crusher (30 lb)</th></tr>
+<tr><td>Weapon</td><td class="n">12 lb allocation · 10,000 rpm · ANSYS on spline hub · 3rd of 12</td></tr>
+<tr><th colspan="2">U.A.A.O.D.A.D. (3 lb, 1 week)</th></tr>
+<tr><td>Weapon</td><td class="n">&lt;0.7 lb disc · ≥300 J · 14T→20T (1.429:1) · ~19,600 rpm · 1.7 s spin-up · hardened 4140, TPU 98A, UHMW</td></tr>
+<tr><td>Result</td><td class="n">spun up, ESCs not programmed → no control. Say it first.</td></tr>
+<tr><th colspan="2">MATE FLOAT (2024–25)</th></tr>
+<tr><td>Seal</td><td class="n">25% squeeze · groove 1.5×CS · 3 m · 0 leaks 150+ h · 10×M4 FS≈3 · hoop FS≈12 @ 20 m</td></tr>
+<tr><td>Other</td><td class="n">single syringe + lead screw · stepper torque check FS 2 · TPU feet ~10× lower impact · acetone vapor smoothing</td></tr>
+</table>
+</div>
+
+<div class="p green fill" id="fillins"><h3>My fill-ins (saved in this browser)</h3>
+<p class="dim">Type the numbers you need to know cold. They stay on this device.</p>
+<div id="fills"></div>
+</div>
+
+</div>
+</section>
+
+<!-- ======================= STORIES ======================= -->
+<section class="zone" id="stories">
+<h2>Stories</h2>
+<div class="cols">
+
+<div class="p blue"><h3>Which story for which question</h3>
+<table>
+<tr><td>Hard problem end to end</td><td>FLOAT seal (ran the gland numbers, test puck, 0 leaks) or gimbal redesign</td></tr>
+<tr><td>Failure / mistake</td><td>M25 A-arm failure → redesign, printed fit checks; or U.A.A.O.D.A.D. ESCs</td></tr>
+<tr><td>Leadership</td><td>Baja lead: 13 PEs, budget, design reviews, calculators as templates</td></tr>
+<tr><td>Tight deadline</td><td>U.A.A.O.D.A.D. in 1 week, 12-h harness push</td></tr>
+<tr><td>Data over assumptions</td><td>Load cases from drop test + roll gradient, replacing legacy values</td></tr>
+<tr><td>Improved a process</td><td>VBA geometry sweep: first validated interference check the team had</td></tr>
+<tr><td>Checked someone's work</td><td>Load case sheet audit: lateral load transfer + deg/rad bugs</td></tr>
+<tr><td>Cross-team</td><td>Advanced Spade: loop in EE/firmware early; Altium Co-Designer</td></tr>
+<tr><td>Design for assembly</td><td>4-board GNSS unit build sequence; cart self-guiding T-slot</td></tr>
+<tr><td>Tradeoff</td><td>7075 links (−20%, no HAZ) vs stiffness/fatigue; bolt-on brackets vs pocket</td></tr>
+</table>
+</div>
+
+<div class="p"><h3>STAR, in 2 minutes</h3>
+<ul>
+<li><span class="k">S/T</span> one sentence: the system and the goal</li>
+<li><span class="k">A</span> what <em>I</em> did, with one number</li>
+<li><span class="k">R</span> the result, plus what I'd change</li>
+<li>Stop. Let them ask.</li>
+</ul>
+<p class="dim">Use "I" for my work, "we" for the team. Know why I rejected the alternatives.</p>
+</div>
+
+<div class="p red"><h3>Owning the weak spots</h3>
+<ul>
+<li>"More reliable" M26: analysis-backed, not tested yet. Proof = instrumenting M25.</li>
+<li>Chassis IMU misses unsprung loads (quarter car). Fix: accel on upright, shock pots, strain gauges.</li>
+<li>"90% improvement" (FLOAT): know the metric.</li>
+<li>Iterations: pick one number (8 vs 9) and say it everywhere.</li>
+<li>Lug "1.23": ratio 1.23 = MS 0.23.</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- ======================= FORMULAS ======================= -->
+<section class="zone" id="formulas">
+<h2>Formulas</h2>
+<div class="cols">
+
+<div class="p"><h3>Stress, strain, stiffness</h3>
+<ul class="eq">
+<li>σ = F/A, ε = ΔL/L, σ = Eε, δ = FL/(EA)</li>
+<li>Stiffness: axial EA/L · torsion GJ/L · cantilever 3EI/L³</li>
+<li>G = E/(2(1 + ν)), ν ≈ 0.3 metals, 0.5 rubber, ~0 cork</li>
+<li>Strain energy U = ½Fδ = F²L/(2EA); ½σε per volume</li>
+<li>Thermal: ε = αΔT; fully blocked σ = −EαΔT (steel 100°C ≈ 240 MPa)</li>
+<li>Von Mises √{[(σ₁−σ₂)² + (σ₂−σ₃)² + (σ₃−σ₁)²]/2}; bending + torsion √(σ² + 3τ²)</li>
+<li>Tresca τ_max = (σ₁ − σ₃)/2 ≤ σ_y/2</li>
+<li>Principal: σ₁,₂ = (σx+σy)/2 ± √[((σx−σy)/2)² + τ²]</li>
+</ul>
+</div>
+
+<div class="p"><h3>Beams</h3>
+<table>
+<tr><th>Case</th><th>δ_max</th><th>M_max</th></tr>
+<tr><td>Cantilever, tip F</td><td class="n">FL³/3EI</td><td class="n">FL</td></tr>
+<tr><td>Cantilever, uniform (total F)</td><td class="n">FL³/8EI</td><td class="n">FL/2</td></tr>
+<tr><td>Simply supp., center F</td><td class="n">FL³/48EI</td><td class="n">FL/4</td></tr>
+<tr><td>Simply supp., uniform</td><td class="n">5FL³/384EI</td><td class="n">FL/8</td></tr>
+<tr><td>Fixed-fixed, center F</td><td class="n">FL³/192EI</td><td class="n">FL/8</td></tr>
+<tr><td>Fixed-fixed, uniform</td><td class="n">FL³/384EI</td><td class="n">FL/12</td></tr>
+</table>
+<ul class="eq">
+<li>σ = Mc/I · τ = VQ/(Ib), rectangle τ_max = 1.5V/A at NA</li>
+<li>I: rect bh³/12 · solid πd⁴/64 · tube π(Do⁴−Di⁴)/64</li>
+<li>Parallel axis I = Ī + Ad² · r = √(I/A)</li>
+<li>Plastic hinge: Mp = σy·Z, rectangle Z = 1.5S</li>
+</ul>
+</div>
+
+<div class="p"><h3>Torsion and buckling</h3>
+<ul class="eq">
+<li>τ = Tr/J, θ = TL/(GJ); solid J = πd⁴/32, τ_max = 16T/(πd³)</li>
+<li>Thin closed tube J ≈ 2πr³t; slit (open) ≈ 2πr·t³/3 → 3(r/t)² weaker</li>
+<li>Power P = Tω; hp = T(lb·ft)·rpm/5252</li>
+<li>Euler P_cr = π²EI/(KL)²; K = 2 free, 1 pinned, 0.7 fixed-pinned, 0.5 fixed</li>
+<li>σ_cr = π²E/(KL/r)²; Euler only if KL/r &gt; √(2π²E/σy) (≈126 mild steel), else Johnson</li>
+<li>Thin tube local: σ_cr ≈ 0.6Et/R (real: 30–60% of that)</li>
+</ul>
+</div>
+
+<div class="p"><h3>Pressure vessels, rotating, plates</h3>
+<ul class="eq">
+<li>Cylinder: hoop pr/t, axial pr/2t (crack runs lengthwise)</li>
+<li>Sphere: pr/2t everywhere (half the wall)</li>
+<li>Absolute τ_max (thin) = pr/2t (third direction σ₃ ≈ 0)</li>
+<li>Thick wall bore hoop: p(b² + a²)/(b² − a²); floor = p</li>
+<li>Thin wall valid t &lt; r/10</li>
+<li>Spinning disk: solid center (3+ν)/8·ρω²b²; tiny hole doubles it; limit is rim speed √(σ/ρ)</li>
+<li>Clamped plate: δ = (3/16)pR⁴(1−ν²)/(Et³), σ_edge = ¾p(R/t)²</li>
+<li>1 atm ≈ 14.7 psi ≈ 0.101 MPa; water 10 m ≈ 1 atm</li>
+</ul>
+</div>
+
+<div class="p"><h3>Bolts, pins, lugs, welds</h3>
+<ul class="eq">
+<li>Preload P = T/(K·D); K ≈ 0.2 dry, 0.15 lubed; ~90% of torque is friction</li>
+<li>Target preload ~75% of proof load</li>
+<li>A_t = 0.7854(D − 0.9743/n)²; ¼-20 → 0.0318 in²</li>
+<li>Pin shear τ = V/A (double shear V/2A); peak solid 4/3·V/A</li>
+<li>Bearing σ = F/(D·t); tear-out τ = F/(2et)</li>
+<li>Lug oblique: R_a^1.6 + R_tr^1.6 ≤ 1</li>
+<li>Thread pull-out ≈ 0.4π·D·L_e·τ_u</li>
+<li>Fillet weld τ = V/(0.707·h·L)</li>
+<li>Slip-critical: μ·P·(interfaces) ≥ F</li>
+</ul>
+</div>
+
+<div class="p"><h3>Fatigue, fracture, margins</h3>
+<ul class="eq">
+<li>σm = (σmax+σmin)/2, σa = (σmax−σmin)/2</li>
+<li>Goodman σa/Se + σm/Su = 1/n · Soderberg uses Sy · also σa + σm &lt; Sy</li>
+<li>Steel Se ≈ ½ UTS (knee ~10⁶); aluminum: no endurance limit</li>
+<li>Kt hole = 3 (biaxial 2, pure shear 4); ellipse 1 + 2a/b</li>
+<li>K = λσ√(πa), edge crack λ ≈ 1.12; a_c = (1/π)(K_IC/λσ)²</li>
+<li>Paris da/dN = CΔK^m</li>
+<li>MS = Allowable/(Applied × FS) − 1</li>
+<li>Bearing life L10 = (C/P)^3 × 10⁶ rev (ball), ^10/3 roller</li>
+</ul>
+</div>
+
+<div class="p"><h3>Dynamics and vibration</h3>
+<ul class="eq">
+<li>ω_n = √(k/m), f = ω_n/2π; ζ = c/(2√(km)); ω_d = ω_n√(1−ζ²)</li>
+<li>Peak amplification Q = 1/(2ζ); ζ ≈ 1% bare metal</li>
+<li>Isolation needs f/f_n &gt; √2 (aim ≥ 3)</li>
+<li>Wheel rate = k·MR² (·cos²θ); dual-rate k₁k₂/(k₁+k₂) then k₂</li>
+<li>Imbalance F = m·e·ω²</li>
+<li>Impact: F_avg ≈ KE/d · v = √(2gh) · E = ½Iω² (weapon)</li>
+<li>Ackermann tan δi = L/(R − t/2), tan δo = L/(R + t/2)</li>
+<li>Energy ½mv², Power F·v = Tω, impulse FΔt = mΔv</li>
+</ul>
+</div>
+
+<div class="p"><h3>Fluids, thermo, heat transfer</h3>
+<ul class="eq">
+<li>Bernoulli P + ½ρV² + ρgz = const · continuity ρAV = const</li>
+<li>Momentum ΣF = Σ(ṁV)out − Σ(ṁV)in (+ pressure × area)</li>
+<li>Pitot V = √(2(p₀ − p)/ρ) · orifice ṁ = C_d A√(2ρΔP)</li>
+<li>Re = ρVD/μ (laminar &lt; 2300); ΔP = f(L/D)(ρV²/2), laminar f = 64/Re</li>
+<li>Choked: p*/p₀ ≈ 0.53 (air); M = V/√(γRT)</li>
+<li>PV = mRT (Kelvin); c_p = c_v + R</li>
+<li>q = kAΔT/L · q = hAΔT · q = εσA(T⁴ − T∞⁴), σ = 5.67e−8</li>
+<li>Bi = hL/k_solid &lt; 0.1 → lumped · Nu = hL/k_fluid</li>
+<li>Rocket ΔV = Ve ln(m₀/m_f); thrust ṁVe + (Pe − P∞)Ae</li>
+</ul>
+</div>
+
+<div class="p"><h3>Materials</h3>
+<table>
+<tr><th></th><th>E GPa</th><th>ρ g/cc</th><th>σy MPa</th><th>α µ/°C</th></tr>
+<tr><td>Steel (A36 / 4130 N)</td><td class="n">200</td><td class="n">7.85</td><td class="n">250 / 435</td><td class="n">12</td></tr>
+<tr><td>Al 6061-T6</td><td class="n">69</td><td class="n">2.70</td><td class="n">276</td><td class="n">23</td></tr>
+<tr><td>Al 7075-T6</td><td class="n">71</td><td class="n">2.81</td><td class="n">~500</td><td class="n">23</td></tr>
+<tr><td>Ti-6Al-4V</td><td class="n">114</td><td class="n">4.43</td><td class="n">~880</td><td class="n">8.6</td></tr>
+<tr><td>Inconel 718</td><td class="n">200</td><td class="n">8.2</td><td class="n">~1035</td><td class="n">13</td></tr>
+</table>
+<p class="dim">E/ρ ≈ 26 for steel, Al, Ti. Strength changes with alloy/temper; E barely does. Yield strain: mild steel 0.125%, 6061 0.4%.</p>
+</div>
+
+<div class="p"><h3>Units</h3>
+<ul class="eq">
+<li>1 in = 25.4 mm · 1 lbf = 4.45 N · 1 lbm = 0.454 kg</li>
+<li>1 ksi = 6.895 MPa · 1 psi = 6,895 Pa · 1 MPa = 145 psi</li>
+<li>1 ft·lbf = 1.356 N·m · 1 in·lbf = 0.113 N·m</li>
+<li>g = 9.81 m/s² = 32.2 ft/s² = 386 in/s²</li>
+<li>°C = (°F − 32)/1.8 · K = °C + 273 · ΔT 180°F = 100°C</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- ======================= TRAPS ======================= -->
+<section class="zone" id="traps">
+<h2>Traps and answer patterns</h2>
+<div class="cols">
+
+<div class="p red trap"><h3>Load sharing</h3>
+<ul>
+<li><b>Forced equal deflection → load follows stiffness</b> (EA or EI). Two tubes on rigid plates: steel takes 74%.</li>
+<li><b>Compare strains, not stresses</b> when strain is shared: stiff steel yields first (0.125% vs 0.4%).</li>
+<li><b>3 legs, centered load = statically determinate</b>: W/3 each, hub tilts. Give stiffness answer, then the caveat.</li>
+<li><b>Thermal mismatch</b>: high-α part ends in compression. σ = Δα·ΔT/(1/E₁ + 1/E₂) for equal areas.</li>
+<li>Diameter doesn't matter for axial load; it matters for buckling.</li>
+</ul>
+</div>
+
+<div class="p red trap"><h3>Beams and failure</h3>
+<ul>
+<li>Cantilever breaks <b>at the wall</b>; down load → <b>top in tension</b>, cracks start there.</li>
+<li>Breaking load needs <b>strength</b> (σy or σu), not E.</li>
+<li>Thin tube → <b>local buckling on compression side</b> first.</li>
+<li>One-way bending → I-beam, tapered. Torsion or any direction → <b>closed round tube</b>.</li>
+<li>Hoop = 2× axial → <b>crack runs lengthwise</b>.</li>
+<li>Stronger alloy ≠ more buckling-resistant (same E).</li>
+<li>Hydrostatic pressure doesn't yield metal.</li>
+</ul>
+</div>
+
+<div class="p red trap"><h3>Bolts and wheels</h3>
+<ul>
+<li><b>Never threads in shear.</b> Shear: shoulder &gt; partial &gt; full.</li>
+<li><b>Shoulder bolt weakest in tension</b> (smaller thread + undercut).</li>
+<li>Bolts fail at the <b>first engaged thread</b>.</li>
+<li><b>More friction under the nut → torque more</b> (same torque = less preload).</li>
+<li>Lugs: star pattern, even. Lost nuts → borrow one from each wheel.</li>
+<li>Preload, not friction, holds the joint; preload cuts bolt fatigue.</li>
+</ul>
+</div>
+
+<div class="p red trap"><h3>FEA, testing, loads</h3>
+<ul>
+<li>Hot spot real? Region vs single node · <b>refine mesh: singularity keeps climbing</b> · hand calc · strain gauge.</li>
+<li>Chassis IMU ≠ unsprung loads (quarter car; wheel hop 10–15 Hz vs body 1–3 Hz).</li>
+<li>Drop scaling: energy ∝ h, linear-spring force ∝ √h (3.5 → 4.5 ft = +13%).</li>
+<li>Static FEA for impact: use energy/stopping distance or a dynamic factor.</li>
+<li>Mass production: fewer setups → near-net (cast/forge/mold). Inspect critical features → sample + SPC once capable.</li>
+</ul>
+</div>
+
+<div class="p green"><h3>How to answer</h3>
+<ul>
+<li>Restate, state assumptions out loud.</li>
+<li>Simple first question is usually just simple.</li>
+<li>Start from fundamentals: FBD → equilibrium → compatibility → material law.</li>
+<li>Sanity check units and order of magnitude.</li>
+<li><b>Leading follow-up = a hint.</b> Pause; don't defend the old path.</li>
+<li>Don't know? Say what you'd look up or test, then reason it out.</li>
+</ul>
+</div>
+
+<div class="p"><h3>Vehicle / suspension terms</h3>
+<ul>
+<li>Bump steer: toe change with travel (tie rod off the arm line)</li>
+<li>Camber gain: camber vs travel; target from roll gradient</li>
+<li>Caster → mechanical trail → steering effort & self-centering</li>
+<li>Ackermann: inside wheel steers more, one turn center</li>
+<li>Motion ratio = shock travel / wheel travel</li>
+<li>Ride freq f = (1/2π)√(k_wheel/m_corner)</li>
+<li>c-factor = rack travel per pinion rev</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- ======================= ASK ======================= -->
+<section class="zone" id="ask">
+<h2>Ask them</h2>
+<div class="cols">
+<div class="p blue"><h3>Questions to ask</h3>
+<ul>
+<li>What's the hardest technical problem your team is working on right now?</li>
+<li>What did you personally build or analyze recently?</li>
+<li>What does success look like for a new engineer in the first six months?</li>
+<li>What parts or structures would I most likely own?</li>
+<li>How closely do design engineers work with test and the shop floor?</li>
+<li>How are load cases set and validated here: analysis, test, or flight/field data?</li>
+<li>What do you wish new hires already knew?</li>
+</ul>
+<p class="dim">Pick 2 or 3 before the call, then actually listen. Follow up on something they said.</p>
+</div>
+<div class="p"><h3>Closing</h3>
+<ul>
+<li>Thank them; one sentence on why this role fits (owning hardware from load case to test).</li>
+<li>Ask about next steps and timeline.</li>
+<li>Write down what they asked right after, and add it to the study site.</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+(function(){
+  // ---- fill-ins saved per browser ----
+  const FIELDS = [
+    ["wheelbase","Wheelbase (in)"],["track","Front track (in)"],["travel","Wheel travel bump/droop"],
+    ["mr","Motion ratio F / R"],["springs","Spring rates + crossover"],["ridefreq","Ride frequency (Hz)"],
+    ["rollgrad","Roll gradient (deg/g)"],["campgain","Camber gain target"],["bumpsteer","Bump steer (deg/in)"],
+    ["kpi","KPI / scrub radius"],["pinion","Pinion teeth / pitch dia"],["gload","Load case g's"],
+    ["aarm","M25 A-arm failure root cause"],["hubFEA","Spline hub FEA load + BCs"],["weaponE","Skull Crusher I and energy"],
+    ["oring","O-ring size / material"],["float90","FLOAT '90%' metric"]
+  ];
+  const KEY = "cheatFill";
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { saved = {}; }
+  const box = document.getElementById("fills");
+  FIELDS.forEach(([id, label]) => {
+    const l = document.createElement("label");
+    l.innerHTML = `<span>${label}</span>`;
+    const i = document.createElement("input");
+    i.id = "f-" + id; i.value = saved[id] || ""; i.setAttribute("aria-label", label);
+    i.addEventListener("input", () => {
+      saved[id] = i.value;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {}
+    });
+    l.appendChild(i); box.appendChild(l);
+  });
+
+  // ---- filter ----
+  const q = document.getElementById("q");
+  const panels = [...document.querySelectorAll(".p")];
+  panels.forEach(p => p.dataset.html = p.innerHTML);
+  function esc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+  function mark(node, re){
+    if (node.nodeType === 3) {
+      const t = node.nodeValue; if (!re.test(t)) return; re.lastIndex = 0;
+      const span = document.createElement("span");
+      span.innerHTML = t.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])).replace(re, m => `<mark>${m}</mark>`);
+      node.replaceWith(span); return;
+    }
+    if (node.nodeType === 1 && !/^(INPUT|SCRIPT|MARK)$/.test(node.tagName)) [...node.childNodes].forEach(n => mark(n, re));
+  }
+  function apply(){
+    const term = q.value.trim();
+    let shown = 0;
+    panels.forEach(p => {
+      if (p.id === "fillins") { p.classList.toggle("hidden", !!term); return; }
+      p.innerHTML = p.dataset.html;
+      if (!term) { p.classList.remove("hidden"); shown++; return; }
+      const hit = p.textContent.toLowerCase().includes(term.toLowerCase());
+      p.classList.toggle("hidden", !hit);
+      if (hit) { shown++; mark(p, new RegExp(esc(term), "gi")); }
+    });
+    document.querySelectorAll(".zone").forEach(z => {
+      z.hidden = !!term && !z.querySelector(".p:not(.hidden)");
+    });
+    document.getElementById("empty").style.display = shown ? "none" : "block";
+  }
+  q.addEventListener("input", apply);
+  document.addEventListener("keydown", e => {
+    if (e.key === "/" && document.activeElement.tagName !== "INPUT") { e.preventDefault(); q.focus(); q.select(); }
+    if (e.key === "Escape" && document.activeElement === q) { q.value = ""; apply(); q.blur(); }
+  });
+})();
+</script>
+</body>
+</html>
