@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25",
+ "updated": "2026-10-26",
  "sections": [
   {
    "title": "Behavioral and STAR Stories",
@@ -1653,10 +1653,10 @@
   {
    "title": "Quick-Reference Formula Sheet",
    "id": "quick-reference-formula-sheet",
-   "intro": "<p>Equations worth knowing cold.</p>",
+   "intro": "<p>Equations worth knowing cold. The sections below \"Core equations\" are a friend's two-page hand-calc cheat sheet (structures, dynamics, fluids, gas dynamics, rockets, orbits), typeset and checked. Anything I'd correct is flagged in the last card and noted where it appears.</p>",
    "subs": [
     {
-     "title": null,
+     "title": "Core equations",
      "cards": [
       {
        "id": "quick-reference-form--mechanics-of-materials",
@@ -1677,6 +1677,116 @@
        "id": "quick-reference-form--material-values",
        "q": "Material values",
        "a": "<figure><img src=\"images/metal-stiffness-density-comparison.png\" alt=\"Bar charts of stiffness, density and specific stiffness for steel, aluminum and Ti-6Al-4V\" loading=\"lazy\"><figcaption>Steel, aluminum and titanium differ a lot in E and density, but E/ρ is nearly the same for all three.</figcaption></figure><ul><li>Steel: E ≈ 200 GPa, ρ ≈ 7.85 g/cm³, α ≈ 12 × 10⁻⁶ /K, melts around 1400 to 1500°C</li><li>Aluminum: E ≈ 70 GPa, ρ ≈ 2.7 g/cm³, α ≈ 23 × 10⁻⁶ /K, melts around 660°C</li><li>Titanium (Ti-6Al-4V): E ≈ 114 GPa, ρ ≈ 4.4 g/cm³, α ≈ 8.6 × 10⁻⁶ /K, melts around 1600 to 1660°C</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Structures Hand Calcs",
+     "cards": [
+      {
+       "id": "quick-reference-form--stress-strain-energy-and-yield",
+       "q": "Stress, strain, energy, and yield",
+       "a": "<ul><li>Hooke: σ = Eε, ε = ΔL/L, Poisson ν = −ε_lat/ε_long</li><li>True vs engineering: σ_true = σ_eng(1 + ε_eng), ε_true = ln(1 + ε_eng). They differ after necking starts.</li><li>Yield is usually defined at 0.2% offset (0.002 strain).</li><li>Von Mises: σ_vm = √{[(σ₁ − σ₂)² + (σ₂ − σ₃)² + (σ₃ − σ₁)²]/2}</li><li>Toughness = area under the whole σ-ε curve, ∫σ dε</li><li>Bar in tension: σ = F/A, ΔL = FL/(EA), a side dimension s shrinks by Δs = −ν·s·F/(EA), strain energy U = F²L/(2EA)</li><li>Shaft in torsion: τ = Tc/J, θ = TL/(GJ), G = E/(2(1 + ν))</li><li>Thermal: ε = αΔT, ΔL = LαΔT</li></ul><p class=\"fu\">Interview notes</p><ul><li>Strain energy goes with F², so you can't add energies from separate loads; add the loads first.</li><li>Von Mises only uses differences of principal stresses, which is why hydrostatic pressure doesn't cause yield.</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--pins-bolts-lugs-and-welds",
+       "q": "Pins, bolts, lugs, and welds",
+       "a": "<p><strong>Pin in shear</strong> (single shear; divide V by 2 for double shear):</p><ul><li>Average: τ_avg = V/A_pin</li><li>Peak, solid round: τ_max = (4/3)·V/A. Thin hollow round: 2·V/A. Square: (3/2)·V/A.</li></ul><p><strong>Bolts:</strong></p><ul><li>Preload from torque: F = T/(K·D). K ≈ 0.10–0.15 lubricated, 0.15–0.20 dry.</li><li>Bolt stress: σ = (F_preload + external load beyond preload)/A_tensile. Until the joint separates, the bolt only sees a fraction of the external load.</li><li>Tensile stress area (standard): A_t = 0.7854·(D − 0.9743/n)², n = threads per inch. For ¼-20: 0.0318 in².</li><li>Thread pull-out: F ≈ 0.4·π·D·L_engaged·τ_ult (rough rule; about 40% of the thread cylinder is effectively in shear). If τ_ult isn't listed, use σ_ult/√3.</li></ul><p><strong>Lugs and plates:</strong></p><ul><li>Bearing: σ_br = F/(D·t), compared with the bearing allowable at your edge distance ratio e/D (often 1.5 or 2.0 in MMPDS). For a double clevis, each side carries F/2.</li><li>Shear tear-out: τ = F/(2·e·t), two shear planes from hole to edge (e = hole center to edge, conservative).</li></ul><p><strong>Fillet weld:</strong> τ ≈ V/(L·h/√2), throat = leg h × 0.707, compared with the weld shear allowable.</p><figure><img src=\"images/lug-failure-modes.png\" alt=\"Lug failure modes\" loading=\"lazy\"><figcaption>Lug checks: net-section tension, shear tear-out, bearing, and the oblique-load interaction.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>Never put threads in the shear plane (see the bolt cards).</li><li>Interviewers like hearing that the bolt mostly sees preload, not the external load, as long as the joint stays clamped.</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--beam-deflection-and-max-moment-the-six-cases",
+       "q": "Beam deflection and max moment: the six cases",
+       "a": "<div class=\"tw\"><table><thead><tr><th>Case</th><th>Max deflection δ</th><th>Max moment</th></tr></thead><tbody><tr><td>Cantilever, tip load F</td><td>FL³/(3EI)</td><td>FL (at the wall)</td></tr><tr><td>Cantilever, uniform load (total F)</td><td>FL³/(8EI)</td><td>FL/2</td></tr><tr><td>Simply supported, center load F</td><td>FL³/(48EI)</td><td>FL/4</td></tr><tr><td>Simply supported, uniform (total F)</td><td>5FL³/(384EI)</td><td>FL/8</td></tr><tr><td>Fixed-fixed, center load F</td><td>FL³/(192EI)</td><td>FL/8</td></tr><tr><td>Fixed-fixed, uniform (total F)</td><td>FL³/(384EI)</td><td>FL/12 (at the ends)</td></tr></tbody></table></div><p>Bending stress σ = Mc/I. Cantilever stiffness k = 3EI/L³.</p><div class=\"tw\"><table><thead><tr><th>Section</th><th>I (bending)</th><th>J (polar, round only)</th></tr></thead><tbody><tr><td>Solid round</td><td>πR⁴/4 = πD⁴/64</td><td>πR⁴/2 = πD⁴/32</td></tr><tr><td>Tube</td><td>π(Ro⁴ − Ri⁴)/4</td><td>π(Ro⁴ − Ri⁴)/2</td></tr><tr><td>Rectangle b × h</td><td>bh³/12</td><td>see note (not bh(b² + h²)/12 for torsion)</td></tr></tbody></table></div><figure><img src=\"images/beam-deflection-and-section-cheatsheet.png\" alt=\"Beam deflection cheat sheet\" loading=\"lazy\"><figcaption>Cantilever and simply supported cases, and the common section properties.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>The coefficients (3, 8, 48, 192...) matter less than the scaling: deflection goes as L³ and 1/(EI). Fixing both ends makes a beam 4× stiffer than simply supporting it.</li><li>For a rectangle, bh(b² + h²)/12 is the polar moment of area, but it is NOT the torsion constant. Non-round sections warp, so use τ_max = T/(α·b·t²) and θ = TL/(β·b·t³·G) from a table (thin strip: α = β ≈ 1/3).</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--buckling",
+       "q": "Buckling",
+       "a": "<ul><li>Euler: F_cr = n·π²EI/L², with n = 1 pinned-pinned, about 2 pinned-fixed (2.05), 4 fixed-fixed, 0.25 fixed-free.</li><li>Equivalent to π²EI/(KL)² with K = 1, 0.7, 0.5, 2.</li><li>Stress form: σ_cr = π²E/(KL/r)², with r = √(I/A).</li></ul><figure><img src=\"images/column-slenderness-curve.png\" alt=\"Critical stress vs slenderness\" loading=\"lazy\"><figcaption>Euler only holds for slender columns; short ones yield and intermediate ones follow Johnson.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>The sheet says Euler applies 'for L/R > 10'. That's too loose: Euler holds only for slender columns, where the slenderness ratio KL/r is above about √(2π²E/σ_y), around 126 for mild steel and ~70–100 for aluminum alloys. Below that, use Johnson's parabola or the tangent-modulus (Engesser) method, which the sheet mentions for 'yield buckling'.</li><li>Buckling depends on E and I, not strength.</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--pressure-vessels-plates-and-spinning-parts",
+       "q": "Pressure vessels, plates, and spinning parts",
+       "a": "<p><strong>Thin sphere</strong> (R ≫ t): σ_hoop = σ₁ = σ₂ = PR/(2t), radial ≈ −P (small). Radial growth ΔR = PR²(1 − ν)/(2Et). Thermal growth ΔR = RαΔT. Stored energy U = πP²R⁴(1 − ν)/(Et).</p><p><strong>Pipe with end caps:</strong> σ_axial ≈ PR/(2t); σ_hoop ≈ PR/t (thin wall, R_mean/t > 10). Thick wall, hoop at the bore: σ_hoop = P(Ro² + Ri²)/(Ro² − Ri²). Length change ΔL = (PRL/Et)(½ − ν), which is small because Poisson contraction from the hoop stress cancels most of the axial stretch. Radial growth ΔR = (PR²/Et)(1 − ν/2).</p><p><strong>Flat circular plate, clamped edge, pressure P:</strong> center deflection δ = (3/16)·PR⁴(1 − ν²)/(Et³); max stress at the edge σ = (3/4)·P(R/t)².</p><p><strong>Thermal stress, thin cylinder wall</strong> with temperature difference ΔT through the wall: σ = αEΔT/(2(1 − ν)).</p><p><strong>Spinning disk or shaft, radial growth at the outer radius:</strong> Δr_o = ρω²r_o/(4E)·[(1 − ν)r_o² + (3 + ν)r_i²].</p><figure><img src=\"images/thick-wall-cylinder-lame.png\" alt=\"Lamé stress in a thick cylinder\" loading=\"lazy\"><figcaption>Thick-wall hoop stress peaks at the bore; thin-wall pr/t is the average.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>Hoop is twice axial, so cylinders split lengthwise (hot dog question).</li><li>Plate stress goes with (R/t)²: halving the thickness quadruples stress and makes it 8× more flexible.</li><li>Check the spinning-disk growth formula on the original sheet: the r_o² and r_i² terms must be as written here (it comes from the annular-disk solution).</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--fatigue-fracture-and-margin-of-safety",
+       "q": "Fatigue, fracture, and margin of safety",
+       "a": "<ul><li>Low-cycle fatigue (part yields each cycle) below about 10⁴ cycles; high-cycle (elastic) above.</li><li>Manson universal slopes (strain-life estimate): Δε ≈ 3.5(σ_u/E)·N^−0.12 + [ln(1/(1 − RA))]^0.6·N^−0.6, where RA is the reduction in area. Gives total strain range for life N.</li><li>Hole in an infinite plate: elliptical hole with half-axes a (perpendicular to load) and b: K_t = 1 + 2a/b (circle: 3).</li><li>Stress intensity: large plate center crack K_I = σ√(πa); edge crack 1.12σ√(πa); center crack in a finite plate of width W: K_I = σ√(πa·sec(πa/W)).</li><li>Crack growth (Paris law): da/dN = C·ΔK^m. No growth below ΔK_threshold; fast fracture when K reaches K_IC.</li><li>Margin of safety: MS = Allowable/(Applied × FS) − 1, with FS the product of all applicable factors (ultimate × casting × thermal...). MS ≥ 0 passes.</li></ul><figure><img src=\"images/critical-crack-size.png\" alt=\"Critical crack size vs stress\" loading=\"lazy\"><figcaption>Critical crack size shrinks fast as stress rises or toughness falls.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>Say 'margin of safety 0.23', not 'margin 1.23'. MS = 0 means exactly at the allowable with the factor applied.</li><li>Integrating the Paris law from the initial crack size to the critical crack size gives the number of cycles: that's how inspection intervals are set.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Dynamics and Vibration",
+     "cards": [
+      {
+       "id": "quick-reference-form--single-degree-of-freedom-systems-frequency-damping-response",
+       "q": "Single-degree-of-freedom systems: frequency, damping, response",
+       "a": "<ul><li>Equation of motion: F(t) = mẍ + bẋ + kx, or F/m = ẍ + 2ζω_n ẋ + ω_n² x.</li><li>Natural frequency: ω_n = √(k/m) rad/s, f_n = (1/2π)√(k/m) Hz. It's the stiffness-to-mass ratio.</li><li>Damped frequency: ω_d = ω_n√(1 − ζ²), so ω_d ≈ ω_n for lightly damped structures.</li><li>Resonant amplification Q = A_max/A_static = 1/(2ζ). Doubling damping halves the peak.</li><li>Typical damping: ζ ≈ 1% bare metal structures, 2–3% with silicone/elastomer damping, 5–10% with fluid damping.</li><li>Step response: envelope Ae^(−ζω_n t); 1% settling time t_s ≈ 4.6/(ζω_n); overshoot = e^(−πζ/√(1 − ζ²)).</li><li>Estimate ζ from test data by fitting Ae^(−ζω_n t) to the decay (log decrement).</li></ul><figure><img src=\"images/vibration-isolation-transmissibility.png\" alt=\"Transmissibility vs frequency ratio\" loading=\"lazy\"><figcaption>Resonance peaks at 1/(2ζ); isolation starts above √2 times the natural frequency.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>With 1% damping, Q = 50: a structure driven at resonance responds 50× its static deflection. That's why you keep natural frequencies away from forcing frequencies.</li><li>If using lbm in US units, divide mass by 386 in/s² to get consistent units (lbf·s²/in).</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--natural-frequency-formulas-fundamental-mode",
+       "q": "Natural frequency formulas (fundamental mode)",
+       "a": "<div class=\"tw\"><table><thead><tr><th>System</th><th>f₁ (Hz)</th></tr></thead><tbody><tr><td>Mass m on a massless spring k</td><td>(1/2π)√(k/m)</td></tr><tr><td>Mass m on a spring with mass m_s</td><td>(1/2π)√(k/(m + m_s/3))</td></tr><tr><td>Tip mass m on a cantilever (beam mass m_b)</td><td>(√3/2π)√(EI/((m + 0.24m_b)L³))</td></tr><tr><td>Center mass on a pinned-pinned beam</td><td>(4√3/2π)√(EI/((m + 0.49m_b)L³))</td></tr><tr><td>Fixed-pinned beam, own mass m only</td><td>(15.4/2π)√(EI/(mL³))</td></tr><tr><td>Center mass on a fixed-fixed beam</td><td>(8√3/2π)√(EI/((m + 0.37m_b)L³))</td></tr></tbody></table></div><p>A beam in tension stiffens: multiply f by √(1 + F_tension/F_buckling). Compression does the opposite and drives f to zero at the buckling load. (Source on the sheet: Blevins, <em>Formulas for Natural Frequency and Mode Shape</em>.)</p><p class=\"fu\">Interview notes</p><ul><li>The pattern: f ∝ √(stiffness/mass), and each beam case is just its static stiffness (3EI/L³, 48EI/L³, 192EI/L³) with an effective share of the beam's own mass added.</li><li>Where the constants come from: (√3/2π)√(EI/(mL³)) is just (1/2π)√((3EI/L³)/m), and 4√3 = √48, 8√3 = √192.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Fluids, Gas Dynamics, and Heat Transfer",
+     "cards": [
+      {
+       "id": "quick-reference-form--fluid-mechanics",
+       "q": "Fluid mechanics",
+       "a": "<ul><li>Continuity: ρAU = constant = ṁ</li><li>Bernoulli (incompressible, inviscid, steady, along a streamline): P/ρ + U²/2 + gz = constant</li><li>Energy (adiabatic, steady, no work): c_p(T₂ − T₁) + (U₂² − U₁²)/2 + g(z₂ − z₁) = 0</li><li>Momentum on a control volume: ΣF = Σ(ṁV)_out − Σ(ṁV)_in, including pressure × area on the boundaries</li><li>Reynolds Re = ρUD/μ = UD/ν = 4ṁ/(πDμ) for a pipe. Nusselt Nu = hD/k. Prandtl Pr = ν/α.</li><li>Orifice or restriction: ṁ = C_d·A·√(2ρΔP_total)</li><li>Pipe pressure loss: ΔP = f·(L/D)·(ρU²/2); laminar f = 64/Re (turbulent: Moody chart)</li><li>Hydraulic diameter: D_h = 4A/P (area over wetted perimeter)</li><li>Cavitation index: K = 2ΔP/(ρU²); cavitation tends to start around K ≈ 0.2–1.5 depending on geometry</li></ul><figure><img src=\"images/control-volume-pipe-bend.png\" alt=\"Control volume around a pipe bend\" loading=\"lazy\"><figcaption>Momentum in minus momentum out plus pressure forces gives the force on the bend.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>For interviews, Bernoulli and the control-volume momentum equation do most of the work (pitot tube, pipe bend forces, nozzle thrust).</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--gas-dynamics-and-compressible-flow",
+       "q": "Gas dynamics and compressible flow",
+       "a": "<ul><li>Ideal gas: P = ρRT, R = R_u/MW, R_u = 8.314 J/(mol·K). Good for a first cut; use a compressibility factor when very cold (below about −100°F) or high pressure (above about 1,000 psia).</li><li>Adiabatic = no heat flow. Isentropic = adiabatic and reversible (no viscous losses).</li><li>Isentropic relations: P₂/P₁ = (ρ₂/ρ₁)^γ = (T₂/T₁)^(γ/(γ−1))</li><li>Total pressure (incompressible form): P_t = P + ρU²/2</li><li>Mach number M = U/√(γRT) (speed of sound √(γRT))</li><li>Flow is choked when P_t/P_∞ ≥ ((γ + 1)/2)^(γ/(γ−1)): about 1.9 for air, 1.7 for combustion gas</li><li>γ = 5/3 monatomic (He, Ne, Xe), 7/5 diatomic (N₂, O₂, air), about 1.1–1.25 for combustion gases</li></ul><figure><img src=\"images/converging-diverging-nozzle-mach-pressure.png\" alt=\"CD nozzle Mach and pressure\" loading=\"lazy\"><figcaption>Mach number and pressure along a converging-diverging nozzle; M = 1 at the throat when choked.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>Choked means the throat has reached Mach 1; lowering the downstream pressure further can't increase the mass flow. The inverse, p*/p₀ ≈ 0.53 for air, is the other way it's quoted.</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--heat-transfer",
+       "q": "Heat transfer",
+       "a": "<ul><li>Energy into a flow: Q = ṁ·c_p·ΔT</li><li>Conduction: Q = −kA·ΔT/Δx</li><li>Convection: Q = hA(T_s − T_∞)</li><li>Radiation: Q = F·ε·σ·A(T_s⁴ − T_∞⁴), σ = 5.67×10⁻⁸ W/(m²K⁴), F = view factor, temperatures in kelvin</li><li>Re = ρVL/μ, Nu = hL/k_fluid, Biot Bi = hL/k_solid (Bi < 0.1: the solid is nearly uniform in temperature, so lumped analysis works)</li></ul><figure><img src=\"images/three-modes-heat-transfer.png\" alt=\"Three modes of heat transfer\" loading=\"lazy\"><figcaption>Conduction through solids, convection into a moving fluid, radiation across space.</figcaption></figure><p class=\"fu\">Interview notes</p><ul><li>In space there's no convection, so radiation (and conduction to a radiator) is how heat leaves.</li><li>Nusselt and Biot look the same but use different k: fluid for Nu, solid for Bi.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Rockets and Orbits",
+     "cards": [
+      {
+       "id": "quick-reference-form--rocket-mechanics",
+       "q": "Rocket mechanics",
+       "a": "<ul><li>Thrust: T = ṁV_e + (P_e − P_∞)A_e = C_F·P_c·A_t = I_sp·ṁ·g₀</li><li>Thrust coefficient (momentum part): C_F = √{(2γ²/(γ − 1))·(2/(γ + 1))^((γ+1)/(γ−1))·[1 − (P_e/P_c)^((γ−1)/γ)]}, plus (P_e − P_∞)/P_c × A_e/A_t for the pressure term (in vacuum, P_∞ = 0)</li><li>Rocket equation: ΔV = V_e·ln(m_initial/m_final)</li><li>Area-Mach relation (pressure along the nozzle from the area): A_t/A = ((γ + 1)/2)^((γ+1)/(2(γ−1)))·M / (1 + ((γ − 1)/2)M²)^((γ+1)/(2(γ−1)))</li><li>Chamber region Mach about 0.2, throat M = 1, exit typically M ≈ 3–5</li><li>Free-body of the chamber: tension in the chamber/nozzle structure = P_c·A_c − T</li></ul><p class=\"fu\">Interview notes</p><ul><li>I_sp (seconds) is thrust per unit weight flow; V_e = I_sp·g₀.</li><li>The rocket equation's log is why staging helps: dropping dead mass raises the mass ratio of what's left.</li><li>Thrust is maximized when the nozzle is ideally expanded (P_e = P_∞).</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--orbital-mechanics",
+       "q": "Orbital mechanics",
+       "a": "<ul><li>Circular orbit speed: V = r₀√(g₀/(r₀ + h)) ≈ √(g₀r₀) in low orbit (about 7.9 km/s)</li><li>Escape speed from the surface: √(2g₀r₀) ≈ 11.2 km/s</li><li>Period: τ = 2π(r₀ + h)^(3/2)/(r₀√g₀) ≈ 2π√(r₀/g₀) ≈ 84 min at the surface; about 90 min for the ISS</li><li>Same form as a pendulum: τ = 2π√(L/g)</li><li>g₀ = 9.81 m/s² (Earth), 3.71 m/s² (Mars). Earth radius r₀ = 6.37×10⁶ m</li><li>Altitudes: ISS about 4×10⁵ m; geostationary about 3.6×10⁷ m; Mars at closest about 5.5×10¹⁰ m away</li></ul><p class=\"fu\">Interview notes</p><ul><li>Escape speed is √2 times orbital speed at the same radius.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "Math, Units, and Material Properties",
+     "cards": [
+      {
+       "id": "quick-reference-form--math-shortcuts",
+       "q": "Math shortcuts",
+       "a": "<ul><li>Small angles (θ < ~15°): sin θ ≈ θ, cos θ ≈ 1 − θ²/2, tan θ ≈ θ (radians; 1 rad ≈ 57.3°)</li><li>Binomial: (1 + ε)ⁿ ≈ 1 + nε for small ε, so 1/(1 + ε) ≈ 1 − ε and 1/(1 − ε) ≈ 1 + ε</li><li>Law of cosines: c² = a² + b² − 2ab·cos C</li><li>Tube area: π(Ro² − Ri²) ≈ 2πRt (thin wall). Tube surface: πDL. Sphere surface: 4πR². Ellipse: πab. Spherical shell volume: (4/3)π(Ro³ − Ri³)</li></ul><p class=\"fu\">Interview notes</p><ul><li>The binomial shortcut is how you get things like 'a 1% increase in diameter gives about a 4% increase in I' (I ∝ D⁴).</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--units",
+       "q": "Units",
+       "a": "<div class=\"tw\"><table><thead><tr><th>Conversion</th><th>Factor</th></tr></thead><tbody><tr><td>in → mm</td><td>× 25.4</td></tr><tr><td>lbf → N</td><td>× 4.45</td></tr><tr><td>lbm → kg</td><td>× 0.454</td></tr><tr><td>ksi → MPa</td><td>× 6.895</td></tr><tr><td>psi → bar</td><td>× 0.069</td></tr><tr><td>ft·lbf → N·m</td><td>× 1.356</td></tr><tr><td>in·lbf → N·m</td><td>× 0.113</td></tr><tr><td>mph → m/s</td><td>× 0.447</td></tr><tr><td>gal → m³</td><td>× 0.00379</td></tr><tr><td>BTU → kJ</td><td>× 1.055</td></tr><tr><td>°F → °C</td><td>(°F − 32) × 0.556</td></tr><tr><td>1 lbm × g</td><td>= 1 lbf; mass in lbf·s²/in = lbm/386</td></tr></tbody></table></div><p class=\"fu\">Interview notes</p><ul><li>1 Pa is tiny: 1 psi ≈ 6,895 Pa. Always carry units; the Mars Climate Orbiter was lost to a units mix-up.</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--material-properties-room-temperature-from-the-sheet",
+       "q": "Material properties (room temperature, from the sheet)",
+       "a": "<div class=\"tw\"><table><thead><tr><th>Material</th><th>E (GPa)</th><th>ν</th><th>ρ (kg/m³)</th><th>F_ty (MPa)</th><th>F_tu (MPa)</th><th>α (µm/m/°C)</th><th>k (W/m·K)</th></tr></thead><tbody><tr><td>Al 6061</td><td>68</td><td>0.33</td><td>2700</td><td>240</td><td>290</td><td>22.8</td><td>150</td></tr><tr><td>Al 7075</td><td>71</td><td>0.33</td><td>2800</td><td>345</td><td>415</td><td>22.0</td><td>150</td></tr><tr><td>Al-Li 2219</td><td>72</td><td>0.33</td><td>2900</td><td>248</td><td>373</td><td>22.0</td><td>120</td></tr><tr><td>Copper, unalloyed</td><td>110</td><td>0.34</td><td>8900</td><td>42</td><td>220</td><td>16.4</td><td>400</td></tr><tr><td>Inconel 625</td><td>203</td><td>0.28</td><td>8400</td><td>415</td><td>825</td><td>12.6</td><td>11</td></tr><tr><td>Inconel 718</td><td>203</td><td>0.29</td><td>8200</td><td>1035</td><td>1240</td><td>12.3</td><td>12</td></tr><tr><td>Monel 400 (annealed)</td><td>179</td><td>0.32</td><td>8800</td><td>170</td><td>485</td><td>13.0</td><td>22</td></tr><tr><td>SS 300 series (annealed)</td><td>200</td><td>0.27</td><td>7900</td><td>180</td><td>505</td><td>15.5</td><td>16</td></tr><tr><td>15-5PH H1025</td><td>197</td><td>0.27</td><td>7800</td><td>1000</td><td>1070</td><td>11.2</td><td>16</td></tr><tr><td>A286 bolt</td><td>201</td><td>0.31</td><td>7900</td><td>825</td><td>1105</td><td>16.2</td><td>12</td></tr><tr><td>Steel A36</td><td>200</td><td>0.26</td><td>7800</td><td>250</td><td>400</td><td>11.7</td><td>50</td></tr><tr><td>Ti-6Al-4V</td><td>110</td><td>0.31</td><td>4300</td><td>830</td><td>895</td><td>8.8</td><td>7</td></tr></tbody></table></div><p class=\"fu\">Interview notes</p><ul><li>These look like design-allowable-style minimums, so some (like 7075 at 345/415 MPa) are well below typical 7075-T6 handbook values (about 500/570). Know which you're quoting.</li><li>Useful patterns: aluminums all have E ≈ 70 GPa, steels and nickel alloys ≈ 200 GPa, titanium ≈ 110 GPa. Strength varies hugely with alloy and temper; stiffness barely does.</li><li>Inconel and titanium conduct heat poorly (about 7–12 W/m·K) compared with aluminum (≈150) and copper (≈400).</li></ul>"
+      },
+      {
+       "id": "quick-reference-form--what-i-d-correct-or-double-check-on-this-sheet",
+       "q": "What I'd correct or double-check on this sheet",
+       "a": "<ul><li><strong>Rectangle J = bh(b² + h²)/12</strong> is the polar moment of area, not the torsion constant. Don't use it in τ = Tc/J for rectangular bars; use the tabulated α, β values (thin strip ≈ bt³/3).</li><li><strong>Euler buckling 'for L/R > 10'</strong> is too permissive. Euler applies only above the transition slenderness KL/r ≈ √(2π²E/σ_y) (about 126 for mild steel). Below that, use Johnson or tangent modulus.</li><li><strong>Tensile stress area</strong> 'D·(0.135D + 0.831)' gives about 15% too much area for ¼-20. Use A_t = 0.7854(D − 0.9743/n)².</li><li><strong>Rotating shaft radial growth:</strong> make sure the bracket reads (1 − ν)r_o² + (3 + ν)r_i²; the handwriting is ambiguous.</li><li><strong>Rocket C_F 'vacuum'</strong> as written is only the momentum part; vacuum C_F also adds (P_e/P_c)(A_e/A_t).</li><li><strong>Geostationary altitude</strong> is about 3.6×10⁷ m (the sheet rounds to 4×10⁷).</li></ul>"
       }
      ]
     }
