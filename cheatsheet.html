@@ -8,6 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
 <style>
 :root{
   --paper:#F6F7F4; --grid:#E4E9EF; --ink:#1A2230; --blue:#2B59A6; --blue-soft:#EAF0FA;
@@ -47,7 +50,7 @@ main{max-width:1600px;margin:0 auto;padding:14px 16px 60px}
 .zone > h2::after{content:"";flex:1;border-top:1.5px solid var(--ink)}
 .cols{column-count:3;column-gap:14px}
 @media (max-width:1200px){.cols{column-count:2}}
-@media (max-width:760px){.cols{column-count:1}.jump,.search,.back{margin:8px 0 0}.hb{flex-direction:column}}
+@media (max-width:760px){header{position:static}.search{flex:0 0 auto}.cols{column-count:1}.jump,.search,.back{margin:8px 0 0}.hb{flex-direction:column}}
 
 .p{break-inside:avoid;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink);padding:9px 12px 10px;margin:0 0 14px}
 .p.blue{border-top-color:var(--blue)} .p.red{border-top-color:var(--red)} .p.green{border-top-color:var(--green)}
@@ -74,6 +77,34 @@ mark{background:var(--hl);color:inherit;padding:0}
 .fill input{font:inherit;font-size:13.5px;border:1px solid var(--line);padding:3px 6px;min-width:0;background:#FBFCFD}
 .fill input:focus{border-color:var(--blue);outline:0}
 .empty{display:none;padding:18px;border:1px dashed var(--line);background:var(--card);margin:10px 0}
+
+/* equations */
+.f{display:grid;gap:2px}
+.f .r{display:grid;grid-template-columns:7.2em 1fr;align-items:center;gap:8px;padding:5px 0;border-bottom:1px dotted var(--line);min-height:34px}
+.f .r:last-child{border-bottom:0}
+.f .r.wide{grid-template-columns:1fr;gap:2px}
+.f .r > .lb{font-size:12.5px;color:var(--pencil);font-weight:500;line-height:1.2}
+.f .r .katex{color:var(--ink);font-size:17px}
+table.mt .katex{font-size:16px}
+.f .katex{font-size:1.08em}
+.p .katex-display{margin:0}
+table.mt td,table.mt th{vertical-align:middle;text-align:center}
+table.mt td:first-child,table.mt th:first-child{text-align:left}
+.p{overflow-wrap:normal}
+.p .katex{overflow-wrap:normal;white-space:nowrap}
+.f .r{overflow-x:auto}
+/* pitch script */
+details.script{border:1px solid var(--line);margin:0 0 7px;background:#FBFCFD}
+details.script summary{cursor:pointer;padding:7px 10px;font-weight:600;list-style:none;display:flex;align-items:center;gap:8px}
+details.script summary::-webkit-details-marker{display:none}
+details.script summary::before{content:"";width:0;height:0;border-left:6px solid var(--ink);border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;transition:transform .15s}
+details.script[open] summary::before{transform:rotate(90deg)}
+details.script[open] summary{border-bottom:1px solid var(--line);background:var(--blue-soft)}
+.say{padding:10px 12px 4px;font-size:16px;line-height:1.55}
+.say p{margin:0 0 11px}
+.say b{background:linear-gradient(transparent 62%,#FFE9A3 62%);font-weight:600}
+.say .slot{color:var(--blue)}
+@media (max-width:760px){.f .r{grid-template-columns:1fr;gap:1px}.f .r .katex{font-size:15.5px}}
 @media print{header{position:static}.search,.back{display:none}body{background:#fff;font-size:11px}.cols{column-count:3}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
@@ -100,17 +131,33 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
 <h2>Me</h2>
 <div class="cols">
 
-<div class="p blue"><h3>Pitch, 45 s</h3>
-<p class="pitch">Mechanical engineering senior at UCLA, graduating June 2027. <span class="k">Suspension and steering lead, Bruin Baja SAE</span>: run a 13-person subteam, own the whole system front and rear (geometry, load cases, analysis, in-house manufacturing, testing) on a $10K budget.</p>
-<ul>
-<li>Set targets from test data (camber gain from a roll-gradient test)</li>
-<li>Validate geometry through full travel and steer with my SolidWorks VBA macros</li>
-<li>Size parts against measured loads, not legacy numbers</li>
-<li>Design for the machines we have</li>
-<li>~10% lighter system; steering rack 21% lighter with more travel; presented design in NY, 14th of 100+</li>
-<li>Before lead: built A-arms, machined parts. Same approach on combat robots + robotics startup internship</li>
-</ul>
-<p class="dim">Close: "...a role where I can own hardware from the load case all the way to test." Structures: "sizing parts against real load cases and proving them out." Keep project summaries to 2 to 3 min.</p>
+<div class="p blue" id="pitch"><h3>Elevator pitch</h3>
+<details class="script">
+<summary>Full script, word for word <span class="dim">· about 60 s</span></summary>
+<div class="say">
+<p>Hi, I'm Armaan. I'm a mechanical engineering senior at UCLA, and I graduate in June 2027.</p>
+<p>Right now I'm the <b>suspension and steering lead</b> for Bruin Baja SAE. I lead a team of thirteen engineers, and I'm responsible for the entire system, front and rear: the geometry, the load cases, the analysis, building everything in-house, and testing it, all on a ten-thousand-dollar budget.</p>
+<p>A big part of my job is making sure our design decisions come from <b>real data</b>. For example, we ran a roll-gradient test to set our camber gain target, and we drop-tested the car with an accelerometer so we're sizing parts against loads we actually measured, instead of numbers passed down from older teams. I also wrote SolidWorks macros that sweep the suspension through its full travel and steering range, so we catch interferences on the screen instead of on the car.</p>
+<p>This year, that's put us on track for a system about <b>ten percent lighter</b>, including a steering rack that's twenty-one percent lighter with more travel. And I presented our design in New York, where we placed <b>fourteenth out of over a hundred teams</b>.</p>
+<p>Before I was lead, I was on the shop floor building A-arms and machining parts myself, and I've taken that same design-to-build approach into combat robotics and a mechanical engineering internship at a robotics startup.</p>
+<p>So I'm looking for a role where I can <b>own hardware from the load case all the way through test</b>, <span class="slot">and that's exactly the kind of work your team does on [their product].</span></p>
+</div>
+</details>
+<details class="script">
+<summary>Short version <span class="dim">· about 15 s</span></summary>
+<div class="say">
+<p>I'm Armaan, a mechanical engineering senior at UCLA. I'm the suspension and steering lead for Bruin Baja SAE, where I lead thirteen engineers and own the system end to end: geometry, load cases, analysis, manufacturing, and testing. I'm looking for a role where I can take hardware from the load case all the way through test.</p>
+</div>
+</details>
+<details class="script">
+<summary>Swap the last line for the role</summary>
+<div class="say">
+<p><span class="k">Structures:</span> "So I'm looking for a structures role where I'm sizing parts against real load cases and proving them out with analysis and test."</p>
+<p><span class="k">Design:</span> "So I'm looking for a design role where I own a subsystem from requirements all the way through build and validation."</p>
+<p><span class="k">Manufacturing:</span> "So I'm looking for a role close to the build, where design decisions come from how the part actually gets made."</p>
+</div>
+</details>
+<p class="dim">Pause after each paragraph. Every bolded phrase is a hook they'll ask about. Project summaries later: 2 to 3 minutes, then stop.</p>
 </div>
 
 <div class="p"><h3>Baja M26 numbers</h3>
@@ -204,112 +251,131 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
 <div class="cols">
 
 <div class="p"><h3>Stress, strain, stiffness</h3>
-<ul class="eq">
-<li>σ = F/A, ε = ΔL/L, σ = Eε, δ = FL/(EA)</li>
-<li>Stiffness: axial EA/L · torsion GJ/L · cantilever 3EI/L³</li>
-<li>G = E/(2(1 + ν)), ν ≈ 0.3 metals, 0.5 rubber, ~0 cork</li>
-<li>Strain energy U = ½Fδ = F²L/(2EA); ½σε per volume</li>
-<li>Thermal: ε = αΔT; fully blocked σ = −EαΔT (steel 100°C ≈ 240 MPa)</li>
-<li>Von Mises √{[(σ₁−σ₂)² + (σ₂−σ₃)² + (σ₃−σ₁)²]/2}; bending + torsion √(σ² + 3τ²)</li>
-<li>Tresca τ_max = (σ₁ − σ₃)/2 ≤ σ_y/2</li>
-<li>Principal: σ₁,₂ = (σx+σy)/2 ± √[((σx−σy)/2)² + τ²]</li>
-</ul>
+<div class="f">
+<div class="r"><span class="lb">Hooke</span>\(\sigma = \dfrac{F}{A} = E\varepsilon \qquad \varepsilon = \dfrac{\Delta L}{L}\)</div>
+<div class="r"><span class="lb">Axial stretch</span>\(\delta = \dfrac{FL}{EA}\)</div>
+<div class="r"><span class="lb">Stiffness</span>\(k_{\text{axial}} = \dfrac{EA}{L} \quad k_{\theta} = \dfrac{GJ}{L} \quad k_{\text{cant}} = \dfrac{3EI}{L^3}\)</div>
+<div class="r"><span class="lb">Shear modulus</span>\(G = \dfrac{E}{2(1+\nu)} \quad \nu \approx 0.3\)</div>
+<div class="r"><span class="lb">Strain energy</span>\(U = \tfrac12 F\delta = \dfrac{F^2 L}{2EA}\)</div>
+<div class="r"><span class="lb">Thermal, blocked</span>\(\varepsilon = \alpha\Delta T \qquad \sigma = -E\alpha\Delta T\)</div>
+<div class="r wide"><span class="lb">Von Mises</span>\(\sigma_{vm} = \sqrt{\tfrac12\left[(\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2+(\sigma_3-\sigma_1)^2\right]}\)</div>
+<div class="r"><span class="lb">Bend + twist</span>\(\sigma_{vm} = \sqrt{\sigma^2 + 3\tau^2}\)</div>
+<div class="r"><span class="lb">Tresca</span>\(\tau_{max} = \dfrac{\sigma_1 - \sigma_3}{2} \le \dfrac{\sigma_y}{2}\)</div>
+<div class="r"><span class="lb">Principal</span>\(\sigma_{1,2} = \dfrac{\sigma_x+\sigma_y}{2} \pm \sqrt{\left(\dfrac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2}\)</div>
+</div>
+<p class="dim">Steel blocked, 100°C ≈ 240 MPa (near mild-steel yield).</p>
 </div>
 
 <div class="p"><h3>Beams</h3>
-<table>
-<tr><th>Case</th><th>δ_max</th><th>M_max</th></tr>
-<tr><td>Cantilever, tip F</td><td class="n">FL³/3EI</td><td class="n">FL</td></tr>
-<tr><td>Cantilever, uniform (total F)</td><td class="n">FL³/8EI</td><td class="n">FL/2</td></tr>
-<tr><td>Simply supp., center F</td><td class="n">FL³/48EI</td><td class="n">FL/4</td></tr>
-<tr><td>Simply supp., uniform</td><td class="n">5FL³/384EI</td><td class="n">FL/8</td></tr>
-<tr><td>Fixed-fixed, center F</td><td class="n">FL³/192EI</td><td class="n">FL/8</td></tr>
-<tr><td>Fixed-fixed, uniform</td><td class="n">FL³/384EI</td><td class="n">FL/12</td></tr>
+<table class="mt">
+<tr><th>Case</th><th>\(\delta_{max}\)</th><th>\(M_{max}\)</th></tr>
+<tr><td>Cantilever, tip F</td><td>\(\dfrac{FL^3}{3EI}\)</td><td>\(FL\)</td></tr>
+<tr><td>Cantilever, uniform (total F)</td><td>\(\dfrac{FL^3}{8EI}\)</td><td>\(\dfrac{FL}{2}\)</td></tr>
+<tr><td>Simply supported, center F</td><td>\(\dfrac{FL^3}{48EI}\)</td><td>\(\dfrac{FL}{4}\)</td></tr>
+<tr><td>Simply supported, uniform</td><td>\(\dfrac{5FL^3}{384EI}\)</td><td>\(\dfrac{FL}{8}\)</td></tr>
+<tr><td>Fixed-fixed, center F</td><td>\(\dfrac{FL^3}{192EI}\)</td><td>\(\dfrac{FL}{8}\)</td></tr>
+<tr><td>Fixed-fixed, uniform</td><td>\(\dfrac{FL^3}{384EI}\)</td><td>\(\dfrac{FL}{12}\)</td></tr>
 </table>
-<ul class="eq">
-<li>σ = Mc/I · τ = VQ/(Ib), rectangle τ_max = 1.5V/A at NA</li>
-<li>I: rect bh³/12 · solid πd⁴/64 · tube π(Do⁴−Di⁴)/64</li>
-<li>Parallel axis I = Ī + Ad² · r = √(I/A)</li>
-<li>Plastic hinge: Mp = σy·Z, rectangle Z = 1.5S</li>
-</ul>
+<div class="f">
+<div class="r"><span class="lb">Bending</span>\(\sigma = \dfrac{Mc}{I}\)</div>
+<div class="r"><span class="lb">Shear</span>\(\tau = \dfrac{VQ}{Ib} \quad \text{rect: } \tau_{max} = 1.5\dfrac{V}{A}\)</div>
+<div class="r"><span class="lb">Rectangle</span>\(I = \dfrac{bh^3}{12}\)</div>
+<div class="r"><span class="lb">Round / tube</span>\(I = \dfrac{\pi d^4}{64} \qquad I = \dfrac{\pi (D_o^4 - D_i^4)}{64}\)</div>
+<div class="r"><span class="lb">Parallel axis</span>\(I = \bar I + A d^2 \qquad r = \sqrt{I/A}\)</div>
+<div class="r"><span class="lb">Plastic hinge</span>\(M_p = \sigma_y Z \quad \text{rect: } Z = 1.5\,S\)</div>
+</div>
 </div>
 
 <div class="p"><h3>Torsion and buckling</h3>
-<ul class="eq">
-<li>τ = Tr/J, θ = TL/(GJ); solid J = πd⁴/32, τ_max = 16T/(πd³)</li>
-<li>Thin closed tube J ≈ 2πr³t; slit (open) ≈ 2πr·t³/3 → 3(r/t)² weaker</li>
-<li>Power P = Tω; hp = T(lb·ft)·rpm/5252</li>
-<li>Euler P_cr = π²EI/(KL)²; K = 2 free, 1 pinned, 0.7 fixed-pinned, 0.5 fixed</li>
-<li>σ_cr = π²E/(KL/r)²; Euler only if KL/r &gt; √(2π²E/σy) (≈126 mild steel), else Johnson</li>
-<li>Thin tube local: σ_cr ≈ 0.6Et/R (real: 30–60% of that)</li>
-</ul>
+<div class="f">
+<div class="r"><span class="lb">Torsion</span>\(\tau = \dfrac{Tr}{J} \qquad \theta = \dfrac{TL}{GJ}\)</div>
+<div class="r"><span class="lb">Solid shaft</span>\(J = \dfrac{\pi d^4}{32} \qquad \tau_{max} = \dfrac{16T}{\pi d^3}\)</div>
+<div class="r"><span class="lb">Thin tube</span>\(J_{closed} \approx 2\pi r^3 t \qquad J_{slit} \approx \dfrac{2\pi r t^3}{3}\)</div>
+<div class="r"><span class="lb">Closed ÷ slit</span>\(3\left(\dfrac{r}{t}\right)^2 \;\;(\approx 300\times \text{ at } r/t=10)\)</div>
+<div class="r"><span class="lb">Power</span>\(P = T\omega \qquad \text{hp} = \dfrac{T_{\text{lb·ft}}\cdot\text{rpm}}{5252}\)</div>
+<div class="r"><span class="lb">Euler</span>\(P_{cr} = \dfrac{\pi^2 EI}{(KL)^2} \qquad \sigma_{cr} = \dfrac{\pi^2 E}{(KL/r)^2}\)</div>
+<div class="r"><span class="lb">Use Euler if</span>\(\dfrac{KL}{r} > \sqrt{\dfrac{2\pi^2 E}{\sigma_y}} \;\;(\approx 126 \text{ mild steel})\)</div>
+<div class="r"><span class="lb">Thin tube local</span>\(\sigma_{cr} \approx 0.6\,\dfrac{Et}{R}\)</div>
+</div>
+<p class="dim">K = 2 fixed-free · 1 pinned-pinned · 0.7 fixed-pinned · 0.5 fixed-fixed. Below the Euler limit use Johnson. Real thin tubes buckle at 30–60% of the classical value.</p>
 </div>
 
 <div class="p"><h3>Pressure vessels, rotating, plates</h3>
-<ul class="eq">
-<li>Cylinder: hoop pr/t, axial pr/2t (crack runs lengthwise)</li>
-<li>Sphere: pr/2t everywhere (half the wall)</li>
-<li>Absolute τ_max (thin) = pr/2t (third direction σ₃ ≈ 0)</li>
-<li>Thick wall bore hoop: p(b² + a²)/(b² − a²); floor = p</li>
-<li>Thin wall valid t &lt; r/10</li>
-<li>Spinning disk: solid center (3+ν)/8·ρω²b²; tiny hole doubles it; limit is rim speed √(σ/ρ)</li>
-<li>Clamped plate: δ = (3/16)pR⁴(1−ν²)/(Et³), σ_edge = ¾p(R/t)²</li>
-<li>1 atm ≈ 14.7 psi ≈ 0.101 MPa; water 10 m ≈ 1 atm</li>
-</ul>
+<div class="f">
+<div class="r"><span class="lb">Cylinder</span>\(\sigma_{hoop} = \dfrac{pr}{t} \qquad \sigma_{axial} = \dfrac{pr}{2t}\)</div>
+<div class="r"><span class="lb">Sphere</span>\(\sigma = \dfrac{pr}{2t}\)</div>
+<div class="r"><span class="lb">Abs. max shear</span>\(\tau_{max} = \dfrac{pr}{2t} \;\;(\sigma_3 \approx 0)\)</div>
+<div class="r"><span class="lb">Thick wall, bore</span>\(\sigma_{hoop} = p\,\dfrac{b^2 + a^2}{b^2 - a^2}\)</div>
+<div class="r"><span class="lb">Spinning disk</span>\(\sigma_{center} = \dfrac{3+\nu}{8}\,\rho\omega^2 b^2\)</div>
+<div class="r"><span class="lb">Clamped plate</span>\(\delta = \dfrac{3}{16}\dfrac{pR^4(1-\nu^2)}{Et^3} \qquad \sigma_{edge} = \dfrac34 p\left(\dfrac{R}{t}\right)^2\)</div>
+</div>
+<p class="dim">Hoop = 2× axial → cracks run lengthwise. Thin wall if t &lt; r/10. Tiny hole doubles disk stress; burst limit is a rim speed. 1 atm ≈ 14.7 psi ≈ 0.101 MPa ≈ 10 m of water.</p>
 </div>
 
 <div class="p"><h3>Bolts, pins, lugs, welds</h3>
-<ul class="eq">
-<li>Preload P = T/(K·D); K ≈ 0.2 dry, 0.15 lubed; ~90% of torque is friction</li>
-<li>Target preload ~75% of proof load</li>
-<li>A_t = 0.7854(D − 0.9743/n)²; ¼-20 → 0.0318 in²</li>
-<li>Pin shear τ = V/A (double shear V/2A); peak solid 4/3·V/A</li>
-<li>Bearing σ = F/(D·t); tear-out τ = F/(2et)</li>
-<li>Lug oblique: R_a^1.6 + R_tr^1.6 ≤ 1</li>
-<li>Thread pull-out ≈ 0.4π·D·L_e·τ_u</li>
-<li>Fillet weld τ = V/(0.707·h·L)</li>
-<li>Slip-critical: μ·P·(interfaces) ≥ F</li>
-</ul>
+<div class="f">
+<div class="r"><span class="lb">Preload</span>\(T = K D P \quad K \approx 0.2 \text{ dry},\ 0.15 \text{ lubed}\)</div>
+<div class="r"><span class="lb">Stress area</span>\(A_t = 0.7854\left(D - \dfrac{0.9743}{n}\right)^2\)</div>
+<div class="r"><span class="lb">Pin shear</span>\(\tau = \dfrac{V}{A} \;\;(\text{double: } \tfrac{V}{2A}) \quad \tau_{peak} = \tfrac43\dfrac{V}{A}\)</div>
+<div class="r"><span class="lb">Bearing</span>\(\sigma_{br} = \dfrac{F}{Dt}\)</div>
+<div class="r"><span class="lb">Tear-out</span>\(\tau = \dfrac{F}{2et}\)</div>
+<div class="r"><span class="lb">Lug oblique</span>\(R_a^{1.6} + R_{tr}^{1.6} \le 1\)</div>
+<div class="r"><span class="lb">Thread pull-out</span>\(F \approx 0.4\,\pi D L_e\, \tau_u\)</div>
+<div class="r"><span class="lb">Fillet weld</span>\(\tau = \dfrac{V}{0.707\,h L}\)</div>
+<div class="r"><span class="lb">Slip-critical</span>\(\mu P n_{\text{faces}} \ge F\)</div>
+</div>
+<p class="dim">~90% of torque is friction; preload ≈ 75% of proof. ¼-20: A_t = 0.0318 in².</p>
 </div>
 
 <div class="p"><h3>Fatigue, fracture, margins</h3>
-<ul class="eq">
-<li>σm = (σmax+σmin)/2, σa = (σmax−σmin)/2</li>
-<li>Goodman σa/Se + σm/Su = 1/n · Soderberg uses Sy · also σa + σm &lt; Sy</li>
-<li>Steel Se ≈ ½ UTS (knee ~10⁶); aluminum: no endurance limit</li>
-<li>Kt hole = 3 (biaxial 2, pure shear 4); ellipse 1 + 2a/b</li>
-<li>K = λσ√(πa), edge crack λ ≈ 1.12; a_c = (1/π)(K_IC/λσ)²</li>
-<li>Paris da/dN = CΔK^m</li>
-<li>MS = Allowable/(Applied × FS) − 1</li>
-<li>Bearing life L10 = (C/P)^3 × 10⁶ rev (ball), ^10/3 roller</li>
-</ul>
+<div class="f">
+<div class="r"><span class="lb">Mean / alt.</span>\(\sigma_m = \dfrac{\sigma_{max}+\sigma_{min}}{2} \qquad \sigma_a = \dfrac{\sigma_{max}-\sigma_{min}}{2}\)</div>
+<div class="r"><span class="lb">Goodman</span>\(\dfrac{\sigma_a}{S_e} + \dfrac{\sigma_m}{S_u} = \dfrac{1}{n}\)</div>
+<div class="r"><span class="lb">Stress conc.</span>\(K_t = 1 + \dfrac{2a}{b} \;\;(\text{hole} = 3)\)</div>
+<div class="r"><span class="lb">Stress intensity</span>\(K = \lambda\sigma\sqrt{\pi a} \quad (\text{edge } \lambda \approx 1.12)\)</div>
+<div class="r"><span class="lb">Critical crack</span>\(a_c = \dfrac{1}{\pi}\left(\dfrac{K_{IC}}{\lambda\sigma}\right)^2\)</div>
+<div class="r"><span class="lb">Paris law</span>\(\dfrac{da}{dN} = C\,\Delta K^m\)</div>
+<div class="r"><span class="lb">Margin</span>\(MS = \dfrac{\text{Allowable}}{\text{Applied}\times FS} - 1\)</div>
+<div class="r"><span class="lb">Bearing life</span>\(L_{10} = \left(\dfrac{C}{P}\right)^{3} \times 10^6 \text{ rev}\)</div>
+</div>
+<p class="dim">Soderberg uses S_y. Also check σ_a + σ_m &lt; S_y. Steel S_e ≈ ½ UTS; aluminum has no endurance limit. Hole K_t: biaxial 2, pure shear 4. Roller bearings: exponent 10/3.</p>
 </div>
 
 <div class="p"><h3>Dynamics and vibration</h3>
-<ul class="eq">
-<li>ω_n = √(k/m), f = ω_n/2π; ζ = c/(2√(km)); ω_d = ω_n√(1−ζ²)</li>
-<li>Peak amplification Q = 1/(2ζ); ζ ≈ 1% bare metal</li>
-<li>Isolation needs f/f_n &gt; √2 (aim ≥ 3)</li>
-<li>Wheel rate = k·MR² (·cos²θ); dual-rate k₁k₂/(k₁+k₂) then k₂</li>
-<li>Imbalance F = m·e·ω²</li>
-<li>Impact: F_avg ≈ KE/d · v = √(2gh) · E = ½Iω² (weapon)</li>
-<li>Ackermann tan δi = L/(R − t/2), tan δo = L/(R + t/2)</li>
-<li>Energy ½mv², Power F·v = Tω, impulse FΔt = mΔv</li>
-</ul>
+<div class="f">
+<div class="r"><span class="lb">Natural freq.</span>\(\omega_n = \sqrt{\dfrac{k}{m}} \qquad f = \dfrac{\omega_n}{2\pi}\)</div>
+<div class="r"><span class="lb">Damping</span>\(\zeta = \dfrac{c}{2\sqrt{km}} \qquad \omega_d = \omega_n\sqrt{1-\zeta^2}\)</div>
+<div class="r"><span class="lb">Resonance peak</span>\(Q = \dfrac{1}{2\zeta}\)</div>
+<div class="r"><span class="lb">Wheel rate</span>\(k_w = k\cdot MR^2\cos^2\theta\)</div>
+<div class="r"><span class="lb">Dual rate</span>\(k_{soft} = \dfrac{k_1 k_2}{k_1 + k_2} \;\to\; k_2\)</div>
+<div class="r"><span class="lb">Imbalance</span>\(F = m e \omega^2\)</div>
+<div class="r"><span class="lb">Impact</span>\(v = \sqrt{2gh} \qquad F_{avg} \approx \dfrac{KE}{d}\)</div>
+<div class="r"><span class="lb">Spinning energy</span>\(E = \tfrac12 I\omega^2\)</div>
+<div class="r"><span class="lb">Ackermann</span>\(\tan\delta_i = \dfrac{L}{R - t/2} \qquad \tan\delta_o = \dfrac{L}{R + t/2}\)</div>
+<div class="r"><span class="lb">Energy, power</span>\(KE = \tfrac12 mv^2 \qquad P = Fv = T\omega\)</div>
+<div class="r"><span class="lb">Impulse</span>\(F\Delta t = m\Delta v\)</div>
+</div>
+<p class="dim">ζ ≈ 1% bare metal (Q ≈ 50). Isolation needs f/f_n &gt; √2, aim for 3+.</p>
 </div>
 
 <div class="p"><h3>Fluids, thermo, heat transfer</h3>
-<ul class="eq">
-<li>Bernoulli P + ½ρV² + ρgz = const · continuity ρAV = const</li>
-<li>Momentum ΣF = Σ(ṁV)out − Σ(ṁV)in (+ pressure × area)</li>
-<li>Pitot V = √(2(p₀ − p)/ρ) · orifice ṁ = C_d A√(2ρΔP)</li>
-<li>Re = ρVD/μ (laminar &lt; 2300); ΔP = f(L/D)(ρV²/2), laminar f = 64/Re</li>
-<li>Choked: p*/p₀ ≈ 0.53 (air); M = V/√(γRT)</li>
-<li>PV = mRT (Kelvin); c_p = c_v + R</li>
-<li>q = kAΔT/L · q = hAΔT · q = εσA(T⁴ − T∞⁴), σ = 5.67e−8</li>
-<li>Bi = hL/k_solid &lt; 0.1 → lumped · Nu = hL/k_fluid</li>
-<li>Rocket ΔV = Ve ln(m₀/m_f); thrust ṁVe + (Pe − P∞)Ae</li>
-</ul>
+<div class="f">
+<div class="r"><span class="lb">Bernoulli</span>\(P + \tfrac12\rho V^2 + \rho g z = \text{const}\)</div>
+<div class="r"><span class="lb">Continuity</span>\(\rho A V = \text{const}\)</div>
+<div class="r"><span class="lb">Momentum</span>\(\Sigma F = \Sigma(\dot m V)_{out} - \Sigma(\dot m V)_{in}\)</div>
+<div class="r"><span class="lb">Pitot</span>\(V = \sqrt{\dfrac{2(p_0 - p)}{\rho}}\)</div>
+<div class="r"><span class="lb">Orifice</span>\(\dot m = C_d A\sqrt{2\rho\,\Delta P}\)</div>
+<div class="r"><span class="lb">Pipe loss</span>\(\Delta P = f\,\dfrac{L}{D}\,\dfrac{\rho V^2}{2} \quad f_{lam} = \dfrac{64}{Re}\)</div>
+<div class="r"><span class="lb">Reynolds</span>\(Re = \dfrac{\rho V D}{\mu} \;\;(\text{laminar} < 2300)\)</div>
+<div class="r"><span class="lb">Ideal gas</span>\(PV = mRT \qquad c_p = c_v + R\)</div>
+<div class="r"><span class="lb">Mach</span>\(M = \dfrac{V}{\sqrt{\gamma R T}}\)</div>
+<div class="r"><span class="lb">Conduction</span>\(q = \dfrac{kA\,\Delta T}{L}\)</div>
+<div class="r"><span class="lb">Convection</span>\(q = hA\,\Delta T\)</div>
+<div class="r"><span class="lb">Radiation</span>\(q = \varepsilon\sigma A\left(T^4 - T_\infty^4\right)\)</div>
+<div class="r"><span class="lb">Rocket eq.</span>\(\Delta V = V_e \ln\dfrac{m_0}{m_f}\)</div>
+<div class="r"><span class="lb">Thrust</span>\(T = \dot m V_e + (P_e - P_\infty)A_e\)</div>
+</div>
+<p class="dim">Choked when p*/p₀ ≈ 0.53 (air). Kelvin for gas and radiation; σ = 5.67×10⁻⁸. Bi = hL/k_solid &lt; 0.1 → lumped.</p>
 </div>
 
 <div class="p"><h3>Materials</h3>
@@ -321,17 +387,18 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
 <tr><td>Ti-6Al-4V</td><td class="n">114</td><td class="n">4.43</td><td class="n">~880</td><td class="n">8.6</td></tr>
 <tr><td>Inconel 718</td><td class="n">200</td><td class="n">8.2</td><td class="n">~1035</td><td class="n">13</td></tr>
 </table>
-<p class="dim">E/ρ ≈ 26 for steel, Al, Ti. Strength changes with alloy/temper; E barely does. Yield strain: mild steel 0.125%, 6061 0.4%.</p>
+<p class="dim">E/ρ ≈ 26 for steel, Al, Ti. Strength changes with alloy and temper; E barely does. Yield strain: mild steel 0.125%, 6061 0.4%.</p>
 </div>
 
 <div class="p"><h3>Units</h3>
-<ul class="eq">
-<li>1 in = 25.4 mm · 1 lbf = 4.45 N · 1 lbm = 0.454 kg</li>
-<li>1 ksi = 6.895 MPa · 1 psi = 6,895 Pa · 1 MPa = 145 psi</li>
-<li>1 ft·lbf = 1.356 N·m · 1 in·lbf = 0.113 N·m</li>
-<li>g = 9.81 m/s² = 32.2 ft/s² = 386 in/s²</li>
-<li>°C = (°F − 32)/1.8 · K = °C + 273 · ΔT 180°F = 100°C</li>
-</ul>
+<table>
+<tr><td>1 in = 25.4 mm</td><td>1 lbf = 4.45 N</td></tr>
+<tr><td>1 lbm = 0.454 kg</td><td>1 ksi = 6.895 MPa</td></tr>
+<tr><td>1 MPa = 145 psi</td><td>1 psi = 6,895 Pa</td></tr>
+<tr><td>1 ft·lbf = 1.356 N·m</td><td>1 in·lbf = 0.113 N·m</td></tr>
+<tr><td>g = 9.81 m/s² = 32.2 ft/s²</td><td>= 386 in/s²</td></tr>
+<tr><td>°C = (°F − 32)/1.8</td><td>Δ180°F = Δ100°C</td></tr>
+</table>
 </div>
 
 </div>
@@ -439,7 +506,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
 </main>
 
 <script>
-(function(){
+document.addEventListener("DOMContentLoaded", function(){
   // ---- fill-ins saved per browser ----
   const FIELDS = [
     ["wheelbase","Wheelbase (in)"],["track","Front track (in)"],["travel","Wheel travel bump/droop"],
@@ -467,6 +534,9 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
 
   // ---- filter ----
   const q = document.getElementById("q");
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector("main"), {delimiters:[{left:"\\(",right:"\\)",display:false}], throwOnError:false});
+  }
   const panels = [...document.querySelectorAll(".p")];
   panels.forEach(p => p.dataset.html = p.innerHTML);
   function esc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
@@ -477,7 +547,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
       span.innerHTML = t.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])).replace(re, m => `<mark>${m}</mark>`);
       node.replaceWith(span); return;
     }
-    if (node.nodeType === 1 && !/^(INPUT|SCRIPT|MARK)$/.test(node.tagName)) [...node.childNodes].forEach(n => mark(n, re));
+    if (node.nodeType === 1 && !/^(INPUT|SCRIPT|MARK)$/.test(node.tagName) && !(node.classList && node.classList.contains('katex'))) [...node.childNodes].forEach(n => mark(n, re));
   }
   function apply(){
     const term = q.value.trim();
@@ -488,7 +558,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
       if (!term) { p.classList.remove("hidden"); shown++; return; }
       const hit = p.textContent.toLowerCase().includes(term.toLowerCase());
       p.classList.toggle("hidden", !hit);
-      if (hit) { shown++; mark(p, new RegExp(esc(term), "gi")); }
+      if (hit) { shown++; mark(p, new RegExp(esc(term), "gi")); p.querySelectorAll('details').forEach(d => { if (d.textContent.toLowerCase().includes(term.toLowerCase())) d.open = true; }); }
     });
     document.querySelectorAll(".zone").forEach(z => {
       z.hidden = !!term && !z.querySelector(".p:not(.hidden)");
@@ -500,7 +570,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
     if (e.key === "/" && document.activeElement.tagName !== "INPUT") { e.preventDefault(); q.focus(); q.select(); }
     if (e.key === "Escape" && document.activeElement === q) { q.value = ""; apply(); q.blur(); }
   });
-})();
+});
 </script>
 </body>
 </html>
