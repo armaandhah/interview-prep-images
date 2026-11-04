@@ -185,7 +185,7 @@ let DATA, CARDS = [], status = store.get(), current = "all", filter = "all", ter
 const $ = s => document.querySelector(s);
 const chev = '<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>';
 
-fetch("data.json").then(r => r.json()).then(d => {
+fetch("data.json", {cache: "no-store"}).then(r => r.json()).then(d => {
   DATA = d;
   d.sections.forEach(s => s.subs.forEach(sub => sub.cards.forEach(c => {
     c.sec = s; c.sub = sub; c.text = (c.q + " " + c.a.replace(/<[^>]+>/g, " ")).toLowerCase(); CARDS.push(c);
