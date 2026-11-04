@@ -1002,6 +1002,71 @@
      ]
     },
     {
+     "title": "Energy Balance Problems",
+     "cards": [
+      {
+       "id": "dynamics-and-vibrati--how-do-you-set-up-an-energy-balance-where-can-the-energy-go",
+       "q": "How do you set up an energy balance? Where can the energy go?",
+       "a": "<p><strong>Energy before = energy after + energy lost.</strong> Use it whenever a question asks for a force, speed, height or temperature <em>after</em> something moves, falls, spins or hits. You only compare the two end states, so you don't need the time history in between.</p><ol><li>Pick the before and after states. Usually \"after\" is the moment everything stops: max compression, max height or max stretch.</li><li>List every energy store (below).</li><li>Write before = after + losses and solve.</li><li>Convert the stored energy into what they asked for: force, stress or ΔT.</li></ol><ul><li>Moving mass: ½mv²</li><li>Spinning part: ½Iω² (solid disc I = ½mR², thin ring I = mR²)</li><li>Height: mgh</li><li>Spring: ½kx² = <strong>F²/2k</strong></li><li>Bar in tension: F²L/(2AE), so k = AE/L. Cantilever tip: k = 3EI/L³. Torsion: T²L/(2GJ)</li><li>Per unit volume of material: σ²/(2E)</li><li>Friction (lost): μN·d</li><li>Heat: mcΔT</li></ul><p><strong>The key move:</strong> once the energy ends up in something springy, F²/2k = E gives <strong>F = √(2kE)</strong>. Almost every impact problem ends here.</p><p class=\"fu\">Follow-ups</p><ul><li>Always say what you're ignoring (friction, deformation of the striker) and whether that makes your answer an upper bound.</li><li>US units: mass = weight / 386 (lb·s²/in). rpm × 2π/60 = rad/s.</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--a-car-hits-a-spring-bumper-at-speed-v-what-s-the-peak-force-",
+       "q": "A car hits a spring bumper at speed v. What's the peak force? What if the bumper is 4× stiffer?",
+       "a": "<p>The car's kinetic energy goes into the spring: ½mv² = ½kx². So x = v√(m/k) and <strong>F = kx = v√(mk)</strong>.</p><p>With a 4× stiffer bumper, the force <strong>doubles</strong> (F ∝ √k) and the stroke is cut in half. The energy is the same, but it's absorbed over a shorter distance, which takes a bigger force.</p><p><strong>Example:</strong> a 1,000 kg car at 5 m/s (11 mph) into k = 10⁶ N/m: F = 5·√(10⁹) ≈ 158 kN (about 16 g), with x ≈ 0.16 m of stroke.</p><p class=\"fu\">Follow-ups</p><ul><li>This is why crumple zones, helmets, shocks and bump stops are deliberately <strong>soft and long-stroke</strong>: the same energy over more distance means less peak force.</li><li>Average force over the stop = KE/x, which is half the peak force for a linear spring.</li><li>If the striker deforms too, the two stiffnesses act in series: 1/k_eff = 1/k₁ + 1/k₂.</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--a-weight-w-is-dropped-from-height-h-onto-a-spring-what-s-the",
+       "q": "A weight W is dropped from height h onto a spring. What's the max deflection and force? What if h = 0?",
+       "a": "<p>Gravity does work over the drop <em>plus</em> the compression: W(h + δ) = ½kδ². Solve the quadratic using δ_st = W/k:</p><p><strong>δ_max = δ_st·(1 + √(1 + 2h/δ_st))</strong>, and F_max = kδ_max. The impact factor is F_max/W = 1 + √(1 + 2h/δ_st).</p><p><strong>The trap:</strong> with h = 0 (a load set on the spring and released suddenly), the impact factor is <strong>2</strong>. A suddenly applied load gives twice the static deflection and force.</p><p><strong>Example:</strong> 10 lb dropped 1 in onto a 100 lb/in spring: δ_st = 0.1 in, so δ_max = 0.1·(1 + √21) ≈ 0.56 in and F ≈ 56 lb, which is 5.6× its weight.</p><p class=\"fu\">Follow-ups</p><ul><li>For a large h, this simplifies to δ ≈ √(2hδ_st), the same as the bumper result.</li><li>The same formula works for a weight dropped on a beam: use k = 3EI/L³ (cantilever) or 48EI/L³ (simply supported, center load).</li><li>Why drop tests matter: a part that's fine statically can see 5 to 10× the load in a short drop.</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--a-bolt-or-bar-has-to-absorb-an-impact-would-you-make-it-thic",
+       "q": "A bolt or bar has to absorb an impact. Would you make it thicker or thinner? Longer or shorter?",
+       "a": "<p>For an impact, what matters is how much <strong>energy</strong> the bolt can absorb, not how much force it can hold. The strain energy at stress σ is U = σ²·V/(2E), so <strong>σ = √(2EU/V)</strong>. The peak stress depends on the material <strong>volume</strong> that stretches evenly.</p><ul><li><strong>Longer is better:</strong> more volume and a softer spring, so lower stress for the same energy.</li><li><strong>A thinner shank can be better:</strong> turning the shank down to about the thread root diameter (a reduced-shank bolt) makes the whole length stretch to the same stress, instead of the threads yielding while the thick shank barely stretches. It holds less static load but absorbs more impact energy.</li></ul><p>This is the opposite of statics, where thicker is always stronger. It's the textbook answer for impact-loaded bolts (engine connecting rod bolts, impact tools).</p><p class=\"fu\">Follow-ups</p><ul><li>The weak point is the stress concentration at a thick-to-thin step. Use generous fillets.</li><li>Use a ductile material with high resilience (σ_y²/2E) or high toughness (area under the whole stress-strain curve).</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--a-spinning-disc-is-threaded-down-a-stud-until-it-bottoms-out",
+       "q": "A spinning disc is threaded down a stud until it bottoms out. What's the stud tension? (energy version)",
+       "a": "<p>This is the General Matter question. The full card is in Company-Specific Notes. Short version:</p><ul><li>Energy in: ½Iω₀² with I = ½mR².</li><li>After contact, the disc keeps turning a few degrees. The threads pull the stud upward, stretching it like a spring.</li><li>Only about 12% of the energy goes into the stretch, η ≈ (p/2π)/(K·d). The rest goes to thread and face friction.</li><li>η·½Iω₀² = F²/2k with k = A_t·E/L, so <strong>F = ω₀√(η·I·k)</strong>.</li></ul><p>Don't reach for the torque vs. tension equation (T = KFd): you don't know the torque during the impact.</p>"
+      },
+      {
+       "id": "dynamics-and-vibrati--a-car-brakes-to-a-stop-how-far-does-it-go-how-hot-do-the-bra",
+       "q": "A car brakes to a stop. How far does it go? How hot do the brakes get?",
+       "a": "<p><strong>Stopping distance:</strong> ½mv² = μmg·d, so <strong>d = v²/(2μg)</strong>. Mass cancels. Double the speed and the distance goes up <strong>4×</strong>. Example: 30 m/s (67 mph) with μ = 0.8 gives about 57 m.</p><p><strong>Brake temperature:</strong> assume all the kinetic energy becomes heat in the rotors (a fast stop leaves no time for cooling): ½mv² = m_rotor·c·ΔT. Example: a 1,500 kg car from 30 m/s has 675 kJ. Four 8 kg cast-iron rotors (c ≈ 460 J/kg·K) gives ΔT ≈ 46 °C per stop.</p><p class=\"fu\">Follow-ups</p><ul><li>Repeated stops stack up faster than the rotors can cool. That's brake fade, and why race cars use vented rotors and cooling ducts.</li><li>Grade: on a downhill, also add mgh to the energy coming in.</li><li>Regenerative braking puts part of the energy into the battery instead of heat.</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--solid-cylinder-hollow-pipe-and-sphere-race-down-a-ramp-which",
+       "q": "Solid cylinder, hollow pipe, and sphere race down a ramp. Which wins?",
+       "a": "<p>mgh = ½mv² + ½Iω² with ω = v/r, so <strong>v = √(2gh / (1 + I/mr²))</strong>.</p><ul><li>Sphere (I/mr² = 0.4): v = √(10gh/7), the fastest</li><li>Solid cylinder (0.5): v = √(4gh/3)</li><li>Thin hoop or pipe (1.0): v = √(gh), the slowest</li><li>Frictionless sliding block (0): √(2gh), faster than anything that rolls</li></ul><p>Mass and radius cancel. Only the <strong>shape</strong> (how the mass is distributed) matters. Anything that puts more of its energy into spinning has less left for moving forward.</p><p class=\"fu\">Follow-ups</p><ul><li>Rolling without slipping does no friction work, so energy is still conserved.</li><li>Same idea for a car: rotating wheels and drivetrain add to its effective mass when accelerating. That's why light wheels matter even more than light bodywork.</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--pendulums-falls-and-loop-the-loops-how-fast-and-how-high",
+       "q": "Pendulums, falls, and loop-the-loops: how fast and how high?",
+       "a": "<ul><li><strong>Free fall or frictionless slide:</strong> mgh = ½mv², so v = √(2gh). Mass doesn't matter, and neither does the path, only the height drop.</li><li><strong>Pendulum:</strong> speed at the bottom is √(2gL(1 − cos θ₀)). The string tension at the bottom is mg + mv²/L, which is up to 3mg for a release from horizontal.</li><li><strong>Loop-the-loop (sliding, frictionless):</strong> at the top you need v² ≥ gR so it doesn't fall. Energy from the start gives a minimum start height of <strong>2.5R</strong>. For a rolling ball, it's 2.7R.</li><li><strong>Spring launch:</strong> ½kx² = mgh gives h = kx²/(2mg).</li></ul><p>Energy gives you speeds. To get forces (like string tension), add F = ma with the centripetal term mv²/r.</p>"
+      },
+      {
+       "id": "dynamics-and-vibrati--a-mass-on-a-spring-is-pulled-out-and-released-what-s-its-max",
+       "q": "A mass on a spring is pulled out and released. What's its max speed?",
+       "a": "<p>Energy trades back and forth between the spring and the motion. At full stretch it's all spring, ½kx₀². At the middle position it's all motion, ½mv². So <strong>v_max = x₀√(k/m) = x₀·ω_n</strong>.</p><p>The max acceleration is at the ends: a_max = x₀·ω_n². With damping, a little energy is lost each cycle, so the amplitude decays.</p><p class=\"fu\">Follow-ups</p><ul><li>A vertical spring works the same way if you measure x from the static equilibrium position, because gravity just shifts the center.</li><li>This is the same model as a suspension corner bouncing: ride frequency comes from √(k_wheel/m_corner).</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--energy-or-momentum-how-do-you-know-which-to-use",
+       "q": "Energy or momentum: how do you know which to use?",
+       "a": "<ul><li><strong>Energy</strong> relates a <em>force over a distance</em> to a change in speed. Use it for: how far, how fast, how high, how much spring force, how hot.</li><li><strong>Momentum and impulse</strong> relate a <em>force over time</em> to a change in speed: F·Δt = mΔv. Use it for: how long, average force over a known time, and collisions.</li></ul><p><strong>Collisions:</strong> momentum is always conserved (no outside forces during the impact). Kinetic energy is conserved <em>only</em> if the collision is perfectly elastic. When things stick together (perfectly inelastic), the most kinetic energy is lost, going into heat and permanent deformation.</p><p><strong>Two-step problems (ballistic pendulum):</strong> a bullet of mass m at speed v sticks in a block of mass M. Momentum for the collision: v' = mv/(m + M). Then energy for the swing: h = v'²/(2g). If you use energy for the collision step, you'll get it wrong.</p><p class=\"fu\">Follow-ups</p><ul><li>Coefficient of restitution e = separation speed / approach speed. e = 1 is elastic, e = 0 means they stick together.</li><li>Equal masses colliding head-on elastically swap velocities (like Newton's cradle).</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--your-combat-robot-s-spinner-hits-an-opponent-how-much-energy",
+       "q": "Your combat robot's spinner hits an opponent. How much energy goes in, and where does it go?",
+       "a": "<p>The weapon stores <strong>½Iω²</strong>. Most of the inertia is in the rim (I grows with r²), which is why spinners put their mass at the edge. When it hits, the energy splits into:</p><ul><li>deformation and fracture of the opponent's armor (this is what you want)</li><li>launching or spinning the opponent (kinetic energy)</li><li>recoil into your own robot and its bearings</li><li>energy left in the weapon if it doesn't stop completely</li></ul><p>The <strong>bite</strong> (how far the tooth gets into the target before it's pushed out) controls how much energy actually transfers in one hit. More bite means a bigger share of the stored energy transfers.</p><p class=\"fu\">Follow-ups</p><ul><li>The recoil and impact forces on your own robot follow the bumper logic: a stiff, solid hit means a high peak force on your weapon shaft and its mounts.</li><li>Spin-up time comes from energy over motor power: t ≈ ½Iω² / P_avg.</li></ul>"
+      },
+      {
+       "id": "dynamics-and-vibrati--why-proof-test-a-pressure-vessel-with-water-instead-of-air",
+       "q": "Why proof-test a pressure vessel with water instead of air?",
+       "a": "<p>The <strong>stored energy</strong> is wildly different. A gas is highly compressible, so a tank of compressed air stores a huge amount of energy. A rough estimate is E ≈ (p − p_atm)·V/(γ − 1), which comes to about 2.5·p·V for air. Water barely compresses (bulk modulus about 2.2 GPa), so it stores only about p²V/(2K), thousands of times less.</p><p>If a vessel bursts during a <strong>hydrostatic</strong> test, it leaks and the pressure drops instantly. If it bursts during a <strong>pneumatic</strong> test, it acts like a bomb and throws fragments.</p><p><strong>Example:</strong> a 1 L vessel at 3,000 psi (20.7 MPa): air stores about 50 kJ, roughly 12 g of TNT. Water stores about 0.1 kJ.</p><p class=\"fu\">Follow-ups</p><ul><li>Bleed out the air before a hydrostatic test, because trapped air pockets bring back the stored energy.</li><li>COPVs and high-pressure gas lines are a big safety item at rocket companies for exactly this reason.</li></ul>"
+      }
+     ]
+    },
+    {
      "title": "Spring-Mass-Damper Systems",
      "cards": [
       {
