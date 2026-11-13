@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04",
+ "updated": "2026-11-13",
  "sections": [
   {
    "title": "Behavioral and STAR Stories",
@@ -1963,6 +1963,71 @@
      ]
     },
     {
+     "title": "SpaceX: Tower Team Technical Screen",
+     "cards": [
+      {
+       "id": "company-specific-not--interview-format-nov-11-2026-recruiter-jackson-spencer-stars",
+       "q": "Interview format (Nov 11, 2026, recruiter Jackson Spencer, Starship tower team)",
+       "a": "<p>A 20-minute technical screen, mostly rapid-fire \"does it increase or decrease?\" questions: one on pressure vessels, a set on fluids (ideal gas, hydrostatics, choked flow, pipe contraction), then cantilever and cross-section questions. A calculator was allowed, looking things up was not. The recruiter sends a summary of your answers and your resume to the team, and they decide whether to move you forward.</p><p>He said the team was interested and that it went well overall, but that he led on several fluids questions. Mechanics went well except the column cross-section question.</p><p class=\"fu\">Pattern to fix</p><p>Twice the ideal gas law got applied without thinking about the physical process: Celsius instead of Kelvin, and assuming constant pressure during a vent. <strong>State the assumption out loud, then answer:</strong> \"rigid tank, so constant V; in Kelvin, that's about 10%.\"</p>"
+      },
+      {
+       "id": "company-specific-not--a-thin-walled-cylinder-is-pressurized-internally-what-two-st",
+       "q": "A thin-walled cylinder is pressurized internally. What two stresses does it see?",
+       "a": "<p><strong>Hoop stress</strong> σ_h = pr/t and <strong>axial (longitudinal) stress</strong> σ_a = pr/2t. Hoop is twice axial, so longitudinal welds and seams are the critical ones, and a cylinder overpressured to burst splits along its length.</p>"
+      },
+      {
+       "id": "company-specific-not--a-rigid-tank-of-ideal-gas-is-heated-from-30-c-to-60-c-what-h",
+       "q": "A rigid tank of ideal gas is heated from 30 °C to 60 °C. What happens to pressure, and by about what percent?",
+       "a": "<p>Pressure increases. With V and m constant, P is proportional to absolute temperature, so convert to Kelvin first: 333 / 303 ≈ 1.10, about a <strong>10% increase</strong>. Using Celsius gives the wrong answer of doubling.</p>"
+      },
+      {
+       "id": "company-specific-not--right-after-heating-half-the-gas-mass-is-vented-instantly-wh",
+       "q": "Right after heating, half the gas mass is vented instantly. What happens to the temperature of the gas left in the tank?",
+       "a": "<p>It <strong>drops</strong>. Pressure does not stay constant: P, T and density all fall. The gas left in the tank expands adiabatically as it pushes the vented gas out, doing work and cooling. Isentropic estimate: T₂ = T₁(ρ₂/ρ₁)^(γ−1) = 333 × 0.5^0.4 ≈ 250 K for nitrogen or air.</p><p class=\"fu\">What I said</p><p>That temperature rises to keep pressure constant. Pressure isn't held constant in a blowdown, so that reasoning breaks.</p>"
+      },
+      {
+       "id": "company-specific-not--an-air-bubble-rises-from-the-bottom-of-a-pool-how-do-its-vol",
+       "q": "An air bubble rises from the bottom of a pool. How do its volume and velocity change?",
+       "a": "<p>Volume <strong>increases</strong>, because hydrostatic pressure (ρgh) drops as it rises (Boyle's law). Velocity also <strong>increases</strong>, but the reason is size, not lower pressure: a bigger bubble has more buoyancy relative to drag, so its terminal velocity rises.</p>"
+      },
+      {
+       "id": "company-specific-not--a-solid-rock-sinks-from-the-surface-to-the-bottom-of-the-sam",
+       "q": "A solid rock sinks from the surface to the bottom of the same pool. How does its velocity change?",
+       "a": "<p>It accelerates until it reaches terminal velocity, where weight balances buoyancy plus drag, then stays about <strong>constant</strong>. Water density rises very slightly with depth, so it slows a negligible amount. It doesn't slow down because of drag; drag is what sets the terminal speed.</p>"
+      },
+      {
+       "id": "company-specific-not--nitrogen-flows-through-a-choked-orifice-how-does-mass-flow-c",
+       "q": "Nitrogen flows through a choked orifice. How does mass flow change with each variable?",
+       "a": "<p><strong>Key equation:</strong> ṁ ∝ A·P₀·√(γM / R_u·T₀) × f(γ). Once the throat is at Mach 1, mass flow depends only on upstream conditions and throat area.</p><ul><li><strong>Upstream pressure up:</strong> mass flow increases linearly.</li><li><strong>Downstream pressure down:</strong> no change. The throat is sonic, so the change can't travel upstream.</li><li><strong>Smaller orifice:</strong> mass flow decreases, scaling with d².</li><li><strong>Nitrogen to argon:</strong> mass flow increases by roughly 25%. Argon is heavier (M = 40 vs 28), so it is denser at the throat, and that outweighs its lower speed of sound.</li></ul>"
+      },
+      {
+       "id": "company-specific-not--a-fully-developed-liquid-flow-hits-a-contraction-how-do-velo",
+       "q": "A fully developed liquid flow hits a contraction. How do velocity, static pressure and mass flow change?",
+       "a": "<p>Velocity <strong>increases</strong> (continuity, A₁V₁ = A₂V₂). Static pressure <strong>decreases</strong> (Bernoulli, plus a small minor loss). Mass flow stays <strong>constant</strong>.</p>"
+      },
+      {
+       "id": "company-specific-not--cantilever-with-an-end-load-where-is-stress-highest-and-what",
+       "q": "Cantilever with an end load: where is stress highest, and what changes it?",
+       "a": "<ul><li><strong>Highest stress:</strong> at the fixed end, where M = FL is largest.</li><li><strong>Stiffer material, same geometry and load:</strong> stress stays the same, because σ = Mc/I doesn't depend on E. Only deflection drops.</li><li><strong>Hollow to solid, same outer size:</strong> peak stress <strong>decreases</strong>. I goes up and c stays the same. (Answered this wrong in the screen.)</li><li><strong>Longer beam:</strong> peak stress increases linearly with length.</li></ul>"
+      },
+      {
+       "id": "company-specific-not--square-circle-or-i-beam-which-is-best-for-bending-for-torsio",
+       "q": "Square, circle or I-beam: which is best for bending, for torsion, and as a column in compression?",
+       "a": "<ul><li><strong>Bending:</strong> I-beam, because it puts the most material far from the neutral axis.</li><li><strong>Torsion:</strong> circular tube. It maximizes the polar moment J, and shear stress peaks at the outer radius, so inner material does little.</li><li><strong>Column in compression:</strong> circular tube. A long column fails by buckling, which is governed by the minimum I (radius of gyration), not area. The circle has no weak axis. The I-beam is the trap because its weak axis is poor.</li></ul><p class=\"fu\">Watch out</p><p>Picking by \"largest area\" was the wrong reasoning. Side note: a solid square of the same area actually has slightly more I than a solid circle, but the expected answer is the circular tube.</p>"
+      },
+      {
+       "id": "company-specific-not--where-does-that-column-fail-and-in-what-mode",
+       "q": "Where does that column fail, and in what mode?",
+       "a": "<p><strong>Buckling.</strong> Where depends on the end conditions:</p><ul><li><strong>Pinned-pinned:</strong> buckles at mid-height, where deflection and bending moment are largest.</li><li><strong>Fixed-free:</strong> the top deflects most, but bending stress peaks at the fixed base.</li><li><strong>On the bowed section:</strong> the concave side is in compression and the convex side in tension.</li></ul>"
+      },
+      {
+       "id": "company-specific-not--next-round-lead-engineer-from-the-tower-team",
+       "q": "Next round: lead engineer from the tower team",
+       "a": "<ul><li><strong>Format:</strong> technical skills, project deep-dive and culture fit. The technical part is scenario-based and open-ended (\"given this scenario, what would you do?\").</li><li><strong>Project deep-dive:</strong> they want a project you could present to the team that shows engineering decision-making. Have M26 suspension ready: load cases, FEA, tradeoffs, what broke and what you'd change.</li><li><strong>Homework:</strong> the role, Starbase, SpaceX in general, and Starship, especially the launch and catch tower.</li></ul>"
+      }
+     ]
+    },
+    {
      "title": "General Matter: Questions I Was Actually Asked",
      "cards": [
       {
@@ -2004,6 +2069,46 @@
        "id": "company-specific-not--a-steel-disc-density-radius-r-thickness-t-is-tapped-13-and-t",
        "q": "A steel disc (density ρ, radius R, thickness t) is tapped ½-13 and threaded onto a stud bonded to a table. Spin it to ω₀ and let it run down the thread until it bottoms out on the table. What's the tensile load in the stud?",
        "a": "<p><strong>Use an energy balance, not torque vs. tension.</strong> Jonathan called the bolt torque equation a \"red herring\" because you'd need the torque over time during the impact, which you don't have.</p><ol><li><strong>Energy in:</strong> m = ρπR²t and I = ½mR², so KE = ½Iω₀². The axial kinetic energy (v = ω₀·p/2π) and the change in gravitational potential energy are negligible.</li><li><strong>Where it goes:</strong> after the disc bottoms out, it keeps turning a little. That stretches the stud like a spring (that's the preload) and loses energy to friction in the threads and at the disc face.</li><li><strong>Stud stiffness:</strong> k = A_t·E/L, where A_t = 0.1419 in² for ½-13 and L is the stud length between the table and the disc.</li><li><strong>Balance (no friction):</strong> ½Iω₀² = F²/2k, so <strong>F = ω₀·√(I·k)</strong>.</li><li><strong>With friction:</strong> only the lead term of the torque does useful work. The efficiency is η ≈ (p/2π)/(K·d) = (0.0769/2π)/(0.2 × 0.5) ≈ 12%. So F ≈ ω₀·√(η·I·k).</li><li>Stress is σ = F/A_t. Compare it with proof strength: 85 ksi for grade 5, 120 ksi for grade 8.</li></ol><p class=\"fu\">Worked example</p><p>Steel disc with R = 3 in and t = 0.5 in: it weighs 4.0 lb, so I ≈ 0.047 lb·s²·in. Take L = 2 in, so k ≈ 2.1×10⁶ lb/in, and ω₀ = 100 rad/s (about 950 rpm). Then KE ≈ 234 in·lb.</p><ul><li>No friction: F ≈ 31,600 lb, which is 222 ksi. The stud breaks.</li><li>With η ≈ 12%: F ≈ 11,000 lb, which is 78 ksi. That's near grade 5 proof strength.</li></ul><p class=\"fu\">Follow-ups</p><ul><li>The disc and table compress too, so energy goes into the clamped members as well. Use the series stiffness: 1/k_eff = 1/k_bolt + 1/k_members. A stiffer joint gives a higher force for the same energy.</li><li>F scales with ω₀ (linearly) and with √I. Doubling the spin speed doubles the preload.</li><li>Why General Matter asks this: enrichment means rotating hardware. Expect more questions where rotational kinetic energy turns into force, stress or preload.</li></ul>"
+      }
+     ]
+    },
+    {
+     "title": "General Matter Onsite: Questions I Was Actually Asked",
+     "cards": [
+      {
+       "id": "company-specific-not--design-a-radio-tower-that-holds-an-antenna-100-m-in-the-air-",
+       "q": "Design a radio tower that holds an antenna 100 m in the air. What does the structure look like?",
+       "a": "<p><strong>Start with requirements:</strong> antenna mass and wind area, site wind speed and ice (TIA-222 is the tower standard), how much sway and twist the antenna can tolerate (microwave dishes are tight, broadcast antennas less so), footprint, cost, and access for climbers and cables.</p><p><strong>Three common options:</strong></p><ul><li><strong>Self-supporting lattice tower:</strong> 3 or 4 legs with bracing, tapered. Works on a small footprint. This is what I described.</li><li><strong>Guyed mast:</strong> a narrow, constant-section lattice held up by guy wires at several levels. Usually the cheapest at 100 m, but the guys need a lot of land.</li><li><strong>Monopole:</strong> a tapered steel tube. Clean and fast to install, but usually used for shorter towers.</li></ul><p><strong>Why it tapers:</strong> two loads grow toward the base. Self-weight accumulates downward, and the wind overturning moment grows with distance from the top (roughly with height squared for a distributed wind load). A wider base gives the legs a bigger moment arm, since leg force ≈ M / base width, so the bottom has the widest spread and heaviest legs. The top only carries the antenna.</p><p><strong>Why a lattice:</strong> the open frame catches little wind, the members carry mostly axial load (efficient), and it ships in sections and bolts together on site.</p><p class=\"fu\">What I said</p><p>A truss that narrows as it rises, because each level carries less load above it. Good answer; add the wind moment argument, not just weight.</p>"
+      },
+      {
+       "id": "company-specific-not--what-loads-and-failure-modes-does-the-radio-tower-have-to-ha",
+       "q": "What loads and failure modes does the radio tower have to handle?",
+       "a": "<p><strong>Loads:</strong> dead load (tower, antenna, ladders, cables), wind (usually governs: F = ½ρV²C_dA on every member and the antenna, and wind speed increases with height), ice (adds weight and wind area), seismic, thermal, and loads during erection.</p><p><strong>Failure modes:</strong></p><ul><li>Buckling of a leg on the leeward (compression) side near the base</li><li>Buckling of a diagonal brace, which carries the wind shear</li><li>Bolted connection failure: bolt shear, bearing, or tear-out at the gusset</li><li>Foundation: uplift or anchor-bolt pullout on the windward leg, overturning of the whole tower</li><li>Fatigue at connections from millions of wind cycles</li><li>Dynamic: vortex shedding or gusts near a natural frequency of the tower</li><li>Serviceability: too much sway or twist misaligns the antenna, even if nothing breaks</li><li>Corrosion over a 50-year life</li></ul><p class=\"fu\">What I said</p><p>Self-weight plus wind at the top acting like a cantilever with a fixed end. That's the right global model; name the specific member failures above too.</p>"
+      },
+      {
+       "id": "company-specific-not--where-exactly-does-the-radio-tower-fail-and-in-what-mode",
+       "q": "Where exactly does the radio tower fail, and in what mode?",
+       "a": "<p>Model it as a cantilever fixed at the ground. Wind puts the maximum overturning moment at the base. The moment is reacted as a force couple in the legs: the <strong>leeward legs go into compression</strong> and the windward legs into tension, and self-weight adds more compression to all of them.</p><p>So the highest compression is in the <strong>bottom leeward leg</strong>, and it fails by <strong>buckling</strong> over the panel length between bracing points (Euler, governed by KL/r). The windward side's risk is foundation uplift, not the member.</p><p><strong>Quick hand calc (illustrative numbers):</strong> 2 kN of wind on the antenna at 100 m plus 0.5 kN/m along the tower gives M_base = 2(100) + 0.5(100²)/2 = 2,700 kN·m. With a 10 m square base, the two leeward legs share M/b = 270 kN, so 135 kN each, plus about 75 kN each from a 30-tonne tower. That's about 210 kN of compression per leg. Then check that against buckling over the panel length.</p><p class=\"fu\">Fixes</p><ul><li>Closer bracing at the bottom to shorten the unbraced length</li><li>Bigger legs or a wider base</li><li>Size the foundation for uplift on the windward side</li></ul>"
+      },
+      {
+       "id": "company-specific-not--what-material-would-you-pick-for-the-radio-tower",
+       "q": "What material would you pick for the radio tower?",
+       "a": "<p><strong>Hot-dip galvanized structural steel</strong> (A572 Grade 50 or similar). It's cheap, three times as stiff as aluminum (which matters because legs are buckling-critical), has a fatigue endurance limit, and is easy to fabricate, bolt and galvanize. It's the industry standard.</p><ul><li><strong>Aluminum:</strong> lighter and corrosion resistant, but one third the modulus, so buckling-critical members need bigger sections. It has no endurance limit and loses strength in the weld heat-affected zone. Costs more.</li><li><strong>FRP or composites:</strong> only near the antenna where you need RF transparency.</li></ul><p>See the steel vs aluminum tower questions from the first General Matter interview for the specific stiffness and strength-to-weight trades.</p>"
+      },
+      {
+       "id": "company-specific-not--which-cross-section-would-you-use-for-the-different-tower-me",
+       "q": "Which cross-section would you use for the different tower members?",
+       "a": "<ul><li><strong>Legs:</strong> round tubes or pipes. They carry big compression, so you want a high radius of gyration and no weak axis. Round sections also have lower drag (C_d around 1.2 vs about 2 for flat-sided angles) and shed ice better. Angles are common on smaller towers because they're cheap and easy to bolt, but they buckle about their weak axis.</li><li><strong>Diagonal bracing:</strong> angles or small tubes. If the bracing is X-pattern and designed tension-only, the diagonals can be rods or cable.</li><li><strong>Guy wires (guyed mast):</strong> galvanized steel strand.</li><li><strong>Antenna mount:</strong> a tube, for torsional stiffness so the antenna doesn't twist off its pointing angle.</li></ul>"
+      },
+      {
+       "id": "company-specific-not--how-does-thermal-expansion-affect-the-tower-members-and-how-",
+       "q": "How does thermal expansion affect the tower members, and how do you mitigate it?",
+       "a": "<p>A uniform temperature change in a free, statically determinate structure just makes it grow with no stress. Stress comes from <strong>restraint and mismatch</strong>:</p><ul><li><strong>Sun on one side:</strong> the sunny legs expand more than the shaded ones, so the tower bows away from the sun.</li><li><strong>Thermal lag:</strong> thin bracing heats and cools faster than the thick legs. The stiff legs then hold the braces at the wrong length.</li><li><strong>Redundant (statically indeterminate) bracing and a fixed base</strong> mean members can't grow freely, so they build up stress.</li></ul><p><strong>Why the inner members are the problem:</strong> a fully restrained member sees σ = EαΔT, independent of its length. For steel (E = 200 GPa, α = 12×10⁻⁶/°C) that's about 2.4 MPa per °C, so 30 °C is about 70 MPa. A slender brace buckles thermally when αΔT &gt; π²(r/KL)². With KL/r = 200 that's only about <strong>20 °C</strong>, so slender braces can buckle from heat alone.</p><p><strong>Mitigation:</strong></p><ul><li><strong>Release the base</strong> (my answer): pin or slot some supports so the structure can translate. The catch is that the base still has to resist wind shear and uplift, so release only the direction you need, for example sliding bearings with guides.</li><li>Use statically determinate bracing, or tension-only X-bracing that just goes slack instead of buckling.</li><li>Make braces stockier, or add secondary bracing to cut KL/r.</li><li>Use one material throughout so all α match, and similar thicknesses so members heat at similar rates.</li><li>Slotted bolt holes at connections to absorb small movement.</li><li>Galvanized or light-colored surfaces to reduce solar heating.</li><li>For a guyed mast, account for guy tension changing with temperature.</li></ul>"
+      },
+      {
+       "id": "company-specific-not--test-bench-a-shaft-on-two-bearings-in-an-enclosure-with-a-ro",
+       "q": "Test bench: a shaft on two bearings in an enclosure, with a rotor on each end. You spin it up and it vibrates a lot. What do you do?",
+       "a": "<p>He was looking for <strong>frequency and resonance</strong>. Fixturing matters too, but lead with the diagnosis.</p><ol><li><strong>Safety first:</strong> stop or drop the speed. Don't keep running near a resonance with rotating energy in the enclosure.</li><li><strong>Find out when it vibrates.</strong> Does it peak at a certain speed and then drop off (resonance or critical speed)? Or does it keep growing with speed, roughly as ω² (unbalance)?</li><li><strong>Instrument it:</strong> accelerometers on both bearing housings (two radial directions plus axial) and on the enclosure, and a once-per-rev tach. Do a slow run-up or coast-down and look at the spectrum vs speed (waterfall or Campbell plot).</li><li><strong>Tap test it stopped:</strong> hit the enclosure and shaft with a modal hammer to find their natural frequencies, and compare with the running speed.</li><li><strong>Diagnose from the spectrum, then fix (table below).</strong></li></ol><div class=\"tw\"><table><tr><th>What you see</th><th>Likely cause</th><th>Fix</th></tr><tr><td>1× rpm, grows with speed</td><td>Unbalance, bent shaft, eccentric rotor</td><td>Two-plane balance (there are two rotors), check runout and fits</td></tr><tr><td>1× peak at one speed, phase shifts about 90°</td><td>Running at a critical speed or a structural resonance</td><td>Move the natural frequency, add damping, or change speed</td></tr><tr><td>2×, high axial vibration</td><td>Misalignment</td><td>Align with dial indicators or laser, flexible coupling</td></tr><tr><td>Many harmonics, ½×</td><td>Looseness or rub</td><td>Torque bolts, check bearing fits, check clearances</td></tr><tr><td>Non-integer high frequencies</td><td>Bearing defect</td><td>Replace bearing, check preload and lubrication</td></tr><tr><td>Fixed frequency regardless of speed</td><td>Something else exciting a structural mode</td><td>Find the source, stiffen or isolate</td></tr></table></div><p class=\"fu\">Moving the natural frequency (f_n = (1/2π)√(k/m))</p><ul><li>The overhung rotors are the weak point: each overhang acts like a cantilever with k ≈ 3EI/a³, so <strong>shortening the overhang a</strong> or moving the bearings closer to the rotors helps a lot.</li><li>A bigger shaft diameter: I scales with d⁴.</li><li>Stiffer bearing housings and enclosure: ribs, gussets, thicker plate. The enclosure is a spring in series with the shaft, so a flimsy enclosure drags the whole system's frequency down.</li><li>Lighter rotors.</li><li>Bolt the enclosure to a massive, rigid base.</li><li>Rule of thumb: keep the running speed at least 20 to 30% away from any critical speed. Fixtures should have their first mode well above the highest test frequency (often 2 to 3×).</li></ul><p class=\"fu\">Other levers</p><ul><li><strong>Damping:</strong> elastomer mounts or squeeze-film dampers. At resonance the amplitude is limited only by damping (Q ≈ 1/2ζ).</li><li><strong>Isolation:</strong> soft mounts under the enclosure, with the mount frequency well below the forcing. Isolation only works above ω/ωₙ = √2.</li><li><strong>Run through it:</strong> if the operating speed must be above a critical speed, accelerate through it quickly.</li></ul><p class=\"fu\">Likely follow-ups</p><ul><li><strong>Unbalance force:</strong> F = m·e·ω², so doubling speed quadruples it.</li><li><strong>Critical speed:</strong> the speed where rotation frequency equals a shaft bending natural frequency.</li><li><strong>Two rotors:</strong> there are two rigid-body modes, bouncing (in phase) and rocking (out of phase), plus gyroscopic effects that shift them with speed.</li></ul><p class=\"fu\">What I said</p><p>Started with fixturing, then got to frequency and resonance. Next time, lead with \"is it at a particular speed? That tells me if it's resonance or unbalance,\" then go to instrumentation and fixes.</p>"
       }
      ]
     }
